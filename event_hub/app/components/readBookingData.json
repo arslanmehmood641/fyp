@@ -1,0 +1,19 @@
+{
+    "info": [
+    {"id":1,"name":"sadaf Marriage Hall","noOfGuests":300,"email":"sadaf@gmail.com","price":1600,
+        "book_type":"caterer booking","desc":"booking is great","funcTime":"lunch","area":"Cantt",
+    "image": "https://bvsmarriageservice.com/wp-content/uploads/2018/09/marriage-halls-in-vellore.jpg"},
+     {"id":2,"name":"Marriage Hall","noOfGuests":150,"email":"s@gmail.com",
+        "book_type":"designer booking", "desc":"Please book ","funcTime":"Dinner","price":1400,"area":"KACHERI",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdu-P3qV4L2mV84-VJzerVet6XQN4BFREvqbM-W6zTI2-zpD3D"},    
+    {"id":3,"name":"Buero Hall","noOfGuests":100,"email":"sd@gmail.com",
+        "book_type":"hall booking","desc":" book hall","funcTime":"lunch","price":1300,"area":"ANARKALI",
+        "image": "http://cdn5.venuebookingz.com/17266-1451303421-Convention_Centre_Pai_Hotels_6_xtbvy0.jpg"}  ,
+        {"id":4,"name":"Marriage garden","noOfGuests":70,"email":"arslan@gmail.com","area":"JOHR TOWN",
+            "book_type":"Media booking","desc":" event management","funcTime":"lunch","price":1200,
+            "image": "https://bvsmarriageservice.com/wp-content/uploads/2018/09/marriage-halls-in-vellore.jpg"}  ,
+            {"id":5,"name":"Buero Hall","noOfGuests":100,"email":"aman@gmail.com","area":"BARKET MARKET",
+                "book_type":"Event booking","desc":" book hall","funcTime":"lunch","price":1000,
+                "image": "https://miro.medium.com/max/1176/0*TQIEN_SZpvsCtMiB.jpg"}  
+]
+    }
