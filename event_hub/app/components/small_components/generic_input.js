@@ -7,14 +7,13 @@ import {
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
 
-export default class InputField extends Component {
+export default class GenericInput extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
       <View style={styles.inputContainer}>
-        <Icon name={this.props.iconName} size={25} style={styles.userIcon} />
         <TextInput
           style={styles.input}
           placeholder={this.props.placeHolder}
@@ -32,7 +31,6 @@ export default class InputField extends Component {
 const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
-    width: widthP("82%"),
     height: heightP("6%"),
     textAlign: "left",
     borderRadius: 25,
@@ -41,14 +39,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.35)",
     color: "rgba(255, 255, 255, 0.7)"
   },
-  userIcon: {
-    position: "relative",
-    paddingTop: heightP("1%"),
-    paddingLeft: widthP("2%")
-  },
   input: {
     paddingLeft: widthP("2%"),
-    width: widthP("68%"),
     color: "white"
   }
 });

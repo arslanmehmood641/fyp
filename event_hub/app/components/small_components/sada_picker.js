@@ -7,7 +7,7 @@ import {
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
 
-export default class GenericPicker extends Component {
+export default class SadaPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,6 @@ export default class GenericPicker extends Component {
     const pickerValues = this.props.pickerVals;
     return (
       <View style={styles.picker}>
-        <Icon name={this.props.iconName} size={25} style={styles.userIcon} />
         <Picker
           selectedValue={this.props.Selected_Value}
           style={styles.pickerStyle}
@@ -39,13 +38,12 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.35)",
     borderRadius: 25,
     marginVertical: 10,
-    flexDirection: "row",
-    width: widthP("82%")
+    flexDirection: "row"
   },
   pickerStyle: {
     color: "rgba(255, 255, 255, 0.7)",
     height: heightP("6%"),
-    width: widthP("76%"),
+    width: widthP("40%"),
     paddingLeft: widthP("2%"),
     position: "relative"
   },

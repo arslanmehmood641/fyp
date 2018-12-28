@@ -14,7 +14,7 @@ export default class CustomerBookingsHistory extends Component {
             <OneHall
               hall={hall.item}
               navigation={this.props.navigation}
-              userType="UserHistory"
+              userType="CustomerHistory"
             />
           )}
           keyExtractor={(name, index) => index.toString()}

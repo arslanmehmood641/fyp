@@ -1,28 +1,32 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import Date from "react-native-datepicker";
 
 import {
   widthPercentageToDP as widthP,
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
 
-export default class InputField extends Component {
+export default class DatePicker extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      date: ""
+    };
   }
   render() {
     return (
       <View style={styles.inputContainer}>
         <Icon name={this.props.iconName} size={25} style={styles.userIcon} />
-        <TextInput
-          style={styles.input}
-          placeholder={this.props.placeHolder}
-          placeholderTextColor={"rgba(255, 255, 255, 0.7)"}
-          underlineColorAndroid="transparent"
-          keyboardType={this.props.keyType}
-          maxLength={this.props.MaxLen}
-          onChangeText={this.props.On_Change_Text}
+        <Date
+          placeholder={this.props.Place_Holder}
+          date={this.props.dateTime}
+          format={this.props.format}
+          showIcon={false}
+          mode={this.props.mode}
+          customStyles={{ dateInput: { borderWidth: 0 } }}
+          onDateChange={this.props.On_Date_Change}
         />
       </View>
     );

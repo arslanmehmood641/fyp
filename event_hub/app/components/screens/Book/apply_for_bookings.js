@@ -11,99 +11,52 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Date from "react-native-datepicker";
 import TouchButton from "../../small_components/touch_button";
+import Toast from "react-native-simple-toast";
+
 import {
   widthPercentageToDP as widthP,
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
 
-
 export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: "17-12-2018",
-      lang: 12,
-      lang2: 12,
-      prefferedTime: "",
+      date: "",
+      mealTime: "",
       noOfGuests: "",
-      EventDate: "",
-      UserName: "",
-      UserEmail: "",
-      Phone: "",
-      city: ""
+      count1: 0,
+      count2: 0,
+      name: "",
+      email: "",
+      city: "",
+      phone: ""
     };
   }
   static navigationOptions = {
     title: "Form"
   };
-  handleNameInput = text => {
-    this.setState({
 
-      UserName: text
-    });
-  };
-  handleEmailInput = text => {
-    this.setState({
-
-      UserEmail: text
-    });
-  };
-  handlePhoneInput = text => {
-    this.setState({
-
-      Phone: text
-    });
-  };
-  handleCityInput = text => {
-    this.setState({
-
-      city: text
-    });
-  };
-  submit() {
-    if (this.state.UserEmail != '') {
-      let b = {}
-      b.b_id = 0;
-      b.prefferedTime = this.state.prefferedTime;
-      b.noOfGuests = this.state.noOfGuests;
-      b.eventDate = this.state.EventDate;
-      b.userName = this.state.UserName;
-      b.userEmail = this.state.UserEmail;
-      b.phone = this.state.Phone;
-      b.city = this.state.city;
-
-      var url = 'https://eventhub-api.conveyor.cloud/api/User/RegisterBooking'
-      fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(b),
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
-      }).then(res => res.json())
-        .catch(error => console.error('Error :', error))
-        .then(res => console.warn('Success :', this.state.EventDate));
-
-      this.props.navigation.navigate("Congratulations")
-
-    }
-    else {
-      console.warn(this.state.UserEmail)
-    }
-  }
   render() {
-    const prefferedTime = [["Any", ""], ["Dinner", "One"], ["Lunch", "Two"]];
+    const prefferedTime = ["Any", "Dinner", "Lunch"];
     const noOfGuests = [
-      ["No of Guests", ""],
-      ["50", "50"],
-      ["100", "100"],
-      ["150", "150"],
-      ["200", "200"],
-      ["250", "250"],
-      ["300", "300"],
-      ["350", "350"],
-
+      "No of Guests",
+      "1-50",
+      "51-100",
+      "101-150",
+      "151-200",
+      "201-250",
+      "251-300",
+      "301-350",
+      "351-400",
+      "401-450",
+      "451-500",
+      "501-550",
+      "551-600",
+      "601-650",
+      "651-700",
+      "701-750"
     ];
-
     return (
       <ScrollView style={{ marginTop: 20, left: 10, right: 10 }}>
         <View>
@@ -130,15 +83,19 @@ export default class Form extends Component {
             </View>
             <View>
               <Picker
-                selectedValue={this.state.prefferedTime}
+                selectedValue={this.state.mealTime}
                 mode="dropdown"
                 onValueChange={(itemValue, itemIndex) =>
-                  this.setState({ prefferedTime: itemValue })
+                  this.setState({ mealTime: itemValue })
                 }
                 style={{ width: widthP("50%") }}
               >
                 {prefferedTime.map(val => (
-                  <Picker.Item value={val[1]} label={val[0]} />
+                  <Picker.Item
+                    value={val}
+                    label={val}
+                    key={this.state.count1++}
+                  />
                 ))}
               </Picker>
             </View>
@@ -149,15 +106,14 @@ export default class Form extends Component {
           >
             <Date
               placeholder="Event Date"
-              date={this.state.EventDate}
-              format="YYYY-MM-DD"
-              minDate="2018-12-01"
-              maxDate="2020-12-01"
+              date={this.state.date}
+              format="DD-MM-YYYY"
+              minDate="01-12-2018"
+              maxDate="01-12-2022"
               showIcon={false}
-              customStyles={{ dateInput: { borderWidth: 0, } }}
+              customStyles={{ dateInput: { borderWidth: 0 } }}
               onDateChange={dat => {
-                alert(dat, " ", this.state.EventDate);
-                this.setState({ EventDate: dat });
+                this.setState({ date: dat });
               }}
             />
             <Picker
@@ -169,7 +125,11 @@ export default class Form extends Component {
               style={{ width: widthP("50%") }}
             >
               {noOfGuests.map(val => (
-                <Picker.Item value={val[1]} label={val[0]} />
+                <Picker.Item
+                  value={val}
+                  label={val}
+                  key={this.state.count2++}
+                />
               ))}
             </Picker>
           </View>
@@ -180,7 +140,7 @@ export default class Form extends Component {
               underlineColorAndroid="transparent"
               style={styles.fullField}
               maxLength={25}
-              onChangeText={(text) => this.setState({ UserName: text })}
+              onChangeText={txt => this.setState({ name: txt })}
             />
             <TextInput
               placeholder="Email"
@@ -188,7 +148,7 @@ export default class Form extends Component {
               maxLength={25}
               style={styles.fullField}
               keyboardType="email-address"
-              onChangeText={(text) => this.setState({ UserEmail: text })}
+              onChangeText={txt => this.setState({ email: txt })}
             />
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
@@ -198,24 +158,33 @@ export default class Form extends Component {
                 underlineColorAndroid="transparent"
                 maxLength={15}
                 style={styles.txtInput}
-                onChangeText={(text) => this.setState({ city: text })}
+                onChangeText={txt => this.setState({ city: txt })}
               />
               <TextInput
                 placeholder="Phone Number"
                 underlineColorAndroid="transparent"
-                textContentType="telephoneNumber"
                 keyboardType="number-pad"
                 maxLength={11}
                 style={styles.txtInput}
-                onChangeText={(text) => this.setState({ Phone: text })}
+                onChangeText={txt => this.setState({ phone: txt })}
               />
             </View>
-            <View style={{ alignItems: "center" }}>
-              <TouchButton InText="Check Availbilty"
-                On_Press={() => this.submit()} />
-
-            </View>
           </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <TouchButton
+            InText="Check Availability"
+            On_Press={() =>
+              Toast.show(
+                this.state.noOfGuests +
+                  " => " +
+                  this.state.mealTime +
+                  " => " +
+                  this.state.date,
+                Toast.LONG
+              )
+            }
+          />
         </View>
       </ScrollView>
     );

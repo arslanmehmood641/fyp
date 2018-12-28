@@ -15,19 +15,21 @@ export default class CatererRegistration extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      pswd: ""
+      cardDesignName: "",
+      itemName: "",
+      perDayPrice: 0
     };
   }
 
-  handleEmailInput = text => {
+  handlePerDayPrice = txt => {
     this.setState({
-      email: text
+      perDayPrice: txt
     });
   };
-  handlePswdInput = text => {
+
+  handleCardDesignName = text => {
     this.setState({
-      pswd: text
+      name: text
     });
   };
 
@@ -36,38 +38,23 @@ export default class CatererRegistration extends Component {
       <View style={styles.regform}>
         <Text style={styles.header}>Registration</Text>
 
-        <InputField iconName="account-circle" placeHolder="Name" />
-        <PasswordField
-          placeHolder="Password"
-          On_Change_Text={this.handlePswdInput}
+        <InputField
+          iconName="account-circle"
+          placeHolder="Name"
+          On_Change_Text={this.handleCardDesignName}
+        />
+        <GenericPicker
+          Selected_Value={this.state.itemName}
+          iconName="card-giftcard"
+          pickerVals={["Item Name", "Media", "Card Designing", "Catering"]}
+          On_Value_Change={(value, index) => this.setState({ itemName: value })}
         />
         <InputField
-          iconName="email"
-          placeHolder="Email"
-          keyType="email-address"
-          On_Change_Text={this.handleEmailInput}
-        />
-        <InputField iconName="location-on" placeHolder="Location" />
-        <GenericPicker
           iconName="attach-money"
-          pickerVals={[
-            ["", "Price/Card"],
-            ["One", "50"],
-            ["Two", "70"],
-            ["Three", "100"],
-            ["Four", "120"],
-            ["Any", "Other"]
-          ]}
-        />
-        <GenericPicker
-          iconName="card-giftcard"
-          pickerVals={[
-            ["", "Designs"],
-            ["One", "Royal"],
-            ["Two", "Simple"],
-            ["Three", "Custom"],
-            ["Any", "Other"]
-          ]}
+          placeHolder="Per Day Price"
+          keyType="number-pad"
+          MaxLen={3}
+          On_Change_Text={this.handlePerDayPrice}
         />
 
         <TouchButton InText="Register" />

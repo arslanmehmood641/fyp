@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Picker } from "react-native";
 
 import TouchButton from "../../small_components/touch_button";
-import PasswordField from "../../small_components/password_field";
-import InputField from "../../small_components/input_field";
 import GenericPicker from "../../small_components/generic_picker";
+import InputField from "../../small_components/input_field";
+import Toast from "react-native-simple-toast";
+
+import { CheckBox } from "react-native-elements";
 import {
   widthPercentageToDP as wid,
   heightPercentageToDP as hig
@@ -14,67 +16,129 @@ export default class MediaRegistration extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      pswd: ""
+      droneCamera: 0,
+      photoGraphy: 0,
+      hdCam: 0,
+      filmGraphy: 0,
+      albums: 0,
+      groupPhotos: 0,
+      itemName: "",
+      perDayPrice: 0,
+      noOfCams: 0
     };
   }
 
-  handleEmailInput = text => {
+  handlePerDayPrice = txt => {
     this.setState({
-      email: text
+      perDayPrice: txt
     });
   };
 
-  handlePswdInput = text => {
-    this.setState({
-      pswd: text
-    });
-  };
+  decide(nav, genericCompany) {
+    let mediaCompany = {};
+    mediaCompany.id = 0;
+    mediaCompany.droneCamera = this.state.droneCamera;
+    mediaCompany.hdCam = this.state.hdCam;
+    mediaCompany.noOfCams = this.state.noOfCams;
+    mediaCompany.albums = this.state.albums;
+    mediaCompany.photoGraphy = this.state.photoGraphy;
+    mediaCompany.filmGraphy = this.state.filmGraphy;
+    mediaCompany.itemName = this.state.itemName;
+    mediaCompany.perDayPrice = this.state.perDayPrice;
 
+    let company = {};
+    company.mediaCompany = mediaCompany;
+    company.genericCompany = genericCompany;
+
+    var url = "https://eventhub1.conveyor.cloud/api/Owner/RegisterMediaCompany";
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(company),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(res => res.json())
+      .catch(error => console.warn("Error :", error))
+      .then(res => {
+        if (res === 1)
+          Toast.show("Account Is Registered Successfully", Toast.SHORT);
+        else if (res === 2)
+          Toast.show("Credentials are not valid", Toast.SHORT);
+      });
+  }
   render() {
+    const { navigation } = this.props;
+    const nav = this.props.navigation;
+    const genericCompany = navigation.getParam("Object");
     return (
       <View style={styles.regform}>
         <Text style={styles.header}>Registration</Text>
-
-        <InputField iconName="account-circle" placeHolder="Name" />
-        <PasswordField
-          placeHolder="Password"
-          On_Change_Text={this.handlePswdInput}
+        <View style={{ flexDirection: "row" }}>
+          <View>
+            <CheckBox
+              title="Drone Camera"
+              checked={this.state.droneCamera}
+              onPress={() =>
+                this.setState({ droneCamera: this.state.droneCamera ? 0 : 1 })
+              }
+            />
+            <CheckBox
+              title="HD Camera"
+              checked={this.state.hdCam}
+              onPress={() => this.setState({ hdCam: this.state.hdCam ? 0 : 1 })}
+            />
+            <CheckBox
+              title="Albums"
+              checked={this.state.albums}
+              onPress={() =>
+                this.setState({ albums: this.state.albums ? 0 : 1 })
+              }
+            />
+          </View>
+          <View>
+            <CheckBox
+              title="Photo Graphy"
+              checked={this.state.photoGraphy}
+              onPress={() =>
+                this.setState({ photoGraphy: this.state.photoGraphy ? 0 : 1 })
+              }
+            />
+            <CheckBox
+              title="Film Graphy"
+              checked={this.state.filmGraphy}
+              onPress={() =>
+                this.setState({
+                  filmGraphy: this.state.filmGraphy ? 0 : 1
+                })
+              }
+            />
+            <CheckBox
+              title="Group Photos"
+              checked={this.state.groupPhotos}
+              onPress={() =>
+                this.setState({ groupPhotos: this.state.groupPhotos ? 0 : 1 })
+              }
+            />
+          </View>
+        </View>
+        <GenericPicker
+          Selected_Value={this.state.itemName}
+          iconName="card-giftcard"
+          pickerVals={["Item Name", "Media", "Card Designing", "Catering"]}
+          On_Value_Change={(value, index) => this.setState({ itemName: value })}
         />
-        <InputField
-          iconName="email"
-          placeHolder="Email"
-          keyType="email-address"
-          On_Change_Text={this.handleEmailInput}
-        />
-        <InputField iconName="location-on" placeHolder="Location" />
         <InputField
           iconName="attach-money"
-          placeHolder="Price Rate"
+          placeHolder="Per Day Price"
           keyType="number-pad"
+          MaxLen={3}
+          On_Change_Text={this.handlePerDayPrice}
         />
-        <GenericPicker
-          iconName="photo-camera"
-          pickerVals={[
-            ["", "Services"],
-            ["One", "Filmgraphy"],
-            ["Two", "Photography"],
-            ["Any", "Both"]
-          ]}
+        <TouchButton
+          InText="Register"
+          On_Press={() => this.decide.bind(this)(nav, genericCompany)}
         />
-        <GenericPicker
-          iconName="videocam"
-          pickerVals={[
-            ["", "Cameras"],
-            ["One", "Drone Camera"],
-            ["Two", "Mini Tripod"],
-            ["Three", "Red Epic"],
-            ["Four", "Arri Alexa"],
-            ["Five", "Red Scarlet"],
-            ["Any", "All"]
-          ]}
-        />
-        <TouchButton InText="Register" />
       </View>
     );
   }

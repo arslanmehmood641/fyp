@@ -27,7 +27,7 @@ const CustomerSettings = createMaterialTopTabNavigator(
         )
       }
     },
-    "Home": {
+    "Pending Bookings": {
       screen: PendingBookings,
       navigationOptions: {
         tabBarLabel: "Pending Bookings",
@@ -62,4 +62,4 @@ const CustomerSettings = createMaterialTopTabNavigator(
   }
 );
 
-export default CustomerSettings;
+export default createAppContainer(CustomerSettings);

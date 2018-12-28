@@ -14,7 +14,7 @@ export default class OwnerPendingBookings extends Component {
             <OneHall
               hall={hall.item}
               navigation={this.props.navigation}
-              userType="UserPending"
+              userType="OwnerPending"
             />
           )}
           keyExtractor={(name, index) => index.toString()}

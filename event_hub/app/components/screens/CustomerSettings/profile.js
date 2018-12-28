@@ -48,8 +48,5 @@ const styles = StyleSheet.create({
   name: {
     fontWeight: "bold",
     fontSize: 20,
-    color: "#FFFFFF",
-
-
   }
 });

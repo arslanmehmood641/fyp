@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, ScrollView, TouchableOpacity, Text, View } from "react-native";
+import {
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Text,
+  View
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import {
   widthPercentageToDP as wp,
@@ -10,7 +16,7 @@ export default class Package extends Component {
     return (
       <View>
         <Text style={styles.packegesText}>Packages</Text>
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container} nestedScrollEnabled={true}>
           <TouchableOpacity style={styles.itemDesign}>
             <Icon name="home" size={25} style={{ color: "#ffcc00" }} />
             <Text style={styles.menuText}>Chicken Menue</Text>

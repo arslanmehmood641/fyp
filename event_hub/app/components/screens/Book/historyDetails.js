@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
 import data from "../../readBookingData.json"; //import json file here
-import TouchButton from "../../small_components/touch_button";
+import { View, Text, Image, StyleSheet } from "react-native";
 import StarRating from "react-native-star-rating";
 import hallImg from "../../../../images/china_wall.jpg";
 
@@ -10,21 +9,13 @@ import {
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
 
-export default class ManageBookings extends Component {
+export default class ViewBookingsHistory extends Component {
   constructor() {
     super();
     this.state = {
       isLoading: true, //check if json data fetch online
       dataSource: [] //store an object of json data
     };
-  }
-
-  _approvedMessage() {
-    alert("Booking has approved");
-  }
-
-  _disapprovedMessage() {
-    alert("Booking has disapproved");
   }
 
   componentDidMount() {
@@ -68,13 +59,6 @@ export default class ManageBookings extends Component {
             />
             <Text style={styles.txt}>{hall.guestLimit} guests</Text>
             <Text style={styles.txt}>{hall.pricePerHead} Rs/-(per head)</Text>
-          </View>
-          <View style={{ alignItems: "center" }}>
-            <TouchButton On_Press={this._approvedMessage} InText="Approve" />
-            <TouchButton
-              On_Press={this._disapprovedMessage}
-              InText="Disapprove"
-            />
           </View>
         </View>
       </View>

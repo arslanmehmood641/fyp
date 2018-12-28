@@ -13,6 +13,8 @@ import {
 import { Container, Content } from "native-base";
 import { withNavigation } from "react-navigation";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import UntouchableButton from "../../small_components/untouchable_btn";
+import TouchButton from "../../small_components/touch_button";
 
 import {
   widthPercentageToDP as wp,
@@ -30,32 +32,28 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <Container>
-          <Content>
-            <Slide />
-            <Map />
-            <Pack />
-            <View style={{ alignItems: "center" }}>
-              <TouchableOpacity
-                style={styles.btnContainer}
-                onPress={() => {
-                  this.props.navigation.navigate("Form");
-                }}
-              >
-                <Text style={styles.searchButton}>CHECK AVAILABILITY</Text>
-              </TouchableOpacity>
-            </View>
-            <View>
-              <Text style={styles.heading}>Guest Love It Because</Text>
-              <TouchableOpacity style={{ flexDirection: "row" }}>
-                <Icon name="music-note" size={25} />
-                <Text>Music System</Text>
-              </TouchableOpacity>
-            </View>
-          </Content>
-        </Container>
-      </ScrollView>
+      <View>
+        <Slide />
+        <Map />
+        <Pack />
+        <View style={{ alignItems: "center" }}>
+          <TouchButton
+            On_Press={() => {
+              this.props.navigation.navigate("Form");
+            }}
+            InText="CHECK AVAILABILITY"
+          />
+        </View>
+        <View>
+          <Text style={styles.heading}>Guest Love It Because</Text>
+          <View style={{ paddingLeft: 15 }}>
+            <UntouchableButton InText="Music System" IconName="music-note" />
+            <UntouchableButton InText="Catering" IconName="music-note" />
+            <UntouchableButton InText="Decorations" IconName="music-note" />
+            <UntouchableButton InText="Special Lights" IconName="music-note" />
+          </View>
+        </View>
+      </View>
     );
   }
 }
@@ -71,6 +69,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     right: 10
+  },
+  justView: {
+    width: 330,
+    height: 50,
+    borderRadius: 7,
+    marginTop: 10,
+    fontSize: 16,
+    backgroundColor: "green",
+    alignItems: "center",
+    justifyContent: "center",
+    right: 10,
+    flexDirection: "row"
   },
   searchButton: {
     textAlign: "center",

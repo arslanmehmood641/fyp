@@ -46,10 +46,10 @@ const HomePage = createMaterialTopTabNavigator(
       tabStyle: {
         backgroundColor: "cyan",
         height: heightP("10%"),
-        elevation: 3
+        overflow: "scroll"
       }
     }
   }
 );
 
-export default HomePage;
+export default createAppContainer(HomePage);

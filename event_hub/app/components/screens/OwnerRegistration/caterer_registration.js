@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Picker } from "react-native";
+import { CheckBox } from "react-native-elements";
 
 import TouchButton from "../../small_components/touch_button";
-import PasswordField from "../../small_components/password_field";
 import InputField from "../../small_components/input_field";
-import GenericPicker from "../../small_components/generic_picker";
-
 import {
   widthPercentageToDP as wid,
   heightPercentageToDP as hig
@@ -15,60 +13,153 @@ export default class CatererRegistration extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      pswd: ""
+      tent: "",
+      generator: 0,
+      heater: 0,
+      servingStaff: 0,
+      lights: 0,
+      stageDecorations: 0,
+      cooking: 0,
+      bridalRoom: 0,
+      airCondition: 0,
+      valetParking: 0,
+      wifi: 0,
+      dj: 0,
+      decoration: 0
     };
   }
-  handleEmailInput = text => {
+
+  handleTent = text => {
     this.setState({
-      email: text
-    });
-  };
-  handlePswdInput = text => {
-    this.setState({
-      pswd: text
+      tent: text
     });
   };
 
+  decideNavigation(obj) {
+    console.warn(obj);
+    console.warn(this.state);
+  }
+
   render() {
+    const { navigation } = this.props;
+    const obj = navigation.getParam("Object");
     return (
       <View style={styles.regform}>
         <Text style={styles.header}>Registration</Text>
-        <InputField iconName="account-circle" placeHolder="Name" />
-        <PasswordField
-          placeHolder="Password"
-          On_Change_Text={this.handlePswdInput}
-        />
         <InputField
-          iconName="email"
-          placeHolder="Email"
-          keyType="email-address"
-          On_Change_Text={this.handleEmailInput}
+          iconName="home"
+          placeHolder="Tents"
+          On_Change_Text={this.handleTent}
         />
-        <InputField iconName="location-on" placeHolder="Location" />
-        <GenericPicker
-          iconName="attach-money"
-          pickerVals={[
-            ["", "Price/Service"],
-            ["One", "100"],
-            ["Two", "200"],
-            ["Three", "300"],
-            ["Four", "400"],
-            ["Any", "Other"]
-          ]}
+        <View style={{ flexDirection: "row" }}>
+          <View>
+            <CheckBox
+              title="Generator"
+              checked={this.state.generator}
+              onPress={() =>
+                this.setState({ generator: this.state.generator ? 0 : 1 })
+              }
+            />
+            <CheckBox
+              title="Serving Staff"
+              checked={this.state.servingStaff}
+              onPress={() =>
+                this.setState({ servingStaff: this.state.servingStaff ? 0 : 1 })
+              }
+            />
+            <CheckBox
+              title="Heater"
+              checked={this.state.heater}
+              onPress={() =>
+                this.setState({ heater: this.state.heater ? 0 : 1 })
+              }
+            />
+          </View>
+          <View>
+            <CheckBox
+              title="Lights"
+              checked={this.state.lights}
+              onPress={() =>
+                this.setState({ lights: this.state.lights ? 0 : 1 })
+              }
+            />
+            <CheckBox
+              title="Stage Decorations"
+              checked={this.state.stageDecorations}
+              onPress={() =>
+                this.setState({
+                  stageDecorations: this.state.stageDecorations ? 0 : 1
+                })
+              }
+            />
+            <CheckBox
+              title="Cooking"
+              checked={this.state.cooking}
+              onPress={() =>
+                this.setState({ cooking: this.state.cooking ? 0 : 1 })
+              }
+            />
+          </View>
+        </View>
+        <View>
+          <Text style={{ marginLeft: 10, fontSize: 20 }}>Other Services:</Text>
+          <View style={{ flexDirection: "row" }}>
+            <View>
+              <CheckBox
+                title="Bridal Room"
+                checked={this.state.bridalRoom}
+                onPress={() =>
+                  this.setState({ bridalRoom: this.state.bridalRoom ? 0 : 1 })
+                }
+              />
+              <CheckBox
+                title="Valet Parking"
+                checked={this.state.valetParking}
+                onPress={() =>
+                  this.setState({
+                    valetParking: this.state.valetParking ? 0 : 1
+                  })
+                }
+              />
+              <CheckBox
+                title="DJ"
+                checked={this.state.dj}
+                onPress={() => this.setState({ dj: this.state.dj ? 0 : 1 })}
+              />
+            </View>
+            <View>
+              <CheckBox
+                title="Air Condition"
+                checked={this.state.airCondition}
+                onPress={() =>
+                  this.setState({
+                    airCondition: this.state.airCondition ? 0 : 1
+                  })
+                }
+              />
+              <CheckBox
+                title="Wi-Fi"
+                checked={this.state.wifi}
+                onPress={() =>
+                  this.setState({
+                    wifi: this.state.wifi ? 0 : 1
+                  })
+                }
+              />
+              <CheckBox
+                title="Decoration"
+                checked={this.state.decoration}
+                onPress={() =>
+                  this.setState({ decoration: this.state.decoration ? 0 : 1 })
+                }
+              />
+            </View>
+          </View>
+        </View>
+        <TouchButton
+          InText="Register"
+          On_Press={() => this.decideNavigation.bind(this)(obj)}
         />
-        <GenericPicker
-          iconName="room-service"
-          pickerVals={[
-            ["", "Services"],
-            ["One", "Tents and Servants"],
-            ["Two", "Electrical Appliances"],
-            ["Three", "Stage Decorations"],
-            ["Four", "Cutlery"],
-            ["Any", "All"]
-          ]}
-        />
-        <TouchButton InText="Register" />
       </View>
     );
   }
@@ -80,13 +171,16 @@ const styles = StyleSheet.create({
     marginTop: hig("5%"),
     alignItems: "center"
   },
+  checkBoxContainer: {
+    flexDirection: "row"
+  },
   header: {
     alignSelf: "center",
     fontSize: 25,
     fontWeight: "bold",
     color: "black",
     paddingBottom: 5,
-    marginBottom: 20
+    marginBottom: 15
   },
   viewdes: {
     height: hig("6%"),
@@ -100,9 +194,9 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: "stretch",
     alignItems: "center",
-    padding: 15,
+    padding: 10,
     backgroundColor: "#59cbbd",
-    marginTop: 20
+    marginTop: 15
   },
   btntext: {
     color: "#fff",

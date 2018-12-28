@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { View, StyleSheet, TextInput, Picker, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 
 import HomeLogo from "../../small_components/home_logo";
 import PasswordField from "../../small_components/password_field";
 import TouchButton from "../../small_components/touch_button";
 import GenericPicker from "../../small_components/generic_picker";
 import InputField from "../../small_components/input_field";
+import Toast from "react-native-simple-toast";
 import {
   widthPercentageToDP as widthP,
   heightPercentageToDP as heightP
@@ -19,20 +20,44 @@ export default class SignUp extends Component {
       email: "",
       pswd: "",
       c_pswd: "",
-      Utype: ""
+      utype: "Type Of User"
     };
   }
 
   checkMail(nav) {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var flag = reg.test(this.state.email);
-    if (!flag) {
-      alert("Wrong Email Pattern");
-    } else {
+    if (flag) {
       const check = this.pswdMismatch();
       if (check === 1) alert("Password Mismatch");
       else if (check === 2) alert("Password Field Is Empty");
-    }
+      else if (this.state.utype === "Type Of User")
+        alert("Type of user is not provided");
+      else {
+        let user = {};
+        user.id = 0;
+        user.name = this.state.email;
+        user.password = this.state.pswd;
+        user.u_type = this.state.utype;
+
+        var url = "https://eventhub1.conveyor.cloud/api/User/SignUp";
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify(user),
+          headers: new Headers({
+            "Content-Type": "application/json"
+          })
+        })
+          .then(res => res.json())
+          .catch(error => console.warn("Error :", error))
+          .then(res => {
+            if (res === 1)
+              Toast.show("Account Is Registered Successfully", Toast.SHORT);
+            else if (res === 2)
+              Toast.show("Credentials are not valid", Toast.SHORT);
+          });
+      }
+    } else alert("Wrong Email Pattern");
   }
 
   pswdMismatch() {
@@ -42,90 +67,54 @@ export default class SignUp extends Component {
     if (p1 === "" || p2 == "") return 2;
   }
 
-  handleEmailInput = text => {
-    this.setState({
-      email: text
-    });
-  };
-
-  handlePswdInput = text => {
-    this.setState({
-      pswd: text
-    });
-  };
-
-  handleConPswdInput = text => {
-    this.setState({
-      c_pswd: text
-    });
-  };
-  submit() {
-    if (this.state.email != '') {
-      let user = {}
-      user.U_id = 0;
-      user.UserName = this.state.email;
-      user.Password = this.state.pswd;
-      user.U_type = this.state.Utype;
-      var url = 'https://eventhub-api.conveyor.cloud/api/User/RegisterUsers'
-      fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
-      }).then(res => res.json())
-        .catch(error => console.error('Error :', error))
-        .then(res => console.warn('Success :', this.state.Utype));
-
-      this.props.navigation.navigate("Congratulations")
-
-    }
-    else {
-      console.warn("Not Submit")
-    }
-  }
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <ScrollView >
-        <View style={styles.backgroundContainer}>
-          <HomeLogo />
-          {/* Username Field */}
-          <InputField
-            iconName="person"
-            keyType="email-address"
-            placeHolder="Email or Username"
-            On_Change_Text={this.handleEmailInput}
-          />
-          {/* Password */}
-          <PasswordField
-            placeHolder="Password"
-            On_Change_Text={this.handlePswdInput}
-          />
-          {/* Confirm Password */}
-          <PasswordField
-            placeHolder="Confirm Password"
-            On_Change_Text={this.handleConPswdInput}
-          />
-          {/* User Type Picker */}
-          <GenericPicker
-            iconName="settings"
-            selected_Value={this.state.Utype}
-            pickerVals={[
-              ["", "Type Of User"],
-              ["1", "Owner"],
-              ["2", "Customer"]
-            ]}
-            on_Value_Change={(itemValue, itemIndex) =>
-              this.setState({ Utype: itemValue })
-            }
-          />
-          {/* Login Button */}
-          <TouchButton
-            On_Press={() => this.submit()}
-            InText="Sign Up"
-          />
-        </View>
+      <ScrollView contentContainerStyle={styles.backgroundContainer}>
+        <HomeLogo />
+        {/* Username Field */}
+        <InputField
+          iconName="person"
+          keyType="email-address"
+          placeHolder="Email or Username"
+          On_Change_Text={text => {
+            this.setState({
+              email: text
+            });
+          }}
+        />
+        {/* Password */}
+        <PasswordField
+          placeHolder="Password"
+          On_Change_Text={text => {
+            this.setState({
+              pswd: text
+            });
+          }}
+        />
+        {/* Confirm Password */}
+        <PasswordField
+          placeHolder="Confirm Password"
+          On_Change_Text={text => {
+            this.setState({
+              c_pswd: text
+            });
+          }}
+        />
+        {/* User Type Picker */}
+        <GenericPicker
+          iconName="settings"
+          Selected_Value={this.state.utype}
+          On_Value_Change={(value, index) => this.setState({ utype: value })}
+          pickerVals={["Type Of User", "Owner", "Customer"]}
+          placeHolder={this.state.utype}
+        />
+        {/* Login Button */}
+
+        <TouchButton
+          On_Press={() => this.checkMail.bind(this)(navigate)}
+          InText="Sign Up"
+        />
       </ScrollView>
     );
   }
@@ -150,7 +139,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
   backgroundContainer: {
-    height: heightP("87.4%"),
+    height: heightP("85.4%"),
     alignItems: "center"
   },
   input: {
