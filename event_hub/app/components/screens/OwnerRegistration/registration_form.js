@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Picker } from "react-native";
+import { StyleSheet, Text, View, Picker, ScrollView } from "react-native";
 
 import TouchButton from "../../small_components/touch_button";
 import DatePicker from "../../small_components/custom_date_picker";
@@ -12,7 +12,7 @@ import {
   widthPercentageToDP as wid,
   heightPercentageToDP as hig
 } from "react-native-responsive-screen";
-import { ScrollView } from "react-native-gesture-handler";
+//import { ScrollView } from "react-native-gesture-handler";
 
 export default class Registration extends Component {
   constructor(props) {
@@ -30,8 +30,8 @@ export default class Registration extends Component {
       country: "",
       typeOfCompany: ""
     };
+    alert(global.id);
   }
-
   handleName = text => {
     this.setState({
       name: text
@@ -156,7 +156,7 @@ export default class Registration extends Component {
               iconName="event"
               dateTime={this.state.startDate}
               mode="date"
-              format="DD-MM-YYYY"
+              format="YYYY-MM-DD."
               On_Date_Change={dat => this.setState({ startDate: dat })}
             />
             <DatePicker
@@ -164,7 +164,7 @@ export default class Registration extends Component {
               iconName="timer"
               dateTime={this.state.totalTime}
               mode="time"
-              format="hh:mm A"
+              format="HH:MI:SS"
               On_Date_Change={dat => this.setState({ totalTime: dat })}
             />
           </View>

@@ -31,9 +31,9 @@ export default class Slide extends Component {
 
     this.state = {
       imagesSlider: [
-        require("../../../../images/1.jpg"),
-        require("../../../../images/2.jpg"),
-        require("../../../../images/3.jpg")
+        require("../../../../images/Caterer/1.jpg"),
+        require("../../../../images/Caterer/2.jpg"),
+        require("../../../../images/Caterer/3.jpg")
       ]
     };
   }

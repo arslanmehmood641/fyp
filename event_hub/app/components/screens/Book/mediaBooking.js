@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Slide from "../Home/Slider";
-
+import Slide from "../MediaHome/MediaSlider";
 import {
   View,
   Text,
@@ -17,7 +16,6 @@ import {
   widthPercentageToDP as widthP,
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
-
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -26,13 +24,13 @@ export default class Form extends Component {
       lang: 12,
       lang2: 12,
       prefferedTime: "",
-      noOfGuests: "",
+      noOfDays: "",
       EventDate: "",
       UserName: "",
       UserEmail: "",
       Phone: "",
       city: "",
-      hall: this.props.navigation.state.params.Object
+      media: this.props.navigation.state.params.Object
     };
   }
   static navigationOptions = {
@@ -63,15 +61,16 @@ export default class Form extends Component {
       let b = {};
       b.b_id = 0;
       b.prefferedTime = this.state.prefferedTime;
-      b.noOfGuests = this.state.noOfGuests;
+      b.noOfDays = this.state.noOfDays;
       b.eventDate = this.state.EventDate;
       b.userName = this.state.UserName;
       b.userEmail = this.state.UserEmail;
       b.phone = this.state.Phone;
       b.city = this.state.city;
-      b.companyID = this.state.hall.companyID;
+      b.companyID = this.state.media.companyID;
       b.status = 0;
-      var url = "https://eventhub-api.conveyor.cloud/api/User/RegisterBooking";
+      var url =
+        "https://eventhub-api.conveyor.cloud/api/Media/RegisterMediaBooking";
       fetch(url, {
         method: "POST",
         body: JSON.stringify(b),
@@ -89,34 +88,25 @@ export default class Form extends Component {
     }
   }
   render() {
-    const prefferedTime = [["Any", ""], ["Dinner", "One"], ["Lunch", "Two"]];
-    const noOfGuests = [
-      ["No of Guests", ""],
-      ["50", "50"],
-      ["100", "100"],
-      ["150", "150"],
-      ["200", "200"],
-      ["250", "250"],
-      ["300", "300"],
-      ["350", "350"]
+    const prefferedTime = [
+      ["Any", ""],
+      ["DayTime", "DayTime"],
+      ["Second Time", "Second Time"]
     ];
-
+    const noOfDays = [["No of Days", ""], ["1", "1"], ["2", "2"], ["3", "3"]];
     return (
       <ScrollView style={{ marginTop: 20, left: 10, right: 10 }}>
         <Slide />
         <View>
           <Text style={{ fontSize: 25, color: "green" }}>
-            {this.state.hall.name}
+            {this.state.media.name}
           </Text>
-          <Text>{this.state.townName}</Text>
+          <Text>{this.state.media.townName}</Text>
           <View style={{ flexDirection: "row", marginVertical: heightP("1%") }}>
             <Icon name="location-on" size={15} color="green" />
             <Text style={{ color: "green" }}>5.2 Miles From Location</Text>
           </View>
-          <Text>Rs. {this.state.hall.price_per_head} per guest</Text>
-          <Text style={{ fontSize: 12 }}>
-            {this.state.hall.b_capacity}+ Guests
-          </Text>
+          <Text>Rs. {this.state.media.noOfCam} cameras</Text>
         </View>
         <View style={{ backgroundColor: "#EFF4F5" }}>
           <Text style={{ fontSize: 20, color: "green" }}>
@@ -161,14 +151,14 @@ export default class Form extends Component {
               }}
             />
             <Picker
-              selectedValue={this.state.noOfGuests}
+              selectedValue={this.state.noOfDays}
               mode="dropdown"
               onValueChange={(itemValue, itemIndex) =>
-                this.setState({ noOfGuests: itemValue })
+                this.setState({ noOfDays: itemValue })
               }
               style={{ width: widthP("50%") }}
             >
-              {noOfGuests.map(val => (
+              {noOfDays.map(val => (
                 <Picker.Item value={val[1]} label={val[0]} />
               ))}
             </Picker>

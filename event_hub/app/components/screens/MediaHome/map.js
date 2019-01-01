@@ -15,18 +15,17 @@ export default class Maps extends Component {
   render() {
     const nav = this.props.navigation;
     //const type = this.props.obj;
-    let hall = this.props.hall;
-    console.warn(hall);
+    let media = this.props.media;
+    // console.warn(hall);
     return (
       <View style={{ paddingHorizontal: 30 }}>
-        <Text style={{ fontSize: 25, color: "green" }}>{hall.name}</Text>
-        <Text>{hall.townName}</Text>
+        <Text style={{ fontSize: 25, color: "green" }}>{media.name}</Text>
+        <Text>{media.townName}</Text>
         <View style={{ flexDirection: "row", marginVertical: hp("1%") }}>
           <Icon name="location-on" size={15} color="green" />
           <Text style={{ color: "green" }}>5.2 Miles From Location</Text>
         </View>
-        <Text>Rs. {hall.price_per_head} per guest</Text>
-        <Text style={{ fontSize: 12 }}>{hall.b_capacity}+ Guests</Text>
+        <Text>Rs. {media.noOfCams} camers</Text>
       </View>
     );
   }

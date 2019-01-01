@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, FlatList } from "react-native";
 
-import OneHall from "../../small_components/onehall";
+import OneMedia from "../../small_components/OneMedia";
 //const data = require("../../data.json");
 
-export default class CustomerPendingBookings extends Component {
+export default class MediaHome extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,7 +14,7 @@ export default class CustomerPendingBookings extends Component {
   }
 
   componentDidMount() {
-    var url = "https://eventhub-api.conveyor.cloud/api/Hall/GetHalls";
+    var url = "https://eventhub-api.conveyor.cloud/api/Media/GetMedia";
     fetch(url, {
       method: "POST",
       headers: new Headers({
@@ -25,7 +25,7 @@ export default class CustomerPendingBookings extends Component {
       .catch(error => console.error("Error :", error))
       .then(res => {
         this.setState({ data: res });
-        // console.warn(this.state.data);
+        console.warn(this.state.data);
       });
   }
   render() {
@@ -33,11 +33,11 @@ export default class CustomerPendingBookings extends Component {
       <View>
         <FlatList
           data={this.state.data}
-          renderItem={hall => (
-            <OneHall
-              hall={hall.item}
+          renderItem={media => (
+            <OneMedia
+              media={media.item}
               navigation={this.props.navigation}
-              userType="CustomerPending"
+              userType="MediaHome"
             />
           )}
           keyExtractor={(name, index) => index.toString()}

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-
-import Slide from "./Slider";
+import Slide from "./CatererSlider";
 import Map from "./map";
-import Pack from "./packegess";
+//import Pack from "./CatererPackegess";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -15,7 +14,6 @@ import { withNavigation } from "react-navigation";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import UntouchableButton from "../../small_components/untouchable_btn";
 import TouchButton from "../../small_components/touch_button";
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
@@ -27,7 +25,7 @@ class HomeScreen extends Component {
     this.state = {
       id: "check",
       Aname: "ac",
-      hall: this.props.navigation.state.params.Object
+      caterer: this.props.navigation.state.params.Object
     };
   }
 
@@ -40,13 +38,16 @@ class HomeScreen extends Component {
       <Container>
         <Content>
           <Slide />
-          <Map hall={this.state.hall} navigation={this.props.navigation} />
-          <Pack />
+          <Map
+            caterer={this.state.caterer}
+            navigation={this.props.navigation}
+          />
+
           <View style={{ alignItems: "center" }}>
             <TouchButton
               On_Press={() => {
-                this.props.navigation.navigate("Form", {
-                  Object: this.state.hall
+                this.props.navigation.navigate("Form2", {
+                  Object: this.state.caterer
                 });
               }}
               InText="CHECK AVAILABILITY"
@@ -55,13 +56,10 @@ class HomeScreen extends Component {
           <View>
             <Text style={styles.heading}>Guest Love It Because</Text>
             <View style={{ paddingLeft: 30 }}>
-              <UntouchableButton InText="Music System" IconName="music-note" />
-              <UntouchableButton InText="Catering" IconName="music-note" />
-              <UntouchableButton InText="Decorations" IconName="music-note" />
-              <UntouchableButton
-                InText="Special Lights"
-                IconName="music-note"
-              />
+              <UntouchableButton InText="Drone Cam" IconName="music-note" />
+              <UntouchableButton InText="Hd Cam" IconName="music-note" />
+              <UntouchableButton InText="Albums" IconName="music-note" />
+              <UntouchableButton InText="Film Graphy" IconName="music-note" />
             </View>
           </View>
         </Content>

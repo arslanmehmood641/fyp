@@ -52,4 +52,4 @@ const HomePage = createMaterialTopTabNavigator(
   }
 );
 
-export default createAppContainer(HomePage);
+export default HomePage;

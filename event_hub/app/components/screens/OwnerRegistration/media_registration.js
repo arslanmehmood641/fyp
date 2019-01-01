@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Picker } from "react-native";
-
 import TouchButton from "../../small_components/touch_button";
 import GenericPicker from "../../small_components/generic_picker";
 import InputField from "../../small_components/input_field";
 import Toast from "react-native-simple-toast";
-
 import { CheckBox } from "react-native-elements";
 import {
   widthPercentageToDP as wid,
@@ -36,24 +34,26 @@ export default class MediaRegistration extends Component {
 
   decide(nav, genericCompany) {
     let mediaCompany = {};
-    mediaCompany.id = 0;
+    mediaCompany.companyID = genericCompany.companyID;
+    mediaCompany.name = genericCompany.name;
+    mediaCompany.email = genericCompany.email;
+    mediaCompany.startDate = genericCompany.startDate;
+    mediaCompany.totalTime = genericCompany.totalTime;
+    mediaCompany.streetNo = genericCompany.streetNo;
+    mediaCompany.houseNo = genericCompany.houseNo;
+    mediaCompany.townName = genericCompany.townName;
+    mediaCompany.city = genericCompany.city;
+    mediaCompany.country = genericCompany.country;
     mediaCompany.droneCamera = this.state.droneCamera;
     mediaCompany.hdCam = this.state.hdCam;
     mediaCompany.noOfCams = this.state.noOfCams;
     mediaCompany.albums = this.state.albums;
     mediaCompany.photoGraphy = this.state.photoGraphy;
     mediaCompany.filmGraphy = this.state.filmGraphy;
-    mediaCompany.itemName = this.state.itemName;
-    mediaCompany.perDayPrice = this.state.perDayPrice;
-
-    let company = {};
-    company.mediaCompany = mediaCompany;
-    company.genericCompany = genericCompany;
-
-    var url = "https://eventhub1.conveyor.cloud/api/Owner/RegisterMediaCompany";
+    var url = "https://eventhub-api.conveyor.cloud/api/Media/RegisterMedia";
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(company),
+      body: JSON.stringify(mediaCompany),
       headers: new Headers({
         "Content-Type": "application/json"
       })

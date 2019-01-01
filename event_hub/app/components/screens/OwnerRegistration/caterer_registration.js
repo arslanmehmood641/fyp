@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Picker } from "react-native";
 import { CheckBox } from "react-native-elements";
-
 import TouchButton from "../../small_components/touch_button";
 import InputField from "../../small_components/input_field";
 import {
   widthPercentageToDP as wid,
   heightPercentageToDP as hig
 } from "react-native-responsive-screen";
-
+import Toast from "react-native-simple-toast";
 export default class CatererRegistration extends Component {
   constructor(props) {
     super(props);
@@ -34,15 +33,52 @@ export default class CatererRegistration extends Component {
       tent: text
     });
   };
-
-  decideNavigation(obj) {
-    console.warn(obj);
-    console.warn(this.state);
+  decideNavigation(nav, genericCompany) {
+    let CaterCompany = {};
+    CaterCompany.companyID = genericCompany.companyID;
+    CaterCompany.name = genericCompany.name;
+    CaterCompany.email = genericCompany.email;
+    CaterCompany.startDate = genericCompany.startDate;
+    CaterCompany.totalTime = genericCompany.totalTime;
+    CaterCompany.streetNo = genericCompany.streetNo;
+    CaterCompany.houseNo = genericCompany.houseNo;
+    CaterCompany.townName = genericCompany.townName;
+    CaterCompany.city = genericCompany.city;
+    CaterCompany.country = genericCompany.country;
+    CaterCompany.tent = this.state.tent;
+    CaterCompany.generator = this.state.generator;
+    CaterCompany.heater = this.state.heater;
+    CaterCompany.servingStaff = this.state.servingStaff;
+    CaterCompany.lights = this.state.lights;
+    CaterCompany.stageDecorations = this.state.stageDecorations;
+    CaterCompany.cooking = this.state.cooking;
+    CaterCompany.bridalRoom = this.state.bridalRoom;
+    CaterCompany.airCondition = this.state.airCondition;
+    CaterCompany.valetParking = this.state.valetParking;
+    CaterCompany.wifi = this.state.wifi;
+    CaterCompany.dj = this.state.dj;
+    CaterCompany.decoration = this.state.decoration;
+    var url = 'https://eventhub-api.conveyor.cloud/api/Caterer/RegisterCaterer'
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(CaterCompany),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(res => res.json())
+      .catch(error => console.warn("Error :", error))
+      .then(res => {
+        if (res === 1)
+          Toast.show("Account Is Registered Successfully", Toast.SHORT);
+        else if (res === 2)
+          Toast.show("Credentials are not valid", Toast.SHORT);
+      });
   }
-
   render() {
     const { navigation } = this.props;
-    const obj = navigation.getParam("Object");
+    const nav = this.props.navigation;
+    const genericCompany = navigation.getParam("Object");
     return (
       <View style={styles.regform}>
         <Text style={styles.header}>Registration</Text>
@@ -158,7 +194,7 @@ export default class CatererRegistration extends Component {
         </View>
         <TouchButton
           InText="Register"
-          On_Press={() => this.decideNavigation.bind(this)(obj)}
+          On_Press={() => this.decideNavigation.bind(this)(nav, genericCompany)}
         />
       </View>
     );

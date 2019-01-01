@@ -1,6 +1,8 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import HomePage from "./app/components/screens/LoginSignup/homePage";
 import Form from "./app/components/screens/Book/apply_for_bookings";
+import MediaForm from "./app/components/screens/Book/mediaBooking";
+import CatererForm from "./app/components/screens/Book/catererBooking";
 import CardRegistration from "./app/components/screens/OwnerRegistration/card_registration";
 import CatererRegistration from "./app/components/screens/OwnerRegistration/caterer_registration";
 import MediaRegistration from "./app/components/screens/OwnerRegistration/media_registration";
@@ -11,6 +13,8 @@ import CustomerSettings from "./app/components/screens/CustomerSettings/customer
 import HomeScreen from "./app/components/screens/Home/home";
 import Maps from "./app/components/screens/Home/map";
 import ManageBookings from "./app/components/screens/Book/Book";
+import MediaHome from "./app/components/screens/MediaHome/home";
+import CatererHome from "./app/components/screens/CatererHome/home";
 import List from "./app/components/screens/Book/bookForm";
 
 const screens = createStackNavigator(
@@ -25,6 +29,10 @@ const screens = createStackNavigator(
     "Owner Settings": { screen: OwnerSettings },
     "Customer Settings": { screen: CustomerSettings },
     "Home Screen": { screen: HomeScreen },
+    "Media Home": { screen: MediaHome },
+    Form1: { screen: MediaForm },
+    Form2: { screen: MediaForm },
+    "Caterer Home": { screen: CatererHome },
     Maps: { screen: Maps },
     "Manage Booking": { screen: ManageBookings },
     SadafList: { screen: List }

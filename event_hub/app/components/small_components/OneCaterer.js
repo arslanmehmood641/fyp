@@ -1,40 +1,40 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import img from "../../../images/china_wall.jpg";
+import img from "../../../images/photo.jpg";
 
 import StarRating from "react-native-star-rating";
 import {
   widthPercentageToDP as widthP,
   heightPercentageToDP as heightP
 } from "react-native-responsive-screen";
-
-export default class OneHall extends Component {
+export default class OneCaterer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hall1: ""
+      caterer1: ""
     };
   }
-  Goto(nav, type, hall) {
-    alert(type);
+  Goto(nav, type, caterer) {
     if (type === "OwnerHistory")
       nav.navigate("ViewBookingsHistory", { Object: obj });
     else if (type === "OwnerPending")
-      nav.navigate("Manage Booking", { Object: this.state.hall1 });
+      nav.navigate("Manage Booking", { Object: obj });
     else if (type === "CustomerHistory")
       nav.navigate("ViewBookingsHistory", { Object: obj });
-    else if (type === "CustomerPending")
-      nav.navigate("Home Screen", { Object: this.state.hall1 });
+    else if (type === "CatererHome") alert(type);
+    nav.navigate("Caterer Home", { Object: this.state.caterer1 });
   }
 
   render() {
     const nav = this.props.navigation;
     const type = this.props.userType;
-    let hall = this.props.hall;
-    this.state.hall1 = hall;
+    let caterer = this.props.caterer;
+    this.state.caterer1 = caterer;
+    //alert(caterer);
+    //this.state.hall1 = hall;
 
     return (
-      <TouchableOpacity onPress={() => this.Goto(nav, type, hall)}>
+      <TouchableOpacity onPress={() => this.Goto(nav, type, caterer)}>
         <View style={styles.container}>
           <Image
             source={img}
@@ -47,27 +47,26 @@ export default class OneHall extends Component {
           />
           <View>
             <Text style={{ fontSize: 20, fontWeight: "100", color: "green" }}>
-              {hall.name}
+              {caterer.name}
             </Text>
-            <Text>{hall.city}</Text>
+            <Text>{caterer.city}</Text>
             <View style={{ width: widthP("30%") }}>
               <StarRating
                 disabled={false}
                 maxStars={5}
-                rating={hall.rating}
+                rating={4}
                 starSize={15}
                 fullStarColor="yellow"
               />
             </View>
-            <Text>{hall.b_capacity} guests</Text>
-            <Text>{hall.price_per_head} Rs/-(per head)</Text>
+            <Text>{caterer.decoration} Available</Text>
+            <Text>{caterer.servingStaff} Available</Text>
           </View>
         </View>
       </TouchableOpacity>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",

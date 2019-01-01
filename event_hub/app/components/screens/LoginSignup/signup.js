@@ -4,7 +4,7 @@ import { StyleSheet, ScrollView } from "react-native";
 import HomeLogo from "../../small_components/home_logo";
 import PasswordField from "../../small_components/password_field";
 import TouchButton from "../../small_components/touch_button";
-import GenericPicker from "../../small_components/generic_picker";
+import GenericPicker from "../../small_components/generic_picker_s";
 import InputField from "../../small_components/input_field";
 import Toast from "react-native-simple-toast";
 import {
@@ -16,11 +16,10 @@ export default class SignUp extends Component {
   constructor() {
     super();
     this.state = {
-      language: 12,
       email: "",
       pswd: "",
       c_pswd: "",
-      utype: "Type Of User"
+      Utype: "Type Of User"
     };
   }
 
@@ -31,16 +30,16 @@ export default class SignUp extends Component {
       const check = this.pswdMismatch();
       if (check === 1) alert("Password Mismatch");
       else if (check === 2) alert("Password Field Is Empty");
-      else if (this.state.utype === "Type Of User")
+      else if (this.state.Utype === "Type Of User")
         alert("Type of user is not provided");
       else {
         let user = {};
-        user.id = 0;
-        user.name = this.state.email;
-        user.password = this.state.pswd;
-        user.u_type = this.state.utype;
-
-        var url = "https://eventhub1.conveyor.cloud/api/User/SignUp";
+        user.U_id = 0;
+        user.UserName = this.state.email;
+        user.Password = this.state.pswd;
+        alert(this.state.Utype);
+        user.U_type = this.state.Utype;
+        var url = "https://eventhub-api.conveyor.cloud/api/User/RegisterUsers";
         fetch(url, {
           method: "POST",
           body: JSON.stringify(user),
@@ -104,10 +103,11 @@ export default class SignUp extends Component {
         {/* User Type Picker */}
         <GenericPicker
           iconName="settings"
-          Selected_Value={this.state.utype}
-          On_Value_Change={(value, index) => this.setState({ utype: value })}
-          pickerVals={["Type Of User", "Owner", "Customer"]}
-          placeHolder={this.state.utype}
+          selected_Value={this.state.Utype}
+          pickerVals={[["", "Type Of User"], ["1", "Owner"], ["2", "Customer"]]}
+          on_Value_Change={(itemValue, itemIndex) =>
+            this.setState({ Utype: itemValue })
+          }
         />
         {/* Login Button */}
 
