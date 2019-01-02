@@ -15,14 +15,36 @@ export default class ManageBookings extends Component {
     super();
     this.state = {
       isLoading: true, //check if json data fetch online
-      dataSource: [] //store an object of json data
+      dataSource: [], //store an object of json data
+      id: 0,
+      cid: 0
     };
   }
 
   _approvedMessage() {
-    alert("Booking has approved");
-  }
+    alert("hello");
+    var url =
+      "https://eventhub-api.conveyor.cloud/api/Hall/ApprovePendingRequest?id=" +
+      this.state.id +
+      "&cid=" +
+      this.state.cid;
 
+    fetch(url, {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(res => res.json())
+      .catch(error => console.error("Error :", error))
+      .then(res => {
+        this.setState({ data: res });
+        if (this.state.data == 0) {
+          alert("no booking found");
+        }
+      });
+  }
+  ApprovePendingRequest() {}
   _disapprovedMessage() {
     alert("Booking has disapproved");
   }
@@ -41,6 +63,8 @@ export default class ManageBookings extends Component {
     }
     const { navigation } = this.props;
     const hall = navigation.getParam("Object");
+    this.state.cid = hall.companyID;
+    this.state.id = hall.b_id;
 
     return (
       <View style={styles.container}>
@@ -56,23 +80,19 @@ export default class ManageBookings extends Component {
         >
           <View style={{ justifyContent: "center" }}>
             <Text style={{ fontSize: 30, fontWeight: "100", color: "green" }}>
-              {hall.hallName}
+              {hall.userEmail}
             </Text>
-            <Text style={styles.txt}>{hall.hallAddress}</Text>
-            <StarRating
-              disabled={false}
-              maxStars={5}
-              rating={hall.rating}
-              starSize={15}
-              fullStarColor="yellow"
-            />
-            <Text style={styles.txt}>{hall.guestLimit} guests</Text>
+            <Text style={styles.txt}>{hall.eventDate} starts from</Text>
+            <Text style={styles.txt}>{hall.companyType} Time Required</Text>
             <Text style={styles.txt}>{hall.pricePerHead} Rs/-(per head)</Text>
           </View>
           <View style={{ alignItems: "center" }}>
-            <TouchButton On_Press={this._approvedMessage} InText="Approve" />
             <TouchButton
-              On_Press={this._disapprovedMessage}
+              On_Press={this._approvedMessage.bind(this)}
+              InText="Approve"
+            />
+            <TouchButton
+              On_Press={this._disapprovedMessage.bind(this)}
               InText="Disapprove"
             />
           </View>

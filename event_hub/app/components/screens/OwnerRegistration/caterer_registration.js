@@ -58,7 +58,8 @@ export default class CatererRegistration extends Component {
     CaterCompany.wifi = this.state.wifi;
     CaterCompany.dj = this.state.dj;
     CaterCompany.decoration = this.state.decoration;
-    var url = 'https://eventhub-api.conveyor.cloud/api/Caterer/RegisterCaterer'
+    CaterCompany.U_id = global.id;
+    var url = "https://eventhub-api.conveyor.cloud/api/Caterer/RegisterCaterer";
     fetch(url, {
       method: "POST",
       body: JSON.stringify(CaterCompany),

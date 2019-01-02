@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EventHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BookingMedia">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prefferedTime" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="noOfDays" Type="Int32" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="companyID" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="Medium" Relationship="Self.FK_BookingMedia_Media" FromRole="BookingMedia" ToRole="Media" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prefferedTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="noOfGuests" Type="Int32" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="companyID" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Caterer">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="totalTime" Type="Time" Precision="7" />
+    <Property Name="streetNo" Type="Int32" />
+    <Property Name="houseNo" Type="Int32" />
+    <Property Name="townName" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="tent" Type="Boolean" />
+    <Property Name="generator" Type="Boolean" />
+    <Property Name="heater" Type="Boolean" />
+    <Property Name="servingStaff" Type="Boolean" />
+    <Property Name="lights" Type="Boolean" />
+    <Property Name="stageDecorations" Type="Boolean" />
+    <Property Name="cooking" Type="Boolean" />
+    <Property Name="bridalRoom" Type="Boolean" />
+    <Property Name="airCondition" Type="Boolean" />
+    <Property Name="valetParking" Type="Boolean" />
+    <Property Name="wifi" Type="Boolean" />
+    <Property Name="dj" Type="Boolean" />
+    <Property Name="decoration" Type="Boolean" />
+    <NavigationProperty Name="CatererBookings" Relationship="Self.FK_CatererBooking_CatererBooking" FromRole="Caterer" ToRole="CatererBooking" />
+  </EntityType>
+  <EntityType Name="CatererBooking">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prefferedTime" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="noOfDays" Type="Int32" />
+    <Property Name="eventDate" Type="DateTime" Precision="0" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="companyID" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="Caterer" Relationship="Self.FK_CatererBooking_CatererBooking" FromRole="CatererBooking" ToRole="Caterer" />
+  </EntityType>
+  <EntityType Name="Check">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hall">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="totalTime" Type="Time" Precision="7" />
+    <Property Name="streetNo" Type="Int32" />
+    <Property Name="houseNo" Type="Int32" />
+    <Property Name="townName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="price_per_head" Type="Int32" />
+    <Property Name="b_capacity" Type="Int32" />
+    <Property Name="p_capacity" Type="Int32" />
+    <Property Name="wifi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="dj" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="b_mackup" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Medium">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="startDate" Type="DateTime" Precision="3" />
+    <Property Name="totalTime" Type="Time" Precision="7" />
+    <Property Name="streetNo" Type="Int32" />
+    <Property Name="houseNo" Type="Int32" />
+    <Property Name="townName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="droneCamera" Type="Boolean" />
+    <Property Name="hdCam" Type="Boolean" />
+    <Property Name="noOfCams" Type="Int32" />
+    <Property Name="albums" Type="Boolean" />
+    <Property Name="photoGraphy" Type="Boolean" />
+    <Property Name="filmGraphy" Type="Boolean" />
+    <NavigationProperty Name="BookingMedias" Relationship="Self.FK_BookingMedia_Media" FromRole="Media" ToRole="BookingMedia" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="U_id" />
+    </Key>
+    <Property Name="U_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="U_type" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_BookingMedia_Media">
+    <End Role="Media" Type="Self.Medium" Multiplicity="0..1" />
+    <End Role="BookingMedia" Type="Self.BookingMedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Media">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="BookingMedia">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CatererBooking_CatererBooking">
+    <End Role="Caterer" Type="Self.Caterer" Multiplicity="0..1" />
+    <End Role="CatererBooking" Type="Self.CatererBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caterer">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="CatererBooking">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EventHubEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BookingMedias" EntityType="Self.BookingMedia" />
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="Caterers" EntityType="Self.Caterer" />
+    <EntitySet Name="CatererBookings" EntityType="Self.CatererBooking" />
+    <EntitySet Name="Checks" EntityType="Self.Check" />
+    <EntitySet Name="halls" EntityType="Self.hall" />
+    <EntitySet Name="Media" EntityType="Self.Medium" />
+    <EntitySet Name="Sellers" EntityType="Self.Seller" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_BookingMedia_Media" Association="Self.FK_BookingMedia_Media">
+      <End Role="Media" EntitySet="Media" />
+      <End Role="BookingMedia" EntitySet="BookingMedias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CatererBooking_CatererBooking" Association="Self.FK_CatererBooking_CatererBooking">
+      <End Role="Caterer" EntitySet="Caterers" />
+      <End Role="CatererBooking" EntitySet="CatererBookings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

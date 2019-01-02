@@ -103,7 +103,7 @@ export default class HallRegistration extends Component {
       })
         .then(res => res.json())
         .catch(error => console.error("Error :", error))
-        .then(res => console.warn("Success :", this.state.PPH));
+        .then(res => alert("your account register"));
 
       this.props.navigation.navigate("Congratulations");
     } else {

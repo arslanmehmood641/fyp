@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, FlatList } from "react-native";
-import OneHall from "../../small_components/onehall";
+import OneBooking from "../../small_components/OneBooking";
 import GenericPicker from "../../small_components/generic_picker";
 const data = require("../../data.json");
 export default class OwnerPendingBookings extends Component {
@@ -9,18 +9,17 @@ export default class OwnerPendingBookings extends Component {
     this.state = {
       isLoading: true, //check if json data fetch online
       data: [], //store an object of json data
-      typeOfCompany: ""
+      typeOfCompany: "Hall"
     };
   }
   decideNavigation() {
     const type = this.state.typeOfCompany;
-
     var obj = this.state;
     if (type === "Media") {
       this.pendingBookingForMedia();
     } else if (type === "Catering") this.pendingBookingForCaterer();
     else if (type === "Hall") {
-      //this.pendingBookingForHall();
+      this.pendingBookingForHall();
     }
   }
   pendingBookingForHall() {
@@ -102,10 +101,10 @@ export default class OwnerPendingBookings extends Component {
         <FlatList
           data={this.state.data}
           renderItem={hall => (
-            <OneHall
+            <OneBooking
               hall={hall.item}
               navigation={this.props.navigation}
-              userType="OwnerPending"
+              userType={this.state.typeOfCompany}
             />
           )}
           keyExtractor={(name, index) => index.toString()}

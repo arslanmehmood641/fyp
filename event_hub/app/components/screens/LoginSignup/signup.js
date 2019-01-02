@@ -37,7 +37,7 @@ export default class SignUp extends Component {
         user.U_id = 0;
         user.UserName = this.state.email;
         user.Password = this.state.pswd;
-        alert(this.state.Utype);
+
         user.U_type = this.state.Utype;
         var url = "https://eventhub-api.conveyor.cloud/api/User/RegisterUsers";
         fetch(url, {

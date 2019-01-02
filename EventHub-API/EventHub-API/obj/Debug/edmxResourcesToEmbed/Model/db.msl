@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EventHubModelStoreContainer" CdmEntityContainer="EventHubEntities">
+    <EntitySetMapping Name="BookingMedias">
+      <EntityTypeMapping TypeName="EventHubModel.BookingMedia">
+        <MappingFragment StoreEntitySet="BookingMedia">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+          <ScalarProperty Name="noOfDays" ColumnName="noOfDays" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="EventHubModel.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+          <ScalarProperty Name="noOfGuests" ColumnName="noOfGuests" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Caterers">
+      <EntityTypeMapping TypeName="EventHubModel.Caterer">
+        <MappingFragment StoreEntitySet="Caterer">
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="totalTime" ColumnName="totalTime" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="houseNo" ColumnName="houseNo" />
+          <ScalarProperty Name="townName" ColumnName="townName" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="tent" ColumnName="tent" />
+          <ScalarProperty Name="generator" ColumnName="generator" />
+          <ScalarProperty Name="heater" ColumnName="heater" />
+          <ScalarProperty Name="servingStaff" ColumnName="servingStaff" />
+          <ScalarProperty Name="lights" ColumnName="lights" />
+          <ScalarProperty Name="stageDecorations" ColumnName="stageDecorations" />
+          <ScalarProperty Name="cooking" ColumnName="cooking" />
+          <ScalarProperty Name="bridalRoom" ColumnName="bridalRoom" />
+          <ScalarProperty Name="airCondition" ColumnName="airCondition" />
+          <ScalarProperty Name="valetParking" ColumnName="valetParking" />
+          <ScalarProperty Name="wifi" ColumnName="wifi" />
+          <ScalarProperty Name="dj" ColumnName="dj" />
+          <ScalarProperty Name="decoration" ColumnName="decoration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatererBookings">
+      <EntityTypeMapping TypeName="EventHubModel.CatererBooking">
+        <MappingFragment StoreEntitySet="CatererBooking">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+          <ScalarProperty Name="noOfDays" ColumnName="noOfDays" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checks">
+      <EntityTypeMapping TypeName="EventHubModel.Check">
+        <MappingFragment StoreEntitySet="Check">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="halls">
+      <EntityTypeMapping TypeName="EventHubModel.hall">
+        <MappingFragment StoreEntitySet="halls">
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="totalTime" ColumnName="totalTime" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="houseNo" ColumnName="houseNo" />
+          <ScalarProperty Name="townName" ColumnName="townName" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="price_per_head" ColumnName="price_per_head" />
+          <ScalarProperty Name="b_capacity" ColumnName="b_capacity" />
+          <ScalarProperty Name="p_capacity" ColumnName="p_capacity" />
+          <ScalarProperty Name="wifi" ColumnName="wifi" />
+          <ScalarProperty Name="dj" ColumnName="dj" />
+          <ScalarProperty Name="b_mackup" ColumnName="b_mackup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Media">
+      <EntityTypeMapping TypeName="EventHubModel.Medium">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="totalTime" ColumnName="totalTime" />
+          <ScalarProperty Name="streetNo" ColumnName="streetNo" />
+          <ScalarProperty Name="houseNo" ColumnName="houseNo" />
+          <ScalarProperty Name="townName" ColumnName="townName" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="droneCamera" ColumnName="droneCamera" />
+          <ScalarProperty Name="hdCam" ColumnName="hdCam" />
+          <ScalarProperty Name="noOfCams" ColumnName="noOfCams" />
+          <ScalarProperty Name="albums" ColumnName="albums" />
+          <ScalarProperty Name="photoGraphy" ColumnName="photoGraphy" />
+          <ScalarProperty Name="filmGraphy" ColumnName="filmGraphy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sellers">
+      <EntityTypeMapping TypeName="EventHubModel.Seller">
+        <MappingFragment StoreEntitySet="Seller">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="EventHubModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="U_type" ColumnName="U_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, ScrollView } from "react-native";
 import PasswordField from "../../small_components/password_field";
 import HomeLogo from "../../small_components/home_logo";
+import { withNavigation } from "react-navigation";
 import TouchButton from "../../small_components/touch_button";
 import InputField from "../../small_components/input_field";
 
@@ -11,7 +12,7 @@ import {
 } from "react-native-responsive-screen";
 import { View } from "native-base";
 
-export default class SignIn extends Component {
+const obj = class SignIn extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,39 +26,49 @@ export default class SignIn extends Component {
   submit() {}
 
   checkMail() {
-    let login = {};
-    login.email = this.state.email;
-    login.password = this.state.password;
-    var url = "https://eventhub-api.conveyor.cloud/api/User/Login";
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(login),
-      headers: new Headers({
-        "Content-Type": "application/json"
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const flag = reg.test(this.state.email);
+    if (!flag) alert("Wrong Email");
+    else if (this.state.password === "") alert("Password Field Is Empty");
+    else {
+      let login = {};
+      login.email = this.state.email;
+      login.password = this.state.password;
+      var url = "https://eventhub-api.conveyor.cloud/api/User/Login";
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(login),
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
       })
-    })
-      .then(res => res.json())
-      .catch(error => console.error("Error :", error))
-      .then(res => {
-        this.setState({ user: res });
-        console.warn(this.state.user[0].U_type);
-        global.id = this.state.user[0].U_id;
-        alert(this.state.user[0].U_type);
-        if (this.state.user[0].U_type === 1) {
-          alert("i am here");
-          this.props.navigation.navigate("Owner Settings", {
-            user: this.state.user
-          });
-        } else if (
-          this.state.user[0].U_id > 0 &&
-          this.state.user[0].U_type === 2
-        ) {
-          console.warn("hhhh");
-          this.props.navigation.navigate("Customer Settings", {
-            user: this.state.user
-          });
-        }
-      });
+        .then(res => res.json())
+        .catch(error => console.error("Error :", error))
+        .then(res => {
+          this.setState({ user: res });
+          if (this.state.user.length != 0) {
+            if (
+              this.state.user[0].U_id > 0 &&
+              this.state.user[0].U_type === 1
+            ) {
+              global.id = this.state.user[0].U_id;
+              this.props.navigation.navigate("Owner Settings", {
+                user: this.state.user
+              });
+            } else if (
+              this.state.user[0].U_id > 0 &&
+              this.state.user[0].U_type === 2
+            ) {
+              global.id = this.state.user[0].U_id;
+              this.props.navigation.navigate("Customer Settings", {
+                user: this.state.user
+              });
+            }
+          } else {
+            alert("No user Found");
+          }
+        });
+    }
   }
   handleEmailInput = text => {
     this.setState({
@@ -96,7 +107,7 @@ export default class SignIn extends Component {
       </ScrollView>
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   backgroundContainer: {
@@ -104,3 +115,4 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+export default withNavigation(obj);

@@ -22,7 +22,6 @@ export default class MediaHome extends Component {
       .catch(error => console.error("Error :", error))
       .then(res => {
         this.setState({ data: res });
-        console.warn(this.state.data);
       });
   }
   render() {

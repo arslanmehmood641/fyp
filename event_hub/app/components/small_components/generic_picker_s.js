@@ -11,7 +11,8 @@ export default class GenericPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: 12
+      language: 12,
+      count: 0
     };
   }
   render() {
@@ -26,7 +27,11 @@ export default class GenericPicker extends Component {
           onValueChange={this.props.on_Value_Change}
         >
           {pickerValues.map(val => (
-            <Picker.Item value={val[0]} label={val[1]} />
+            <Picker.Item
+              value={val[0]}
+              key={this.state.count++}
+              label={val[1]}
+            />
           ))}
         </Picker>
       </View>
@@ -43,7 +48,6 @@ const styles = StyleSheet.create({
     width: widthP("82%")
   },
   pickerStyle: {
-    fontSize: 16,
     color: "rgba(255, 255, 255, 0.7)",
     height: heightP("6%"),
     width: widthP("76%"),

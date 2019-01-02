@@ -31,7 +31,7 @@ const screens = createStackNavigator(
     "Home Screen": { screen: HomeScreen },
     "Media Home": { screen: MediaHome },
     Form1: { screen: MediaForm },
-    Form2: { screen: MediaForm },
+    Form2: { screen: CatererForm },
     "Caterer Home": { screen: CatererHome },
     Maps: { screen: Maps },
     "Manage Booking": { screen: ManageBookings },

@@ -50,6 +50,7 @@ export default class MediaRegistration extends Component {
     mediaCompany.albums = this.state.albums;
     mediaCompany.photoGraphy = this.state.photoGraphy;
     mediaCompany.filmGraphy = this.state.filmGraphy;
+    mediaCompany.U_id = global.id;
     var url = "https://eventhub-api.conveyor.cloud/api/Media/RegisterMedia";
     fetch(url, {
       method: "POST",

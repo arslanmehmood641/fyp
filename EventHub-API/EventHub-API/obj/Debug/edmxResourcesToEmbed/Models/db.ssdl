@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EventHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookingMedia">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prefferedTime" Type="nchar" MaxLength="50" />
+    <Property Name="noOfDays" Type="int" />
+    <Property Name="eventDate" Type="date" />
+    <Property Name="userName" Type="nchar" MaxLength="50" />
+    <Property Name="userEmail" Type="nchar" MaxLength="50" />
+    <Property Name="phone" Type="nchar" MaxLength="50" />
+    <Property Name="city" Type="nchar" MaxLength="50" />
+    <Property Name="companyID" Type="int" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prefferedTime" Type="nchar" MaxLength="10" />
+    <Property Name="noOfGuests" Type="int" />
+    <Property Name="eventDate" Type="date" />
+    <Property Name="userName" Type="nchar" MaxLength="50" />
+    <Property Name="userEmail" Type="nchar" MaxLength="50" />
+    <Property Name="phone" Type="nchar" MaxLength="20" />
+    <Property Name="city" Type="nchar" MaxLength="20" />
+    <Property Name="companyID" Type="int" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Caterer">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="50" />
+    <Property Name="email" Type="nchar" MaxLength="50" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="totalTime" Type="time" Precision="7" />
+    <Property Name="streetNo" Type="int" />
+    <Property Name="houseNo" Type="int" />
+    <Property Name="townName" Type="nchar" MaxLength="60" />
+    <Property Name="city" Type="nchar" MaxLength="50" />
+    <Property Name="country" Type="nchar" MaxLength="50" />
+    <Property Name="tent" Type="bit" />
+    <Property Name="generator" Type="bit" />
+    <Property Name="heater" Type="bit" />
+    <Property Name="servingStaff" Type="bit" />
+    <Property Name="lights" Type="bit" />
+    <Property Name="stageDecorations" Type="bit" />
+    <Property Name="cooking" Type="bit" />
+    <Property Name="bridalRoom" Type="bit" />
+    <Property Name="airCondition" Type="bit" />
+    <Property Name="valetParking" Type="bit" />
+    <Property Name="wifi" Type="bit" />
+    <Property Name="dj" Type="bit" />
+    <Property Name="decoration" Type="bit" />
+    <Property Name="U_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CatererBooking">
+    <Key>
+      <PropertyRef Name="b_id" />
+    </Key>
+    <Property Name="b_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prefferedTime" Type="nchar" MaxLength="50" />
+    <Property Name="noOfDays" Type="int" />
+    <Property Name="eventDate" Type="date" />
+    <Property Name="userName" Type="nchar" MaxLength="50" />
+    <Property Name="userEmail" Type="nchar" MaxLength="50" />
+    <Property Name="phone" Type="nchar" MaxLength="50" />
+    <Property Name="city" Type="nchar" MaxLength="50" />
+    <Property Name="companyID" Type="int" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Check">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="halls">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="50" />
+    <Property Name="email" Type="nchar" MaxLength="50" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="totalTime" Type="time" Precision="7" />
+    <Property Name="streetNo" Type="int" />
+    <Property Name="houseNo" Type="int" />
+    <Property Name="townName" Type="nchar" MaxLength="50" />
+    <Property Name="city" Type="nchar" MaxLength="50" />
+    <Property Name="country" Type="nchar" MaxLength="50" />
+    <Property Name="price_per_head" Type="int" />
+    <Property Name="b_capacity" Type="int" />
+    <Property Name="p_capacity" Type="int" />
+    <Property Name="wifi" Type="nchar" MaxLength="10" />
+    <Property Name="dj" Type="nchar" MaxLength="10" />
+    <Property Name="b_mackup" Type="nchar" MaxLength="10" />
+    <Property Name="U_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Media">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="50" />
+    <Property Name="email" Type="nchar" MaxLength="50" />
+    <Property Name="startDate" Type="datetime" />
+    <Property Name="totalTime" Type="time" Precision="7" />
+    <Property Name="streetNo" Type="int" />
+    <Property Name="houseNo" Type="int" />
+    <Property Name="townName" Type="nchar" MaxLength="50" />
+    <Property Name="city" Type="nchar" MaxLength="50" />
+    <Property Name="country" Type="nchar" MaxLength="50" />
+    <Property Name="droneCamera" Type="bit" />
+    <Property Name="hdCam" Type="bit" />
+    <Property Name="noOfCams" Type="int" />
+    <Property Name="albums" Type="bit" />
+    <Property Name="photoGraphy" Type="bit" />
+    <Property Name="filmGraphy" Type="bit" />
+    <Property Name="U_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="U_id" />
+    </Key>
+    <Property Name="U_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nchar" MaxLength="50" />
+    <Property Name="Password" Type="nchar" MaxLength="50" />
+    <Property Name="U_type" Type="int" />
+  </EntityType>
+  <Association Name="FK_BookingMedia_Media">
+    <End Role="Media" Type="Self.Media" Multiplicity="0..1" />
+    <End Role="BookingMedia" Type="Self.BookingMedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Media">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="BookingMedia">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_halls">
+    <End Role="halls" Type="Self.halls" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="halls">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CatererBooking_CatererBooking">
+    <End Role="Caterer" Type="Self.Caterer" Multiplicity="0..1" />
+    <End Role="CatererBooking" Type="Self.CatererBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caterer">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="CatererBooking">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_halls_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="halls" Type="Self.halls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_id" />
+      </Principal>
+      <Dependent Role="halls">
+        <PropertyRef Name="U_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Media_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Media" Type="Self.Media" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_id" />
+      </Principal>
+      <Dependent Role="Media">
+        <PropertyRef Name="U_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetHalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="OwnerPendingReqquests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerPendingRequestCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerPendingRequestMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="nchar" Mode="In" />
+    <Parameter Name="password" Type="nchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="EventHubModelStoreContainer">
+    <EntitySet Name="BookingMedia" EntityType="Self.BookingMedia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Caterer" EntityType="Self.Caterer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatererBooking" EntityType="Self.CatererBooking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Check" EntityType="Self.Check" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="halls" EntityType="Self.halls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seller" EntityType="Self.Seller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BookingMedia_Media" Association="Self.FK_BookingMedia_Media">
+      <End Role="Media" EntitySet="Media" />
+      <End Role="BookingMedia" EntitySet="BookingMedia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bookings_halls" Association="Self.FK_Bookings_halls">
+      <End Role="halls" EntitySet="halls" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CatererBooking_CatererBooking" Association="Self.FK_CatererBooking_CatererBooking">
+      <End Role="Caterer" EntitySet="Caterer" />
+      <End Role="CatererBooking" EntitySet="CatererBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_halls_Users" Association="Self.FK_halls_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="halls" EntitySet="halls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Media_Users" Association="Self.FK_Media_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Media" EntitySet="Media" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

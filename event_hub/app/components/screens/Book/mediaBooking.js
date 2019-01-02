@@ -57,7 +57,12 @@ export default class Form extends Component {
     });
   };
   submit() {
-    if (this.state.UserEmail != "") {
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const flag = reg.test(this.state.UserEmail);
+    if (!flag) alert("Wrong email");
+    else if (this.state.Phone.length != 11)
+      alert("Phone No Should be 11 digit");
+    else if (this.state.UserEmail != "") {
       let b = {};
       b.b_id = 0;
       b.prefferedTime = this.state.prefferedTime;
@@ -80,7 +85,7 @@ export default class Form extends Component {
       })
         .then(res => res.json())
         .catch(error => console.error("Error :", error))
-        .then(res => console.warn("Success :", this.state.EventDate));
+        .then(res => alert("booking successfully"));
 
       this.props.navigation.navigate("Congratulations");
     } else {
