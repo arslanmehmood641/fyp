@@ -59,7 +59,7 @@ export default class OneHall extends Component {
                 fullStarColor="yellow"
               />
             </View>
-            <Text>{hall.b_capacity} guests</Text>
+            <Text>{hall.b_capacity} guests capacity</Text>
             <Text>{hall.price_per_head} Rs/-(per head)</Text>
           </View>
         </View>

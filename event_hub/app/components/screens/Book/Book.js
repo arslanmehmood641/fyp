@@ -17,17 +17,32 @@ export default class ManageBookings extends Component {
       isLoading: true, //check if json data fetch online
       dataSource: [], //store an object of json data
       id: 0,
-      cid: 0
+      cid: 0,
+      type: ""
     };
   }
 
   _approvedMessage() {
-    alert("hello");
-    var url =
-      "https://eventhub-api.conveyor.cloud/api/Hall/ApprovePendingRequest?id=" +
-      this.state.id +
-      "&cid=" +
-      this.state.cid;
+    alert(this.state.type);
+    if (this.state.type === "Hall") {
+      var url =
+        "https://eventhub-api.conveyor.cloud/api/Owner/ApprovePendingRequestHall?id=" +
+        this.state.id +
+        "&cid=" +
+        this.state.cid;
+    } else if (this.state.type === "Media") {
+      var url =
+        "https://eventhub-api.conveyor.cloud/api/Owner/ApprovePendingRequestMedia?id=" +
+        this.state.id +
+        "&cid=" +
+        this.state.cid;
+    } else if (this.state.type === "Caterer") {
+      var url =
+        "https://eventhub-api.conveyor.cloud/api/Owner/ApprovePendingRequestCaterer?id=" +
+        this.state.id +
+        "&cid=" +
+        this.state.cid;
+    }
 
     fetch(url, {
       method: "POST",
@@ -65,6 +80,7 @@ export default class ManageBookings extends Component {
     const hall = navigation.getParam("Object");
     this.state.cid = hall.companyID;
     this.state.id = hall.b_id;
+    this.state.type = hall.companyType;
 
     return (
       <View style={styles.container}>

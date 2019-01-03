@@ -1,5 +1,6 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import HomePage from "./app/components/screens/LoginSignup/homePage";
+import Login from "./app/components/screens/LoginSignup/sigin";
 import Form from "./app/components/screens/Book/apply_for_bookings";
 import MediaForm from "./app/components/screens/Book/mediaBooking";
 import CatererForm from "./app/components/screens/Book/catererBooking";
@@ -34,6 +35,7 @@ const screens = createStackNavigator(
     Form2: { screen: CatererForm },
     "Caterer Home": { screen: CatererHome },
     Maps: { screen: Maps },
+    Login: { screen: Login },
     "Manage Booking": { screen: ManageBookings },
     SadafList: { screen: List }
   },

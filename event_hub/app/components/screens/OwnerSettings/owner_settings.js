@@ -1,6 +1,6 @@
 import Registration from "../OwnerRegistration/registration_form";
-import PendingBookings from './owner_pending_bookings';
-import BookingsHistory from './owner_bookings_history';
+import PendingBookings from "./owner_pending_bookings";
+import BookingsHistory from "./owner_bookings_history";
 
 import React from "react";
 
@@ -18,7 +18,7 @@ import {
 
 const OwnerSettings = createMaterialTopTabNavigator(
   {
-    "Settings": {
+    Settings: {
       screen: Registration,
       navigationOptions: {
         tabBarLabel: "Settigns",
@@ -39,7 +39,7 @@ const OwnerSettings = createMaterialTopTabNavigator(
     "Bookings History": {
       screen: BookingsHistory,
       navigationOptions: {
-        tabBarLabel: "Bookings History",
+        tabBarLabel: "Currently Working",
         tabBarIcon: ({ tintColor }) => (
           <Icon name="assignment-ind" size={25} color={tintColor} />
         )

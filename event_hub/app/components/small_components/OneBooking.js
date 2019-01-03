@@ -23,9 +23,10 @@ export default class OneBooking extends Component {
   render() {
     const nav = this.props.navigation;
     type = this.props.userType;
-    alert(type);
+
     let hall = this.props.hall;
     this.state.hall1 = hall;
+
     return (
       <TouchableOpacity onPress={() => this.Goto(nav, type, hall)}>
         <View style={styles.container}>

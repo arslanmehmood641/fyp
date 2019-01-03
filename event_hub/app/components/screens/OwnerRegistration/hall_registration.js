@@ -15,12 +15,12 @@ export default class HallRegistration extends Component {
       name: "",
       email: "",
       loc: "",
-      PPH: "",
-      b_capacity: "",
-      p_capacity: "",
-      wifi: "",
-      dj: "",
-      b_mackup: ""
+      PPH: "Price/Head",
+      b_capacity: "Booking Capacity",
+      p_capacity: "Parking Capacity",
+      wifi: "WiFi",
+      dj: "DJ",
+      b_mackup: "Bridal makeUp"
     };
   }
   handleNameInput = text => {
@@ -74,7 +74,17 @@ export default class HallRegistration extends Component {
     });
   };
   submit(nav, genericCompany) {
-    if (genericCompany.name != "") {
+    if (this.state.PPH === "Price/Head")
+      alert("Price Per Head Is Not Provided");
+    else if (this.state.b_capacity === "Booking Capacity")
+      alert("Booking Capacity Is Not Provided");
+    else if (this.state.p_capacity === "Parking Capacity")
+      alert("Parking Capacity Is Not Provided");
+    else if (this.state.wifi === "WiFi") alert("Wifi Is Not Provided");
+    else if (this.state.dj === "Dj") alert("DJ Is Not Provided");
+    else if (this.state.b_mackup === "Bridal makeUp")
+      alert("Booking Capacity Is Not Provided");
+    else if (genericCompany.name != "") {
       let hall = {};
       hall.companyID = genericCompany.companyID;
       hall.name = genericCompany.name;
@@ -103,7 +113,7 @@ export default class HallRegistration extends Component {
       })
         .then(res => res.json())
         .catch(error => console.error("Error :", error))
-        .then(res => alert("your account register"));
+        .then(res => alert("register Successfully"));
 
       this.props.navigation.navigate("Congratulations");
     } else {

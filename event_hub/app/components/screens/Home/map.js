@@ -16,7 +16,7 @@ export default class Maps extends Component {
     const nav = this.props.navigation;
     //const type = this.props.obj;
     let hall = this.props.hall;
-    console.warn(hall);
+
     return (
       <View style={{ paddingHorizontal: 30 }}>
         <Text style={{ fontSize: 25, color: "green" }}>{hall.name}</Text>

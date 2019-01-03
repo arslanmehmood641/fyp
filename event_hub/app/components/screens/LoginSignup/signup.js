@@ -22,6 +22,12 @@ export default class SignUp extends Component {
       Utype: "Type Of User"
     };
   }
+  reset() {
+    this.state.email = "";
+    this.state.pswd = "";
+    this.state.c_pswd = "";
+    this.state.U_type = "";
+  }
 
   checkMail(nav) {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -50,9 +56,11 @@ export default class SignUp extends Component {
           .then(res => res.json())
           .catch(error => console.warn("Error :", error))
           .then(res => {
-            if (res === 1)
+            if (res === 1) {
               Toast.show("Account Is Registered Successfully", Toast.SHORT);
-            else if (res === 2)
+              this.reset();
+              this.props.navigation.navigate("Home");
+            } else if (res === 2)
               Toast.show("Credentials are not valid", Toast.SHORT);
           });
       }

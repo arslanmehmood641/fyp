@@ -82,7 +82,7 @@ export default class Registration extends Component {
           <Text style={styles.header}>Registration</Text>
           <InputField
             iconName="account-circle"
-            placeHolder="Name"
+            placeHolder="Company Name"
             On_Change_Text={this.handleName}
           />
           <InputField
