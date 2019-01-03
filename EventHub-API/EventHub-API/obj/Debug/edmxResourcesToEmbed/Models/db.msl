@@ -290,5 +290,57 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OwnerApproveRequestCaterer" FunctionName="EventHubModel.Store.OwnerApproveRequestCaterer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EventHubModel.OwnerApproveRequestCaterer_Result">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="U_type" ColumnName="U_type" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OwnerApproveRequestMedia" FunctionName="EventHubModel.Store.OwnerApproveRequestMedia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EventHubModel.OwnerApproveRequestMedia_Result">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="U_type" ColumnName="U_type" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OwnerApproveRequestsHall" FunctionName="EventHubModel.Store.OwnerApproveRequestsHall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EventHubModel.OwnerApproveRequestsHall_Result">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+          <ScalarProperty Name="noOfGuests" ColumnName="noOfGuests" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="U_type" ColumnName="U_type" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EventHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EventHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BookingMedia">
           <Key>
             <PropertyRef Name="b_id" />
@@ -210,6 +210,15 @@
         <Function Name="GetHalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="OwnerApproveRequestCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="OwnerApproveRequestMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="OwnerApproveRequestsHall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="OwnerPendingReqquests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -254,8 +263,7 @@
             <End Role="Media" EntitySet="Media" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EventHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -505,17 +513,26 @@
           <FunctionImport Name="GetMedia" ReturnType="Collection(EventHubModel.GetMedia_Result)" />
           <FunctionImport Name="GetUser" ReturnType="Collection(EventHubModel.GetUser_Result)" />
           <FunctionImport Name="OwnerPendingReqquests" ReturnType="Collection(EventHubModel.OwnerPendingReqquests_Result)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="OwnerPendingRequestCaterer" ReturnType="Collection(EventHubModel.OwnerPendingRequestCaterer_Result)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="OwnerPendingRequestMedia" ReturnType="Collection(EventHubModel.OwnerPendingRequestMedia_Result)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UserLogin" ReturnType="Collection(EventHubModel.UserLogin_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="OwnerApproveRequestCaterer" ReturnType="Collection(EventHubModel.OwnerApproveRequestCaterer_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="OwnerApproveRequestMedia" ReturnType="Collection(EventHubModel.OwnerApproveRequestMedia_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="OwnerApproveRequestsHall" ReturnType="Collection(EventHubModel.OwnerApproveRequestsHall_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetCaterer_Result">
@@ -624,6 +641,46 @@
           <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="U_type" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OwnerApproveRequestCaterer_Result">
+          <Property Type="Int32" Name="b_id" Nullable="false" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="eventDate" Nullable="true" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prefferedTime" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="userEmail" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="status" Nullable="true" />
+          <Property Type="Int32" Name="U_id" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="U_type" Nullable="true" />
+          <Property Type="Int32" Name="companyID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OwnerApproveRequestMedia_Result">
+          <Property Type="Int32" Name="b_id" Nullable="false" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="eventDate" Nullable="true" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prefferedTime" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="userEmail" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="status" Nullable="true" />
+          <Property Type="Int32" Name="U_id" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="U_type" Nullable="true" />
+          <Property Type="Int32" Name="companyID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OwnerApproveRequestsHall_Result">
+          <Property Type="Int32" Name="b_id" Nullable="false" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="eventDate" Nullable="true" />
+          <Property Type="Int32" Name="noOfGuests" Nullable="true" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="prefferedTime" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="userEmail" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="status" Nullable="true" />
+          <Property Type="Int32" Name="U_id" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="U_type" Nullable="true" />
+          <Property Type="Int32" Name="companyID" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -917,6 +974,58 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="U_type" ColumnName="U_type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OwnerApproveRequestCaterer" FunctionName="EventHubModel.Store.OwnerApproveRequestCaterer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EventHubModel.OwnerApproveRequestCaterer_Result">
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="U_id" ColumnName="U_id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="U_type" ColumnName="U_type" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OwnerApproveRequestMedia" FunctionName="EventHubModel.Store.OwnerApproveRequestMedia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EventHubModel.OwnerApproveRequestMedia_Result">
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="U_id" ColumnName="U_id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="U_type" ColumnName="U_type" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OwnerApproveRequestsHall" FunctionName="EventHubModel.Store.OwnerApproveRequestsHall">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EventHubModel.OwnerApproveRequestsHall_Result">
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+                <ScalarProperty Name="noOfGuests" ColumnName="noOfGuests" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="prefferedTime" ColumnName="prefferedTime" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="U_id" ColumnName="U_id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="U_type" ColumnName="U_type" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -197,6 +197,15 @@
     <Compile Include="Models\Medium.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OwnerApproveRequestCaterer_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OwnerApproveRequestMedia_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OwnerApproveRequestsHall_Result.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OwnerPendingReqquests_Result.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>

@@ -97,5 +97,32 @@ namespace EventHub_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UserLogin_Result>("UserLogin", emailParameter, passwordParameter);
         }
+    
+        public virtual ObjectResult<OwnerApproveRequestCaterer_Result> OwnerApproveRequestCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApproveRequestCaterer_Result>("OwnerApproveRequestCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerApproveRequestMedia_Result> OwnerApproveRequestMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApproveRequestMedia_Result>("OwnerApproveRequestMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerApproveRequestsHall_Result> OwnerApproveRequestsHall(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApproveRequestsHall_Result>("OwnerApproveRequestsHall", idParameter);
+        }
     }
 }

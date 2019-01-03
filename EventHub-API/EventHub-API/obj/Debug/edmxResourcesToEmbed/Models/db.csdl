@@ -258,6 +258,15 @@
       <Parameter Name="email" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="OwnerApproveRequestCaterer" ReturnType="Collection(EventHubModel.OwnerApproveRequestCaterer_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OwnerApproveRequestMedia" ReturnType="Collection(EventHubModel.OwnerApproveRequestMedia_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OwnerApproveRequestsHall" ReturnType="Collection(EventHubModel.OwnerApproveRequestsHall_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetCaterer_Result">
     <Property Type="Int32" Name="companyID" Nullable="false" />
@@ -365,5 +374,45 @@
     <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="U_type" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="OwnerApproveRequestCaterer_Result">
+    <Property Type="Int32" Name="b_id" Nullable="false" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="eventDate" Nullable="true" />
+    <Property Type="String" Name="phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="prefferedTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="userEmail" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="Int32" Name="U_id" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="U_type" Nullable="true" />
+    <Property Type="Int32" Name="companyID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="OwnerApproveRequestMedia_Result">
+    <Property Type="Int32" Name="b_id" Nullable="false" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="eventDate" Nullable="true" />
+    <Property Type="String" Name="phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="prefferedTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="userEmail" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="Int32" Name="U_id" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="U_type" Nullable="true" />
+    <Property Type="Int32" Name="companyID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="OwnerApproveRequestsHall_Result">
+    <Property Type="Int32" Name="b_id" Nullable="false" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="eventDate" Nullable="true" />
+    <Property Type="Int32" Name="noOfGuests" Nullable="true" />
+    <Property Type="String" Name="phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="prefferedTime" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="userEmail" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="Int32" Name="U_id" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="U_type" Nullable="true" />
+    <Property Type="Int32" Name="companyID" Nullable="true" />
   </ComplexType>
 </Schema>

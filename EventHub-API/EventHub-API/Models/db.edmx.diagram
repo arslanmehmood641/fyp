@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1699842b20a94888a48cbbcd7bbace4f" Name="Diagram1">
+      <Diagram DiagramId="e1b718fa23b24466851b9488fce7fb9e" Name="Diagram1">
         <EntityTypeShape EntityType="EventHubModel.BookingMedia" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EventHubModel.Booking" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EventHubModel.Caterer" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
