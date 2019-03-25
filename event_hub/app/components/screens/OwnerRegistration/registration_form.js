@@ -30,7 +30,7 @@ export default class Registration extends Component {
       country: "",
       typeOfCompany: ""
     };
-    alert(global.id);
+    //alert(global.id);
   }
   handleName = text => {
     this.setState({

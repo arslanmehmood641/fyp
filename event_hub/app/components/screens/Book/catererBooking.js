@@ -73,6 +73,7 @@ export default class Form extends Component {
       b.phone = this.state.Phone;
       b.city = this.state.city;
       b.companyID = this.state.media.companyID;
+      b.U_id = global.id;
       b.status = 0;
       var url =
         "https://eventhub-api.conveyor.cloud/api/Caterer/RegisterCatererBooking";

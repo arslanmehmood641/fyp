@@ -4,19 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e1b718fa23b24466851b9488fce7fb9e" Name="Diagram1">
-        <EntityTypeShape EntityType="EventHubModel.BookingMedia" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.Booking" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.Caterer" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.CatererBooking" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.Check" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.hall" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.Medium" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.Seller" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventHubModel.User" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+      <Diagram DiagramId="fea89ef769434f57a3fba6440e22f618" Name="Diagram1">
+        <EntityTypeShape EntityType="EventHubModel.BookingMedia" Width="1.5" PointX="6.875" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.Booking" Width="1.5" PointX="10.875" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.Caterer" Width="1.5" PointX="0.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.CatererBooking" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.Check" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.hall" Width="1.5" PointX="13.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.Medium" Width="1.5" PointX="9" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.Seller" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventHubModel.User" Width="1.5" PointX="5.125" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="EventHubModel.FK_BookingMedia_Media" ManuallyRouted="false" />
+        <AssociationConnector Association="EventHubModel.FK_BookingMedia_Users" ManuallyRouted="false" />
         <AssociationConnector Association="EventHubModel.FK_Bookings_halls" ManuallyRouted="false" />
-        <AssociationConnector Association="EventHubModel.FK_CatererBooking_CatererBooking" ManuallyRouted="false" />
+        <AssociationConnector Association="EventHubModel.FK_Bookings_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="EventHubModel.FK_CatererBooking_Caterer" ManuallyRouted="false" />
+        <AssociationConnector Association="EventHubModel.FK_CatererBooking_Users" ManuallyRouted="false" />
         <AssociationConnector Association="EventHubModel.FK_halls_Users" ManuallyRouted="false" />
         <AssociationConnector Association="EventHubModel.FK_Media_Users" ManuallyRouted="false" />
       </Diagram>

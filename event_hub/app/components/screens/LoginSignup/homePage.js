@@ -41,12 +41,12 @@ const HomePage = createMaterialTopTabNavigator(
     tabBarPosition: "bottom",
     tabBarOptions: {
       showIcon: true,
-      activeTintColor: "red",
-      inactiveTintColor: "gray",
+
+      activeTintColor: "green",
+      inactiveTintColor: "#000000",
       tabStyle: {
-        backgroundColor: "cyan",
-        height: heightP("10%"),
-        overflow: "scroll"
+        backgroundColor: "#ffffff",
+        height: heightP("10%")
       }
     }
   }

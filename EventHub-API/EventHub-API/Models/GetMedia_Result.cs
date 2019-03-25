@@ -30,5 +30,17 @@ namespace EventHub_API.Models
         public Nullable<bool> photoGraphy { get; set; }
         public Nullable<bool> filmGraphy { get; set; }
         public Nullable<int> U_id { get; set; }
+        public Nullable<int> CamsOne { get; set; }
+        public Nullable<int> PriceOne { get; set; }
+        public Nullable<int> DroneOne { get; set; }
+        public Nullable<int> AlbumOne { get; set; }
+        public Nullable<int> CamsTwo { get; set; }
+        public Nullable<int> PriceTwo { get; set; }
+        public Nullable<int> DroneTwo { get; set; }
+        public Nullable<int> AlbumTwo { get; set; }
+        public Nullable<int> CamsThree { get; set; }
+        public Nullable<int> PriceThree { get; set; }
+        public Nullable<int> DroneThree { get; set; }
+        public Nullable<int> AlbumThree { get; set; }
     }
 }

@@ -23,12 +23,19 @@ namespace EventHub_API.Models
         public string townName { get; set; }
         public string city { get; set; }
         public string country { get; set; }
-        public Nullable<bool> droneCamera { get; set; }
-        public Nullable<bool> hdCam { get; set; }
-        public Nullable<int> noOfCams { get; set; }
-        public Nullable<bool> albums { get; set; }
-        public Nullable<bool> photoGraphy { get; set; }
-        public Nullable<bool> filmGraphy { get; set; }
+        public Nullable<bool> tent { get; set; }
+        public Nullable<bool> generator { get; set; }
+        public Nullable<bool> heater { get; set; }
+        public Nullable<bool> servingStaff { get; set; }
+        public Nullable<bool> lights { get; set; }
+        public Nullable<bool> stageDecorations { get; set; }
+        public Nullable<bool> cooking { get; set; }
+        public Nullable<bool> bridalRoom { get; set; }
+        public Nullable<bool> airCondition { get; set; }
+        public Nullable<bool> valetParking { get; set; }
+        public Nullable<bool> wifi { get; set; }
+        public Nullable<bool> dj { get; set; }
+        public Nullable<bool> decoration { get; set; }
         public Nullable<int> U_id { get; set; }
     }
 }

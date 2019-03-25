@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, FlatList } from "react-native";
 import OneBooking from "../../small_components/OneBooking";
 import GenericPicker from "../../small_components/generic_picker";
-const data = require("../../data.json");
+
 export default class OwnerPendingBookings extends Component {
   constructor() {
     super();

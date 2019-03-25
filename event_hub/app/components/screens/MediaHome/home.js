@@ -15,7 +15,6 @@ import { withNavigation } from "react-navigation";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import UntouchableButton from "../../small_components/untouchable_btn";
 import TouchButton from "../../small_components/touch_button";
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
@@ -42,7 +41,17 @@ class HomeScreen extends Component {
         <Content>
           <Slide />
           <Map media={this.state.media} navigation={this.props.navigation} />
-          <Pack />
+          <Pack media={this.state.media} navigation={this.props.navigation} />
+          <View style={{ alignItems: "center" }} />
+          <View>
+            <Text style={styles.heading}>Guest Love It Because</Text>
+            <View style={{ paddingLeft: 5 }}>
+              <UntouchableButton InText="Drone Cam" IconName="music-note" />
+              <UntouchableButton InText="Hd Cam" IconName="music-note" />
+              <UntouchableButton InText="Albums" IconName="music-note" />
+              <UntouchableButton InText="Film Graphy" IconName="music-note" />
+            </View>
+          </View>
           <View style={{ alignItems: "center" }}>
             <TouchButton
               On_Press={() => {
@@ -52,15 +61,6 @@ class HomeScreen extends Component {
               }}
               InText="CHECK AVAILABILITY"
             />
-          </View>
-          <View>
-            <Text style={styles.heading}>Guest Love It Because</Text>
-            <View style={{ paddingLeft: 30 }}>
-              <UntouchableButton InText="Drone Cam" IconName="music-note" />
-              <UntouchableButton InText="Hd Cam" IconName="music-note" />
-              <UntouchableButton InText="Albums" IconName="music-note" />
-              <UntouchableButton InText="Film Graphy" IconName="music-note" />
-            </View>
           </View>
         </Content>
       </Container>

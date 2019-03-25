@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import data from "../../readBookingData.json"; //import json file here
+
 import { View, Text, Image, StyleSheet } from "react-native";
 import StarRating from "react-native-star-rating";
 import hallImg from "../../../../images/china_wall.jpg";

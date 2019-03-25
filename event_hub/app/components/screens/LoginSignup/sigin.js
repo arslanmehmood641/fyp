@@ -52,6 +52,9 @@ const obj = class SignIn extends Component {
               this.state.user[0].U_type === 1
             ) {
               global.id = this.state.user[0].U_id;
+              global.name = this.state.user[0].UserName;
+              global.type = "Owner";
+              global.check = "Owner";
               this.props.navigation.navigate("Owner Settings", {
                 user: this.state.user
               });
@@ -60,6 +63,9 @@ const obj = class SignIn extends Component {
               this.state.user[0].U_type === 2
             ) {
               global.id = this.state.user[0].U_id;
+              global.name = this.state.user[0].UserName;
+              global.type = "Customer";
+              global.check = "Customer";
               this.props.navigation.navigate("Customer Settings", {
                 user: this.state.user
               });

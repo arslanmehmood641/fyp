@@ -24,7 +24,14 @@ namespace EventHub_API.Models
         public string city { get; set; }
         public Nullable<int> companyID { get; set; }
         public Nullable<int> status { get; set; }
+        public Nullable<int> packege { get; set; }
+        public Nullable<int> U_id { get; set; }
+        public Nullable<int> starToCustomer { get; set; }
+        public Nullable<int> starToOwner { get; set; }
+        public string reviewToCutomer { get; set; }
+        public string reviewToOwner { get; set; }
     
         public virtual hall hall { get; set; }
+        public virtual User User { get; set; }
     }
 }

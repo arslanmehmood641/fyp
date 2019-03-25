@@ -1,7 +1,6 @@
 import PendingBookings from "./customer_pending_bookings";
-import MediaHome from "./media_home";
-import CatererHome from "./caterer_home";
-import Profile from "./profile";
+import Profile from "../OwnerProfile/index";
+import Index from "./index";
 import React from "react";
 import {
   createMaterialTopTabNavigator,
@@ -15,57 +14,93 @@ import {
 } from "react-native-responsive-screen";
 const CustomerSettings = createMaterialTopTabNavigator(
   {
+    Home: {
+      screen: PendingBookings,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            name="assignment-ind"
+            size={20}
+            color={tintColor}
+            style={{ marginTop: heightP("2%") }}
+          />
+        )
+      }
+    },
+    Bookings: {
+      screen: Index,
+      navigationOptions: {
+        tabBarLabel: "Bookings",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            name="settings"
+            color={tintColor}
+            size={20}
+            style={{ marginTop: heightP("2%") }}
+          />
+        )
+      }
+    },
+
     Profile: {
       screen: Profile,
       navigationOptions: {
         tabBarLabel: "Profile",
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="settings" color={tintColor} size={25} />
+          <Icon
+            name="person"
+            color={tintColor}
+            size={20}
+            style={{ marginTop: heightP("2%") }}
+          />
         )
       }
-    },
-    "Find Hall": {
-      screen: PendingBookings,
-      navigationOptions: {
-        tabBarLabel: "Find Hall",
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="assignment-ind" size={25} color={tintColor} />
-        )
-      }
-    },
-    "Find Media": {
+    }
+
+    /* "Find Media": {
       screen: MediaHome,
       navigationOptions: {
         tabBarLabel: "Find Media",
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="assignment-ind" size={25} color={tintColor} />
+          <Icon
+            name="assignment-ind"
+            size={20}
+            color={tintColor}
+            style={{ marginTop: heightP("2%") }}
+          />
         )
       }
-    },
-    "Find Caterer": {
+   },*/
+    /*"Find Caterer": {
       screen: CatererHome,
       navigationOptions: {
         tabBarLabel: "Find Caterer",
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="assignment-ind" size={25} color={tintColor} />
+          <Icon
+            name="assignment-ind"
+            size={20}
+            color={tintColor}
+            style={{ marginTop: heightP("2%") }}
+          />
         )
       }
     }
+  },*/
   },
   {
-    initialRouteName: "Profile",
+    initialRouteName: "Home",
     tabBarPosition: "bottom",
     tabBarOptions: {
       showIcon: true,
-      activeTintColor: "red",
-      inactiveTintColor: "gray",
+      activeTintColor: "green",
+      inactiveTintColor: "#000000",
       tabStyle: {
-        backgroundColor: "cyan",
-        height: heightP("11%"),
-        elevation: 4
+        backgroundColor: "#ffffff",
+        height: heightP("7%"),
+        elevation: 3
       }
     }
   }
 );
-
 export default CustomerSettings;

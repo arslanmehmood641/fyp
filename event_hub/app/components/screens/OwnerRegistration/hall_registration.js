@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import TouchButton from "../../small_components/touch_button";
-import PasswordField from "../../small_components/password_field";
-import InputField from "../../small_components/input_field";
+import { CheckBox } from "react-native-elements";
 import GenericPicker from "../../small_components/generic_picker";
+import InputField from "../../small_components/input_field";
+import SadaPicker from "../../small_components/sada_picker";
 import {
   widthPercentageToDP as wid,
   heightPercentageToDP as hig
@@ -20,7 +21,22 @@ export default class HallRegistration extends Component {
       p_capacity: "Parking Capacity",
       wifi: "WiFi",
       dj: "DJ",
-      b_mackup: "Bridal makeUp"
+      b_mackup: "Bridal makeUp",
+      chicken_main: "chicken",
+      chicken_sweet: "sweet",
+      chicken_rice: "rice",
+      chicken_starter: "starter",
+      mutton_main: "chicken",
+      mutton_sweet: "sweet",
+      mutton_rice: "rice",
+      mutton_starter: "starter",
+      beef_main: "chicken",
+      beef_sweet: "sweet",
+      beef_rice: "rice",
+      beef_starter: "starter",
+      chicken_price: "400",
+      mutton_price: "700",
+      beef_price: "600"
     };
   }
   handleNameInput = text => {
@@ -57,20 +73,68 @@ export default class HallRegistration extends Component {
         p_capacity: text
       });
     };
+    handlWifiInput = text => {
+      this.setState({
+        wifi: text
+      });
+    };
+    handleDjInput = text => {
+      this.setState({
+        dj: text
+      });
+    };
+    handleBmakeupInput = text => {
+      this.setState({
+        b_mackup: text
+      });
+    };
+    handleChicken_Main = text => {
+      this.setState({
+        chicken_main: text
+      });
+    };
+
+    handleChicken_starter = text => {
+      this.setState({
+        chicken_starter: text
+      });
+    };
   };
-  handlWifiInput = text => {
+  handleMutton_Main = text => {
     this.setState({
-      wifi: text
+      mutton_main: text
     });
   };
-  handleDjInput = text => {
+
+  handleMutton_starter = text => {
     this.setState({
-      dj: text
+      mutton_starter: text
     });
   };
-  handleBmakeupInput = text => {
+  handleMutton_price = text => {
     this.setState({
-      b_mackup: text
+      mutton_price: text
+    });
+  };
+  handleChicken_price = text => {
+    this.setState({
+      chicken_price: text
+    });
+  };
+  handleBeef_price = text => {
+    this.setState({
+      beef_price: text
+    });
+  };
+  handleBeef_Main = text => {
+    this.setState({
+      beef_main: text
+    });
+  };
+
+  handleBeef_starter = text => {
+    this.setState({
+      beef_starter: text
     });
   };
   submit(nav, genericCompany) {
@@ -102,6 +166,21 @@ export default class HallRegistration extends Component {
       hall.wifi = this.state.wifi;
       hall.dj = this.state.dj;
       hall.b_mackup = this.state.b_mackup;
+      hall.chicken_main = this.state.chicken_main;
+      hall.chicken_rice = this.state.chicken_rice;
+      hall.chicken_starter = this.state.chicken_starter;
+      hall.chicken_sweet = this.state.chicken_sweet;
+      hall.mutton_main = this.state.mutton_main;
+      hall.mutton_rice = this.state.mutton_rice;
+      hall.mutton_sweet = this.state.mutton_sweet;
+      hall.mutton_starter = this.state.mutton_starter;
+      hall.beef_main = this.state.beef_main;
+      hall.beef_rice = this.state.beef_rice;
+      hall.beef_sweet = this.state.beef_sweet;
+      hall.beef_starter = this.state.beef_starter;
+      hall.chickenPrice = this.state.chicken_price;
+      hall.muttonPrice = this.state.mutton_price;
+      hall.beefPrice = this.state.beef_price;
       hall.U_id = global.id;
       var url = "https://eventhub-api.conveyor.cloud/api/Hall/RegisterHall";
       fetch(url, {
@@ -126,8 +205,11 @@ export default class HallRegistration extends Component {
     const genericCompany = navigation.getParam("Object");
     return (
       <ScrollView>
+        <Text style={styles.header}>Registration</Text>
         <View style={styles.regform}>
-          <Text style={styles.header}>Registration</Text>
+          <Text style={{ marginLeft: wid("2%"), textAlign: "left" }}>
+            Facilities
+          </Text>
           <GenericPicker
             iconName="attach-money"
             Selected_Value={this.state.PPH}
@@ -176,11 +258,132 @@ export default class HallRegistration extends Component {
             pickerVals={["Bridal makeUp", "yes", "No"]}
             placeHolder={this.state.b_mackup}
           />
-          <TouchButton
-            InText="Register"
-            On_Press={() => this.submit(nav, genericCompany)}
+        </View>
+        <Text style={styles.header}>Enter your Packeges</Text>
+        <View style={styles.regform}>
+          <Text style={{ marginLeft: wid("2%"), textAlign: "left" }}>
+            Chicken Menue
+          </Text>
+          <InputField
+            iconName="account-circle"
+            placeHolder="Main Chicken Dish"
+            On_Change_Text={this.handleChicken_Main}
+          />
+
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <SadaPicker
+              Selected_Value={this.state.chicken_rice}
+              pickerVals={["Rice Dish", "Bryani", "dish1", "dish2"]}
+              On_Value_Change={(value, index) =>
+                this.setState({ chicken_rice: value })
+              }
+            />
+            <SadaPicker
+              Selected_Value={this.state.chicken_sweet}
+              pickerVals={["Sweet Dish", "Gajar ka halwa"]}
+              On_Value_Change={(value, index) =>
+                this.setState({ chicken_sweet: value })
+              }
+            />
+          </View>
+
+          <InputField
+            iconName="account-circle"
+            placeHolder="starter"
+            On_Change_Text={this.handleChicken_starter}
+          />
+          <InputField
+            iconName="account-circle"
+            placeHolder="Per Head Price"
+            On_Change_Text={this.handleChicken_price}
           />
         </View>
+        <View style={styles.regform}>
+          <Text style={{ marginLeft: wid("2%"), textAlign: "left" }}>
+            Mutton Menue
+          </Text>
+          <InputField
+            iconName="account-circle"
+            placeHolder="Main Chicken Dish"
+            On_Change_Text={this.handleMutton_Main}
+          />
+
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <SadaPicker
+              Selected_Value={this.state.mutton_sweet}
+              pickerVals={["Sweet Dish", "gajar ka halwa", "dish", "dish2"]}
+              On_Value_Change={(value, index) =>
+                this.setState({ mutton_sweet: value })
+              }
+            />
+            <SadaPicker
+              Selected_Value={this.state.mutton_rice}
+              pickerVals={["Rice Dish", "plawo"]}
+              On_Value_Change={(value, index) =>
+                this.setState({ mutton_rice: value })
+              }
+            />
+          </View>
+
+          <InputField
+            iconName="account-circle"
+            placeHolder="Starter"
+            On_Change_Text={this.handleMutton_starter}
+          />
+          <InputField
+            iconName="account-circle"
+            placeHolder="Per head Price"
+            On_Change_Text={this.handleMutton_price}
+          />
+        </View>
+        <View style={styles.regform}>
+          <Text style={{ marginLeft: wid("2%"), textAlign: "left" }}>
+            Beef Menue
+          </Text>
+          <InputField
+            iconName="account-circle"
+            placeHolder="Main Beef Dish"
+            On_Change_Text={this.handleBeef_Main}
+          />
+
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <SadaPicker
+              Selected_Value={this.state.beef_rice}
+              pickerVals={["Rice Dish", "plawo", "dish1", "dish2"]}
+              On_Value_Change={(value, index) =>
+                this.setState({ beef_rice: value })
+              }
+            />
+            <SadaPicker
+              Selected_Value={this.state.beef_sweet}
+              pickerVals={["Sweet Dish", "ice cream"]}
+              On_Value_Change={(value, index) =>
+                this.setState({ beef_sweet: value })
+              }
+            />
+          </View>
+
+          <InputField
+            iconName="account-circle"
+            placeHolder="starter"
+            On_Change_Text={this.handleBeef_starter}
+          />
+          <InputField
+            iconName="account-circle"
+            placeHolder="Beef price"
+            On_Change_Text={this.handleBeef_price}
+          />
+        </View>
+        <TouchButton
+          InText="Register"
+          On_Press={() => this.submit(nav, genericCompany)}
+        />
       </ScrollView>
     );
   }
@@ -188,16 +391,23 @@ export default class HallRegistration extends Component {
 
 const styles = StyleSheet.create({
   regform: {
-    marginHorizontal: wid("10%"),
-    marginTop: hig("5%"),
-    alignItems: "center"
+    marginHorizontal: wid("9%"),
+    marginTop: hig("2%"),
+    alignItems: "center",
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 86,
+    paddingVertical: 8,
+    marginVertical: 8
   },
   header: {
     alignSelf: "center",
     fontSize: 25,
     fontWeight: "bold",
     color: "black",
-    paddingBottom: 5,
-    marginBottom: 20
-  }
+    paddingBottom: 5
+    //marginBottom: 20
+  },
+  inputContainer: {}
 });

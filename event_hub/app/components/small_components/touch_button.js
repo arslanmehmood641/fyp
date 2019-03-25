@@ -11,7 +11,7 @@ export default class TouchButton extends Component {
   }
   render() {
     return (
-      <View style={{alignItems:'center'}}>
+      <View style={{ alignItems: "center" }}>
         <TouchableOpacity style={styles.loginBtn} onPress={this.props.On_Press}>
           <Text style={styles.txt}>{this.props.InText}</Text>
         </TouchableOpacity>
@@ -27,11 +27,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 25,
     fontSize: 16,
-    backgroundColor: "#432577",
+    backgroundColor: "#339933",
     justifyContent: "center"
   },
   txt: {
-    color: "rgba(255, 255, 255, 0.7)",
+    color: "#ffffff",
     fontSize: 16,
     textAlign: "center"
   }

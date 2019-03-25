@@ -19,29 +19,42 @@ namespace EventHub_API.Controllers
                List<OwnerPendingReqquests_Result> temp= db.OwnerPendingReqquests(id1).ToList();
                return temp;
         }
-        public List<OwnerPendingRequestMedia_Result> OwnerPendingRequestsMedia(string id)
-        {
-            int id1 = Convert.ToInt32(id);
-
-            List<OwnerPendingRequestMedia_Result> temp = db.OwnerPendingRequestMedia(id1).ToList();
-            return temp;
-        }
-        public List<OwnerPendingRequestCaterer_Result> OwnerPendingRequestsCaterer(string id)
-        {
-            int id1 = Convert.ToInt32(id);
-
-            List<OwnerPendingRequestCaterer_Result> temp = db.OwnerPendingRequestCaterer(id1).ToList();
-            return temp;
-        }
+        
+        //_______________________________________________________________________
+        //.......................................................................
+        //Approve and DisApprove Booking for hall
         public int ApprovePendingRequestHall(string id, string cid)
         {
-            int id1 = Convert.ToInt32(id);
+              int id1 = Convert.ToInt32(id);
             int cid1 = Convert.ToInt32(cid);
             Booking b = db.Bookings.FirstOrDefault(x => x.b_id == id1 && x.companyID == cid1);
             b.status = 1;
             db.SaveChanges();
             return 1;
         }
+        public int DisApprovePendingRequestHall(string id, string cid)
+        {
+            int id1 = Convert.ToInt32(id);
+            int cid1 = Convert.ToInt32(cid);
+            Booking b = db.Bookings.FirstOrDefault(x => x.b_id == id1 && x.companyID == cid1);
+            b.status = 3;
+            db.SaveChanges();
+            return 1;
+        }
+        //______________________________________________________________________-
+        //.......................................................................
+
+        // Owner Ongoing Working
+        public List<OwnerApprovedReqquests_Result> OwnerApprovedRequestsHall(string id)
+        {
+            int id1 = Convert.ToInt32(id);
+
+            List<OwnerApprovedReqquests_Result> temp = db.OwnerApprovedReqquests(id1).ToList();
+            return temp;
+        }
+        //_______________________________________________________________________
+        //.......................................................................
+        
         public int ApprovePendingRequestMedia(string id, string cid)
         {
             int id1 = Convert.ToInt32(id);
@@ -51,6 +64,35 @@ namespace EventHub_API.Controllers
             db.SaveChanges();
             return 1;
         }
+        //________________________________________________________________________
+        //........................................................................
+        //Completed request hall
+        public int CompletedRequestHall(string id, string cid,string starCount,string text)
+        {
+            int id1 = Convert.ToInt32(id);
+            int cid1 = Convert.ToInt32(cid);
+            int starCount1= Convert.ToInt32(starCount);
+            Booking b = db.Bookings.FirstOrDefault(x => x.b_id == id1 && x.companyID == cid1);
+            b.starToCustomer = starCount1;
+            if (text != null)
+            {
+                b.reviewToCutomer = text.Trim();
+            }
+       
+            b.status = 2;
+            db.SaveChanges();
+            return 1;
+        }
+        // Work done by owner
+        public List<OwnerCompletedReqquests_Result> OwnerCompletedHall(string id)
+        {
+            int id1 = Convert.ToInt32(id);
+
+            List<OwnerCompletedReqquests_Result> temp = db.OwnerCompletedReqquests(id1).ToList();
+            return temp;
+        }
+        //_______________________________________________________________________________
+        //...............................................................................
         public int ApprovePendingRequestCaterer(string id, string cid)
         {
             int id1 = Convert.ToInt32(id);
@@ -60,27 +102,35 @@ namespace EventHub_API.Controllers
             db.SaveChanges();
             return 1;
         }
-        public List<OwnerApproveRequestsHall_Result> OwnerApprovedRequestsHall(string id)
+        //__________________________________________________________________________________
+        //...................................................................................
+        [HttpPost]
+        public OwnerIndex_Result OwnerDashboard(string id)
         {
             int id1 = Convert.ToInt32(id);
 
-            List<OwnerApproveRequestsHall_Result> temp = db.OwnerApproveRequestsHall(id1).ToList();
+            OwnerIndex_Result temp = db.OwnerIndex(id1).FirstOrDefault();
             return temp;
         }
-        public List<OwnerApproveRequestMedia_Result> OwnerApprovedRequestsMedia(string id)
+
+        public OwnerIndexMedia_Result OwnerDashboardMedia(string id)
         {
             int id1 = Convert.ToInt32(id);
 
-            List<OwnerApproveRequestMedia_Result> temp = db.OwnerApproveRequestMedia(id1).ToList();
+            OwnerIndexMedia_Result temp = db.OwnerIndexMedia(id1).FirstOrDefault();
             return temp;
         }
-        public List<OwnerApproveRequestCaterer_Result> OwnerApprovedRequestsCaterer(string id)
+
+        public OwnerIndexCaterer_Result OwnerDashboardCaterer(string id)
         {
             int id1 = Convert.ToInt32(id);
 
-            List<OwnerApproveRequestCaterer_Result> temp = db.OwnerApproveRequestCaterer(id1).ToList();
+            OwnerIndexCaterer_Result temp = db.OwnerIndexCaterer(id1).FirstOrDefault();
             return temp;
         }
-      
+      //_______________________________________________________________________________________
+       //.....................................................................................
+        
+       
     }
 }

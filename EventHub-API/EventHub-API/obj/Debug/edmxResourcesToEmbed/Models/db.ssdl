@@ -14,6 +14,12 @@
     <Property Name="city" Type="nchar" MaxLength="50" />
     <Property Name="companyID" Type="int" />
     <Property Name="status" Type="int" />
+    <Property Name="packege" Type="int" />
+    <Property Name="U_id" Type="int" />
+    <Property Name="starToCustomer" Type="int" />
+    <Property Name="starToOwner" Type="int" />
+    <Property Name="reviewToCutomer" Type="varchar(max)" />
+    <Property Name="reviewToOwner" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Bookings">
     <Key>
@@ -29,6 +35,12 @@
     <Property Name="city" Type="nchar" MaxLength="20" />
     <Property Name="companyID" Type="int" />
     <Property Name="status" Type="int" />
+    <Property Name="packege" Type="int" />
+    <Property Name="U_id" Type="int" />
+    <Property Name="starToCustomer" Type="int" />
+    <Property Name="starToOwner" Type="int" />
+    <Property Name="reviewToCutomer" Type="varchar(max)" />
+    <Property Name="reviewToOwner" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Caterer">
     <Key>
@@ -73,6 +85,12 @@
     <Property Name="city" Type="nchar" MaxLength="50" />
     <Property Name="companyID" Type="int" />
     <Property Name="status" Type="int" />
+    <Property Name="packege" Type="int" />
+    <Property Name="U_id" Type="int" />
+    <Property Name="starToCustomer" Type="int" />
+    <Property Name="starToOwner" Type="int" />
+    <Property Name="reviewToCustomer" Type="varchar(max)" />
+    <Property Name="reviewToOwner" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Check">
     <Key>
@@ -102,6 +120,21 @@
     <Property Name="dj" Type="nchar" MaxLength="10" />
     <Property Name="b_mackup" Type="nchar" MaxLength="10" />
     <Property Name="U_id" Type="int" />
+    <Property Name="chicken_main" Type="nchar" MaxLength="50" />
+    <Property Name="chicken_rice" Type="nchar" MaxLength="50" />
+    <Property Name="chicken_sweet" Type="nchar" MaxLength="50" />
+    <Property Name="chicken_starter" Type="nchar" MaxLength="50" />
+    <Property Name="mutton_main" Type="nchar" MaxLength="50" />
+    <Property Name="mutton_rice" Type="nchar" MaxLength="50" />
+    <Property Name="mutton_sweet" Type="nchar" MaxLength="50" />
+    <Property Name="mutton_starter" Type="nchar" MaxLength="50" />
+    <Property Name="beef_main" Type="nchar" MaxLength="50" />
+    <Property Name="beef_rice" Type="nchar" MaxLength="50" />
+    <Property Name="beef_sweet" Type="nchar" MaxLength="50" />
+    <Property Name="beef_starter" Type="nchar" MaxLength="50" />
+    <Property Name="chickenPrice" Type="int" />
+    <Property Name="muttonPrice" Type="int" />
+    <Property Name="beefPrice" Type="int" />
   </EntityType>
   <EntityType Name="Media">
     <Key>
@@ -124,6 +157,18 @@
     <Property Name="photoGraphy" Type="bit" />
     <Property Name="filmGraphy" Type="bit" />
     <Property Name="U_id" Type="int" />
+    <Property Name="CamsOne" Type="int" />
+    <Property Name="PriceOne" Type="int" />
+    <Property Name="DroneOne" Type="int" />
+    <Property Name="AlbumOne" Type="int" />
+    <Property Name="CamsTwo" Type="int" />
+    <Property Name="PriceTwo" Type="int" />
+    <Property Name="DroneTwo" Type="int" />
+    <Property Name="AlbumTwo" Type="int" />
+    <Property Name="CamsThree" Type="int" />
+    <Property Name="PriceThree" Type="int" />
+    <Property Name="DroneThree" Type="int" />
+    <Property Name="AlbumThree" Type="int" />
   </EntityType>
   <EntityType Name="Seller">
     <Key>
@@ -153,6 +198,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_BookingMedia_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="BookingMedia" Type="Self.BookingMedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_id" />
+      </Principal>
+      <Dependent Role="BookingMedia">
+        <PropertyRef Name="U_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Bookings_halls">
     <End Role="halls" Type="Self.halls" Multiplicity="0..1" />
     <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
@@ -165,7 +222,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CatererBooking_CatererBooking">
+  <Association Name="FK_Bookings_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="U_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CatererBooking_Caterer">
     <End Role="Caterer" Type="Self.Caterer" Multiplicity="0..1" />
     <End Role="CatererBooking" Type="Self.CatererBooking" Multiplicity="*" />
     <ReferentialConstraint>
@@ -174,6 +243,18 @@
       </Principal>
       <Dependent Role="CatererBooking">
         <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CatererBooking_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CatererBooking" Type="Self.CatererBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_id" />
+      </Principal>
+      <Dependent Role="CatererBooking">
+        <PropertyRef Name="U_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -201,26 +282,83 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="CustomerApprovedRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerApprovedRequestsMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerCompletedRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerCompletedRequestsCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerCompletedRequestsMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerContinueRequestsCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerPendingRequestsCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerPendingRequestsMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CutomerPendingRequests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CutomerReview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
   <Function Name="GetCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetHalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="OwnerApproveRequestCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="OwnerApprovedReqquests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
-  <Function Name="OwnerApproveRequestMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="OwnerApprovedReqquestsMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
-  <Function Name="OwnerApproveRequestsHall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="OwnerCompletedReqquests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerCompletedReqquestsCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerCompletedReqquestsMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerContinueReqquestsCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerIndexCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OwnerIndexMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="OwnerPendingReqquests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
-  <Function Name="OwnerPendingRequestCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="OwnerPendingReqquestsCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
-  <Function Name="OwnerPendingRequestMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="OwnerPendingReqquestsMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UserIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UserIndexCaterer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UserIndexMedia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="UserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -241,12 +379,24 @@
       <End Role="Media" EntitySet="Media" />
       <End Role="BookingMedia" EntitySet="BookingMedia" />
     </AssociationSet>
+    <AssociationSet Name="FK_BookingMedia_Users" Association="Self.FK_BookingMedia_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BookingMedia" EntitySet="BookingMedia" />
+    </AssociationSet>
     <AssociationSet Name="FK_Bookings_halls" Association="Self.FK_Bookings_halls">
       <End Role="halls" EntitySet="halls" />
       <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
-    <AssociationSet Name="FK_CatererBooking_CatererBooking" Association="Self.FK_CatererBooking_CatererBooking">
+    <AssociationSet Name="FK_Bookings_Users" Association="Self.FK_Bookings_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CatererBooking_Caterer" Association="Self.FK_CatererBooking_Caterer">
       <End Role="Caterer" EntitySet="Caterer" />
+      <End Role="CatererBooking" EntitySet="CatererBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CatererBooking_Users" Association="Self.FK_CatererBooking_Users">
+      <End Role="Users" EntitySet="Users" />
       <End Role="CatererBooking" EntitySet="CatererBooking" />
     </AssociationSet>
     <AssociationSet Name="FK_halls_Users" Association="Self.FK_halls_Users">

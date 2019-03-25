@@ -20,12 +20,12 @@ export default class Maps extends Component {
     return (
       <View style={{ paddingHorizontal: 30 }}>
         <Text style={{ fontSize: 25, color: "green" }}>{media.name}</Text>
-        <Text>{media.townName}</Text>
+        <Text>{media.city}</Text>
         <View style={{ flexDirection: "row", marginVertical: hp("1%") }}>
           <Icon name="location-on" size={15} color="green" />
           <Text style={{ color: "green" }}>5.2 Miles From Location</Text>
         </View>
-        <Text>Rs. {media.noOfCams} camers</Text>
+        <Text>{media.noOfCams} camers</Text>
       </View>
     );
   }

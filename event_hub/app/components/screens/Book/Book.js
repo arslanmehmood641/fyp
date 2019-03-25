@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import data from "../../readBookingData.json"; //import json file here
+
 import TouchButton from "../../small_components/touch_button";
 import StarRating from "react-native-star-rating";
 import hallImg from "../../../../images/china_wall.jpg";
@@ -23,7 +23,7 @@ export default class ManageBookings extends Component {
   }
 
   _approvedMessage() {
-    alert(this.state.type);
+    //alert(this.state.type);
     if (this.state.type === "Hall") {
       var url =
         "https://eventhub-api.conveyor.cloud/api/Owner/ApprovePendingRequestHall?id=" +

@@ -38,6 +38,96 @@ namespace EventHub_API.Models
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<User> Users { get; set; }
     
+        public virtual ObjectResult<CustomerApprovedRequests_Result> CustomerApprovedRequests(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerApprovedRequests_Result>("CustomerApprovedRequests", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerApprovedRequestsMedia_Result> CustomerApprovedRequestsMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerApprovedRequestsMedia_Result>("CustomerApprovedRequestsMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerCompletedRequests_Result> CustomerCompletedRequests(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerCompletedRequests_Result>("CustomerCompletedRequests", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerCompletedRequestsCaterer_Result> CustomerCompletedRequestsCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerCompletedRequestsCaterer_Result>("CustomerCompletedRequestsCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerCompletedRequestsMedia_Result> CustomerCompletedRequestsMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerCompletedRequestsMedia_Result>("CustomerCompletedRequestsMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerContinueRequestsCaterer_Result> CustomerContinueRequestsCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerContinueRequestsCaterer_Result>("CustomerContinueRequestsCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerPendingRequestsCaterer_Result> CustomerPendingRequestsCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerPendingRequestsCaterer_Result>("CustomerPendingRequestsCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<CustomerPendingRequestsMedia_Result> CustomerPendingRequestsMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerPendingRequestsMedia_Result>("CustomerPendingRequestsMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<CutomerPendingRequests_Result> CutomerPendingRequests(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CutomerPendingRequests_Result>("CutomerPendingRequests", idParameter);
+        }
+    
+        public virtual ObjectResult<CutomerReview_Result> CutomerReview(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CutomerReview_Result>("CutomerReview", idParameter);
+        }
+    
         public virtual ObjectResult<GetCaterer_Result> GetCaterer()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCaterer_Result>("GetCaterer");
@@ -58,6 +148,87 @@ namespace EventHub_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetUser_Result>("GetUser");
         }
     
+        public virtual ObjectResult<OwnerApprovedReqquests_Result> OwnerApprovedReqquests(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApprovedReqquests_Result>("OwnerApprovedReqquests", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerApprovedReqquestsMedia_Result> OwnerApprovedReqquestsMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApprovedReqquestsMedia_Result>("OwnerApprovedReqquestsMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerCompletedReqquests_Result> OwnerCompletedReqquests(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerCompletedReqquests_Result>("OwnerCompletedReqquests", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerCompletedReqquestsCaterer_Result> OwnerCompletedReqquestsCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerCompletedReqquestsCaterer_Result>("OwnerCompletedReqquestsCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerCompletedReqquestsMedia_Result> OwnerCompletedReqquestsMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerCompletedReqquestsMedia_Result>("OwnerCompletedReqquestsMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerContinueReqquestsCaterer_Result> OwnerContinueReqquestsCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerContinueReqquestsCaterer_Result>("OwnerContinueReqquestsCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerIndex_Result> OwnerIndex(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerIndex_Result>("OwnerIndex", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerIndexCaterer_Result> OwnerIndexCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerIndexCaterer_Result>("OwnerIndexCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<OwnerIndexMedia_Result> OwnerIndexMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerIndexMedia_Result>("OwnerIndexMedia", idParameter);
+        }
+    
         public virtual ObjectResult<OwnerPendingReqquests_Result> OwnerPendingReqquests(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
@@ -67,22 +238,49 @@ namespace EventHub_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerPendingReqquests_Result>("OwnerPendingReqquests", idParameter);
         }
     
-        public virtual ObjectResult<OwnerPendingRequestCaterer_Result> OwnerPendingRequestCaterer(Nullable<int> id)
+        public virtual ObjectResult<OwnerPendingReqquestsCaterer_Result> OwnerPendingReqquestsCaterer(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
                 new ObjectParameter("id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerPendingRequestCaterer_Result>("OwnerPendingRequestCaterer", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerPendingReqquestsCaterer_Result>("OwnerPendingReqquestsCaterer", idParameter);
         }
     
-        public virtual ObjectResult<OwnerPendingRequestMedia_Result> OwnerPendingRequestMedia(Nullable<int> id)
+        public virtual ObjectResult<OwnerPendingReqquestsMedia_Result> OwnerPendingReqquestsMedia(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
                 new ObjectParameter("id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerPendingRequestMedia_Result>("OwnerPendingRequestMedia", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerPendingReqquestsMedia_Result>("OwnerPendingReqquestsMedia", idParameter);
+        }
+    
+        public virtual ObjectResult<UserIndex_Result> UserIndex(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UserIndex_Result>("UserIndex", idParameter);
+        }
+    
+        public virtual ObjectResult<UserIndexCaterer_Result> UserIndexCaterer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UserIndexCaterer_Result>("UserIndexCaterer", idParameter);
+        }
+    
+        public virtual ObjectResult<UserIndexMedia_Result> UserIndexMedia(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UserIndexMedia_Result>("UserIndexMedia", idParameter);
         }
     
         public virtual ObjectResult<UserLogin_Result> UserLogin(string email, string password)
@@ -96,33 +294,6 @@ namespace EventHub_API.Models
                 new ObjectParameter("password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UserLogin_Result>("UserLogin", emailParameter, passwordParameter);
-        }
-    
-        public virtual ObjectResult<OwnerApproveRequestCaterer_Result> OwnerApproveRequestCaterer(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApproveRequestCaterer_Result>("OwnerApproveRequestCaterer", idParameter);
-        }
-    
-        public virtual ObjectResult<OwnerApproveRequestMedia_Result> OwnerApproveRequestMedia(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApproveRequestMedia_Result>("OwnerApproveRequestMedia", idParameter);
-        }
-    
-        public virtual ObjectResult<OwnerApproveRequestsHall_Result> OwnerApproveRequestsHall(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OwnerApproveRequestsHall_Result>("OwnerApproveRequestsHall", idParameter);
         }
     }
 }

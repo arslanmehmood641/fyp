@@ -32,6 +32,7 @@ export default class Form extends Component {
       UserEmail: "",
       Phone: "",
       city: "",
+      HallPackege: "",
       hall: this.props.navigation.state.params.Object
     };
   }
@@ -75,6 +76,9 @@ export default class Form extends Component {
       b.phone = this.state.Phone;
       b.city = this.state.city;
       b.companyID = this.state.hall.companyID;
+      //alert(this.state.HallPackege);
+      b.packege = this.state.HallPackege;
+      b.U_id = global.id;
       b.status = 0;
       var url = "https://eventhub-api.conveyor.cloud/api/User/RegisterBooking";
       fetch(url, {
@@ -95,6 +99,12 @@ export default class Form extends Component {
   }
   render() {
     const prefferedTime = [["Any", ""], ["Dinner", "One"], ["Lunch", "Two"]];
+    const HallPackege = [
+      ["select Menue", "0"],
+      ["Chicken Menue", "1"],
+      ["Mutton Menue", "2"],
+      ["Beef Menue", "3"]
+    ];
     const noOfGuests = [
       ["No of Guests", ""],
       ["50", "50"],
@@ -161,7 +171,7 @@ export default class Form extends Component {
               showIcon={false}
               customStyles={{ dateInput: { borderWidth: 0 } }}
               onDateChange={dat => {
-                alert(dat, " ", this.state.EventDate);
+                // alert(dat, " ", this.state.EventDate);
                 this.setState({ EventDate: dat });
               }}
             />
@@ -213,6 +223,27 @@ export default class Form extends Component {
                 style={styles.txtInput}
                 onChangeText={text => this.setState({ Phone: text })}
               />
+            </View>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <View style={{ paddingTop: 15 }}>
+                <Text>Select Packege</Text>
+              </View>
+              <View>
+                <Picker
+                  selectedValue={this.state.HallPackege}
+                  mode="dropdown"
+                  onValueChange={(itemValue, itemIndex) =>
+                    this.setState({ HallPackege: itemValue })
+                  }
+                  style={{ width: widthP("50%") }}
+                >
+                  {HallPackege.map(val => (
+                    <Picker.Item value={val[1]} label={val[0]} />
+                  ))}
+                </Picker>
+              </View>
             </View>
             <View style={{ alignItems: "center" }}>
               <TouchButton

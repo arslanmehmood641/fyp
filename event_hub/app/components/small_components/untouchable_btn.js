@@ -15,15 +15,16 @@ export default class UntouchableButton extends Component {
 
 const styles = StyleSheet.create({
   justView: {
-    width: 330,
-    height: 50,
+    width: 390,
+    height: 55,
     borderRadius: 7,
-    marginTop: 10,
+    marginTop: 8,
+    marginLeft: 10,
     fontSize: 16,
     backgroundColor: "green",
     alignItems: "center",
     justifyContent: "center",
-    right: 10,
+    right: 0,
     flexDirection: "row"
   }
 });

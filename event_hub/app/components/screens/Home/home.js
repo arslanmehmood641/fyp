@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Slide from "./Slider";
 import Map from "./map";
 import Pack from "./packegess";
+import Fac from "./Facilities";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -41,26 +42,27 @@ class HomeScreen extends Component {
         <Content>
           <Slide />
           <Map hall={this.state.hall} navigation={this.props.navigation} />
-          <Pack />
-          <View style={{ alignItems: "center" }}>
-            <TouchButton
-              On_Press={() => {
-                this.props.navigation.navigate("Form", {
-                  Object: this.state.hall
-                });
-              }}
-              InText="CHECK AVAILABILITY"
-            />
-          </View>
+          <Pack hall1={this.state.hall} navigation={this.props.navigation} />
+
           <View>
             <Text style={styles.heading}>Guest Love It Because</Text>
-            <View style={{ paddingLeft: 30 }}>
+            <View style={{ paddingLeft: 3 }}>
               <UntouchableButton InText="Music System" IconName="music-note" />
               <UntouchableButton InText="Catering" IconName="music-note" />
               <UntouchableButton InText="Decorations" IconName="music-note" />
               <UntouchableButton
                 InText="Special Lights"
                 IconName="music-note"
+              />
+            </View>
+            <View style={{ alignItems: "center" }}>
+              <TouchButton
+                On_Press={() => {
+                  this.props.navigation.navigate("Form", {
+                    Object: this.state.hall
+                  });
+                }}
+                InText="CHECK AVAILABILITY"
               />
             </View>
           </View>

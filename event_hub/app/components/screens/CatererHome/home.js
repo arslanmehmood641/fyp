@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slide from "./CatererSlider";
 import Map from "./map";
+import Pack from "./CatererPackegess";
 //import Pack from "./CatererPackegess";
 import {
   StyleSheet,
@@ -14,6 +15,7 @@ import { withNavigation } from "react-navigation";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import UntouchableButton from "../../small_components/untouchable_btn";
 import TouchButton from "../../small_components/touch_button";
+import Head from "../../small_components/header";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
@@ -42,7 +44,25 @@ class HomeScreen extends Component {
             caterer={this.state.caterer}
             navigation={this.props.navigation}
           />
-
+          <Pack />
+          <View style={{ alignItems: "center" }} />
+          <View>
+            <Text style={styles.heading}>Guest Love It Because</Text>
+            <View style={{ paddingLeft: 5 }}>
+              <ScrollView style={styles.container} nestedScrollEnabled={true}>
+                <UntouchableButton InText="Drone Cam" IconName="music-note" />
+                <UntouchableButton InText="Hd Cam" IconName="music-note" />
+                <UntouchableButton InText="Albums" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+                <UntouchableButton InText="Film Graphy" IconName="music-note" />
+              </ScrollView>
+            </View>
+          </View>
           <View style={{ alignItems: "center" }}>
             <TouchButton
               On_Press={() => {
@@ -52,15 +72,6 @@ class HomeScreen extends Component {
               }}
               InText="CHECK AVAILABILITY"
             />
-          </View>
-          <View>
-            <Text style={styles.heading}>Guest Love It Because</Text>
-            <View style={{ paddingLeft: 30 }}>
-              <UntouchableButton InText="Drone Cam" IconName="music-note" />
-              <UntouchableButton InText="Hd Cam" IconName="music-note" />
-              <UntouchableButton InText="Albums" IconName="music-note" />
-              <UntouchableButton InText="Film Graphy" IconName="music-note" />
-            </View>
           </View>
         </Content>
       </Container>
@@ -79,6 +90,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     right: 10
+  },
+  container: {
+    marginTop: hp("0.5%"),
+    height: hp("40%")
   },
   justView: {
     width: 330,

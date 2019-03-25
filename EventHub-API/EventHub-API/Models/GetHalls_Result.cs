@@ -30,5 +30,20 @@ namespace EventHub_API.Models
         public string dj { get; set; }
         public string b_mackup { get; set; }
         public Nullable<int> U_id { get; set; }
+        public string chicken_main { get; set; }
+        public string chicken_rice { get; set; }
+        public string chicken_sweet { get; set; }
+        public string chicken_starter { get; set; }
+        public string mutton_main { get; set; }
+        public string mutton_rice { get; set; }
+        public string mutton_sweet { get; set; }
+        public string mutton_starter { get; set; }
+        public string beef_main { get; set; }
+        public string beef_rice { get; set; }
+        public string beef_sweet { get; set; }
+        public string beef_starter { get; set; }
+        public Nullable<int> chickenPrice { get; set; }
+        public Nullable<int> muttonPrice { get; set; }
+        public Nullable<int> beefPrice { get; set; }
     }
 }

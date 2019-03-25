@@ -22,8 +22,8 @@ export default class Maps extends Component {
         <Text style={{ fontSize: 25, color: "green" }}>{hall.name}</Text>
         <Text>{hall.townName}</Text>
         <View style={{ flexDirection: "row", marginVertical: hp("1%") }}>
-          <Icon name="location-on" size={15} color="green" />
-          <Text style={{ color: "green" }}>5.2 Miles From Location</Text>
+          <Icon name="email" size={15} color="green" />
+          <Text style={{ color: "green" }}>{hall.email}</Text>
         </View>
         <Text>Rs. {hall.price_per_head} per guest</Text>
         <Text style={{ fontSize: 12 }}>{hall.b_capacity}+ Guests</Text>

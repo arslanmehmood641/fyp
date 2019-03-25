@@ -5,15 +5,12 @@ import {
   heightPercentageToDP as hp
 } from "react-native-responsive-screen";
 import Swiper from "react-native-swiper";
-
 const { width } = Dimensions.get("window");
-
 const Slider = props => (
   <View style={styles.container}>
     <Image style={styles.image} source={props.uri} />
   </View>
 );
-
 const styles = {
   container: {
     flex: 1,
@@ -24,11 +21,9 @@ const styles = {
     width
   }
 };
-
 export default class Slide extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       imagesSlider: [
         require("../../../../images/1.jpg"),

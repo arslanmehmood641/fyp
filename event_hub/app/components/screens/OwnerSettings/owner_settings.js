@@ -1,7 +1,8 @@
 import Registration from "../OwnerRegistration/registration_form";
 import PendingBookings from "./owner_pending_bookings";
 import BookingsHistory from "./owner_bookings_history";
-
+import OwnerIndex from "./Index";
+import OwnerProfile from "../OwnerProfile/index";
 import React from "react";
 
 import {
@@ -18,44 +19,59 @@ import {
 
 const OwnerSettings = createMaterialTopTabNavigator(
   {
-    Settings: {
+    Home: {
+      screen: OwnerIndex,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => (
+          <Icon
+            name="home"
+            color={tintColor}
+            size={20}
+            style={{ marginTop: heightP("2%") }}
+          />
+        )
+      }
+    },
+    Registration: {
       screen: Registration,
       navigationOptions: {
-        tabBarLabel: "Settigns",
+        tabBarLabel: "Registration",
         tabBarIcon: ({ tintColor }) => (
-          <Icon2 name="settings" color={tintColor} size={25} />
+          <Icon
+            name="settings"
+            color={tintColor}
+            size={20}
+            style={{ marginTop: heightP("2%") }}
+          />
         )
       }
     },
-    "Pending Bookings": {
-      screen: PendingBookings,
+    Profile: {
+      screen: OwnerProfile,
       navigationOptions: {
-        tabBarLabel: "Pending Bookings",
+        tabBarLabel: "Profile",
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="assignment-ind" size={25} color={tintColor} />
-        )
-      }
-    },
-    "Bookings History": {
-      screen: BookingsHistory,
-      navigationOptions: {
-        tabBarLabel: "Currently Working",
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="assignment-ind" size={25} color={tintColor} />
+          <Icon
+            name="person"
+            color={tintColor}
+            size={20}
+            style={{ marginTop: heightP("2%") }}
+          />
         )
       }
     }
   },
   {
-    initialRouteName: "Pending Bookings",
+    initialRouteName: "Home",
     tabBarPosition: "bottom",
     tabBarOptions: {
       showIcon: true,
-      activeTintColor: "red",
-      inactiveTintColor: "gray",
+      activeTintColor: "green",
+      inactiveTintColor: "#000000",
       tabStyle: {
-        backgroundColor: "cyan",
-        height: heightP("11%"),
+        backgroundColor: "#FFFFFF",
+        height: heightP("7%"),
         elevation: 3
       }
     }

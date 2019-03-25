@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
@@ -20,12 +21,12 @@ export default class Maps extends Component {
     return (
       <View style={{ paddingHorizontal: 30 }}>
         <Text style={{ fontSize: 25, color: "green" }}>{caterer.name}</Text>
-        <Text>{caterer.townName}</Text>
+        <Text>{caterer.city}</Text>
         <View style={{ flexDirection: "row", marginVertical: hp("1%") }}>
           <Icon name="location-on" size={15} color="green" />
           <Text style={{ color: "green" }}>5.2 Miles From Location</Text>
         </View>
-        <Text>Rs. {caterer.noOfCams} camers</Text>
+        <Text>{caterer.email}</Text>
       </View>
     );
   }

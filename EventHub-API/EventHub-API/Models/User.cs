@@ -16,6 +16,9 @@ namespace EventHub_API.Models
     {
         public User()
         {
+            this.BookingMedias = new HashSet<BookingMedia>();
+            this.Bookings = new HashSet<Booking>();
+            this.CatererBookings = new HashSet<CatererBooking>();
             this.halls = new HashSet<hall>();
             this.Media = new HashSet<Medium>();
         }
@@ -25,6 +28,9 @@ namespace EventHub_API.Models
         public string Password { get; set; }
         public Nullable<int> U_type { get; set; }
     
+        public virtual ICollection<BookingMedia> BookingMedias { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<CatererBooking> CatererBookings { get; set; }
         public virtual ICollection<hall> halls { get; set; }
         public virtual ICollection<Medium> Media { get; set; }
     }
