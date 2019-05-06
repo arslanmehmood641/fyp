@@ -1,0 +1,179 @@
+<app-admin-bar></app-admin-bar>
+<section id="content" class="animated fadeIn" style="margin-left:220px">
+
+  <!--<div class="" id="">
+ <div class="container">
+     <div class="cp-inner-banner-outer">
+         <h1>Ther are no venues</h1>
+     </div>
+ </div>-->
+
+
+
+  <div class="col-md-6" *ngFor="let booking of packeDetail">
+    <div [ngSwitch]="booking.packege">
+      <div class="panel user-group-widget" *ngSwitchCase="1">
+        <div class="panel-heading">
+          <span class="panel-icon">
+            <i class="fa fa-users"></i>
+          </span>
+          <span class="panel-title"> Packege detail</span>
+        </div>
+
+        <div class="panel-menu">
+          <div class="input-group ">
+            <div class="col-md-12">
+              <label>Packege Icludeded: Chicken Packege </label><br />
+            </div>
+          </div>
+        </div>
+        <div class="panel-body panel-scroller pn" style="max-height: 350px;">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="Content/Client2/images/why/w4.jpg" class="user-avatar">
+            </div>
+          </div>
+          <div class="row" style="font-size: -5%">
+            <div class="col-md-6">
+
+              <label>MainDish:{{booking.chickenMain}} </label><br />
+              <h3><i></i>Rice Dish:{{booking.chickenRice}}</h3>
+              <h3><i></i> Sweet Dish:{{booking.chickenSweet}}</h3>
+              <h3><i></i>Starter:{{booking.chickenStarter}}</h3>
+
+            </div>
+            <div class="col-md-6">
+              <h3><i> </i> PerHeadPrice:{{booking.chickenPrice}}</h3>
+              <h3><i> </i> Gesut:{{booking.chickenPrice}}</h3>
+              <h3><i> </i> Bill:{{booking.chickenPrice}}</h3>
+              <h3>Status : Pending</h3>
+            </div>
+          </div>
+        </div>
+        <div class="panel-menu">
+          <div class="input-group ">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <div class="col-md-6">
+                  <a href="../../Admin/VenueDetails?id=@item.EventID" class="btn btn-info">Back</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel user-group-widget" *ngSwitchCase="2">
+        <div class="panel-heading">
+          <span class="panel-icon">
+            <i class="fa fa-users"></i>
+          </span>
+          <span class="panel-title"> Packege detail</span>
+        </div>
+
+        <div class="panel-menu">
+          <div class="input-group ">
+            <div class="col-md-12">
+              <label>Packege Included: Mutton packege</label><br />
+
+            </div>
+          </div>
+        </div>
+        <div class="panel-body panel-scroller pn" style="max-height: 350px;">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="Content/Client2/images/why/w4.jpg" class="user-avatar">
+            </div>
+          </div>
+          <div class="row" style="font-size: -5%">
+            <div class="col-md-6">
+
+              <label>MainDish:{{booking.muttonMain}} </label><br />
+              <h3><i></i>Rice Dish:{{booking.muttonRice}}</h3>
+              <h3><i></i> Sweet Dish:{{booking.muttonSweet}}</h3>
+              <h3><i></i>Starter:{{booking.muttonStarter}}</h3>
+
+            </div>
+            <div class="col-md-6">
+              <h3><i> </i> PerHeadPrice:{{booking.muttonPrice}}</h3>
+              <h3><i> </i> Gesut:{{booking.muttonPrice}}</h3>
+              <h3><i> </i> Bill:{{booking.muttonPrice}}</h3>
+              <h3>Status : Pending</h3>
+            </div>
+          </div>
+        </div>
+        <div class="panel-menu">
+          <div class="input-group ">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <div class="col-md-6">
+                  <a href="../../Admin/VenueDetails?id=@item.EventID" class="btn btn-info">Back</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel user-group-widget" *ngSwitchCase="3">
+        <div class="panel-heading">
+          <span class="panel-icon">
+            <i class="fa fa-users"></i>
+          </span>
+          <span class="panel-title"> Packege detail</span>
+        </div>
+
+        <div class="panel-menu">
+          <div class="input-group ">
+            <div class="col-md-12">
+              <label>Packege Included: Beef Packege </label><br />
+
+            </div>
+          </div>
+        </div>
+        <div class="panel-body panel-scroller pn" style="max-height: 350px;">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="Content/Client2/images/why/w4.jpg" class="user-avatar">
+            </div>
+          </div>
+          <div class="row" style="font-size: -5%">
+            <div class="col-md-6">
+
+              <label>MainDish:{{booking.beefMain}} </label><br />
+              <h3><i></i>Rice Dish:{{booking.beefRice}}</h3>
+              <h3><i></i> Sweet Dish:{{booking.beefSweet}}</h3>
+              <h3><i></i>Starter:{{booking.beefStarter}}</h3>
+
+            </div>
+            <div class="col-md-6">
+              <h3><i> </i> PerHeadPrice:{{booking.beefPrice}}</h3>
+              <h3><i> </i> Gesut:{{booking.beefPrice}}</h3>
+              <h3><i> </i> Bill:{{booking.beefPrice}}</h3>
+              <h3>Status : Pending</h3>
+            </div>
+          </div>
+        </div>
+        <div class="panel-menu">
+          <div class="input-group ">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <div class="col-md-6">
+                  <a href="../../Admin/VenueDetails?id=@item.EventID" class="btn btn-info">Back</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- End: Content -->
+<!-- Begin: Page Footer -->

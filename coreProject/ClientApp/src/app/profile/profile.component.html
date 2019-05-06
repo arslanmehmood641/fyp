@@ -1,0 +1,76 @@
+<app-admin-bar></app-admin-bar>
+<section id="content" class="animated fadeIn" style="margin-left:230px" *ngIf="user">
+
+  <div class="page-heading">
+    <div class="media clearfix">
+      <div class="media-left pr30">
+        <a href="#">
+
+        </a>
+      </div>
+      <div class="media-body va-m">
+        <h2 class="media-heading">
+          {{user.userName.split("@gmail.com")}}
+          <small> - Profile</small>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="tab-block">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="">User Profile</a>
+          </li>
+          <li>
+            <a href="">Update Profile</a>
+          </li>
+
+        </ul>
+        <div class="tab-content p30" style="height: auto;">
+
+          <section id="tab1">
+            <div class="panel">
+              <div class="panel-body">
+
+                <form class="form-horizontal" role="form">
+
+                  <div class="form-group has-success">
+                    <label class="col-lg-2" for="inputSuccess"><b>Username</b></label>
+                    <label class="col-lg-9" for="inputSuccess" style="border-bottom:solid 1px red;font-size:16px">
+                      {{user.userName.split("@gmail.com")}}</label>
+                  </div>
+                  <div class="form-group has-success">
+                    <label class="col-lg-2" for="inputSuccess"><b>Email</b></label>
+                    <label class="col-lg-9" for="inputSuccess" style="border-bottom:solid 1px red;font-size:16px">
+                      {{user.userName}}</label>
+                  </div>
+
+
+                  <div class="form-group has-success">
+                    <label class="col-lg-2" for="inputSuccess"><b>Password</b></label>
+                    <label class="col-lg-9" for="inputSuccess" type="password"
+                      style="border-bottom:solid 1px red;font-size:16px">
+                      {{user.password}}</label>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </section>
+          <section id="tab2"></section>
+          <section id="tab3"></section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+<!-- End: Content -->
+<!-- Begin: Page Footer -->
+
+<!-- End: Page Footer -->

@@ -1,0 +1,268 @@
+<app-admin-bar></app-admin-bar>
+<section id="content" class="animated fadeIn" style="margin-left:200px">
+
+  <section id="content" class="animated fadeIn">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-11">
+
+          <div class="panel">
+            <div class="panel-heading">
+              <span class="panel-title">Media Create</span>
+            </div>
+            <div class="panel-body">
+
+              <form class="form-horizontal" [formGroup]="MediaForm" (ngSubmit)="RegisterMedia()">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-lg-12">Media Company Name</label>
+                    <div class="col-lg-12">
+                      <input type="text" formControlName="Name" class="form-control">
+                    </div>
+                  </div>
+              
+                  <div class="form-group">
+                    <label class="col-lg-12" for="textArea2">Address Section</label>
+                    <div class="col-lg-12">
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Street No</label>
+                    <div class="col-lg-12">
+                      <input type="text" formControlName="StreetNo" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">House No</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Mobile2" formControlName="HouseNo" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">Town Name</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="LandlineNumber" formControlName="TownName" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">City</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" formControlName="City" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Country</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" formControlName="Country" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Facilities</label>
+                    <label class="col-lg-12">DroneCamera</label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="Wifi" formControlName="DroneCamera">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">HdCam </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="HdCam">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Albums </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="ParkingcapcityBike" formControlName="Albums">
+                        <option value="true">yes</option>
+                        <option value="false">no</option>
+
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">PhotoGraphy</label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="PhotoGraphy">
+                        < <option value="true">yes</option>
+                          <option value="false">no</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">FilmGraphy</label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="FilmGraphy">
+                        <option value="true">yes</option>
+                        <option value="false">no</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <label class="col-lg-12" for="textArea2">Information Section</label>
+                  <div class="form-group">
+                    <label class="col-lg-12">Email</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Email1" class="form-control" formControlName="Email">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+
+                  <div class="form-group">
+
+                    <label class="col-lg-12">One day Packege</label>
+                    <label class="col-lg-12">Cams For one Day packege</label>
+                      <div class="col-lg-12">
+                        <input type="text" id="Website" class="form-control" formControlName="CamsOne">
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">Drone for One Day Packege</label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="ParkingcapcityBike" formControlName="DroneOne">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Album for one day packege </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="AlbumOne">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+
+                    <label class="col-lg-12">price for one day packge</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="PriceOne">
+                    </div>
+                  </div>
+                  <div class="form-group">
+
+                    <label class="col-lg-12">Two Day Pakege</label>
+                    <label class="col-lg-12">Cams for two day packge</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="CamsTwo">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">Drone for two day packege </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="ParkingcapcityBike" formControlName="DroneTwo">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Album for two day packege </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="AlbumTwo">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+
+                    <label class="col-lg-12"> price for two day packege</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="PriceTwo">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+
+                    <label class="col-lg-12">Three Day Packege</label>
+                    <label class="col-lg-12">Cams for three day Packege</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="CamsThree">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">Drone for three day packege</label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="ParkingcapcityBike" formControlName="DroneThree">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Album for three day packege </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="AlbumThree">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+
+                    <label class="col-lg-12">price of three day pakege</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="PriceThree">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" id="btn-save" class="btn btn-info" style="width: 25%;">Create</button>
+                </div>
+              </form>
+
+            </div>
+
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

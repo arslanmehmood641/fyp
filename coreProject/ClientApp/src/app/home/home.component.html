@@ -1,0 +1,206 @@
+<app-header> </app-header>
+<div class="top-form">
+  <div class="container">
+    <div class="top-head" *ngIf="glo">
+      <h5>Event Hub</h5>
+      <p>HASSLE FREE PLANNING & BOOKING <span> !! </span> </p>
+    </div>
+    <div class="hassle">
+      <h5>Event Hub</h5>
+      <h5> Request free quotes now and we will help you to find the best supplier for your event.</h5>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="bottom_form">
+  <div class="container">
+  </div>
+</div>
+<div class="categories-2">
+  <div class="container">
+    <div class="category-head">
+      <p> EVENTHUB.PK</p>
+      <h5> OUR CATEGORIES </h5>
+
+    </div>
+    <a href="#venue">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="overflow:hidden;">
+        <div class="cater3">
+          <div class="cater3-hover">
+            <a href="home#venue"> More Details </a>
+          </div>
+          <h5> Venues </h5>
+        </div>
+      </div>
+    </a>
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+      <div class="cater3">
+        <div class="cater3-hover">
+          <a href="home#caterer"> More Details </a>
+        </div>
+        <h5> CATERING </h5>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="overflow:hidden;">
+      <div class="cater5">
+        <div class="cater5-hover">
+          <a href="#photographer"> More Details </a>
+        </div>
+        <h5> PHOTOGRAPHERS </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ocassion" id="venue">
+  <div class="container">
+    <div class="ocassion-head">
+      <p> EVENTHUB.PK</p>
+      <h5>Dream Venue For Every Ocassion</h5>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
+      <div class="ocassion1 ocassion2 ocassion5">
+        <h6> EVENTHUB.PK</h6>
+        <p style="font-size: 25px;"> FEATURED VENUE</p>
+        <a [routerLink]='["/venuelist"]'> VIEW ALL </a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3" *ngFor="let hall of halls; let i=index"
+      [routerLinkActive]='["link-active"]'>
+      <div class="ocassion1" *ngIf="i<3">
+        <img src="Content/Client2/images/venue1 (1).jpg">
+        <h6> EVENTHUB.PK</h6>
+        <p> {{hall.name}}</p>
+        <h4> Rs {{hall.pricePerHead}} /= <br> <span class="glyphicon glyphicon-map-marker"> {{hall.city}} </span>
+          {{hall.country}}</h4>
+        <a [routerLink]="['/venueDetail/',hall.companyId]"> MORE INFO </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="features">
+  <div class="container">
+    <div class="feature-head">
+      <p> EVENTHUB.PK </p>
+      <h5> EVENTHUB.PK FEATURES </h5>
+    </div>
+    <Div class="feature-data">
+      <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+        <div class="feature1">
+
+          <img src="Content/Client2/images/save_time.png">
+          <h5> Save Your time & Money !</h5>
+          <p> Lorem ipsum dolor sit amet consecteturyr apdisbising elit , eut rdos amuc lorem ipsum is the best test
+            rensog a maskvl Lorem ipsum dolor sit amet consecteturyr apdisbising e...</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+        <div class="feature1">
+          <img src="Content/Client2/images/online1.png">
+          <h5> No Online Payment! </h5>
+          <p> No online payment required for booking the venue. You can pay the amount directly to Veneus. Our Support
+            team will guide you in complete booking procedure.</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
+        <div class="feature1">
+          <img src="Content/Client2/images/online2.png">
+          <h5> No Charges on Booking, it's<span> FREE!</span> </h5>
+          <p> We bring for you venues complete packages for Wedding, Birthday or any other event. An yes! From Venues to
+            Menus, be it viewing and booking? is completely FREE along with offered.</p>
+        </div>
+      </div>
+    </Div>
+  </div>
+</div>
+
+
+<div class="ocassion" id="caterer">
+  <div class="container">
+    <div class="ocassion-head">
+      <p> EVENTHUB.PK</p>
+      <h5>Dream Caterer For Every Ocassion</h5>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
+      <div class="ocassion1 ocassion2 ocassion5">
+        <h6> EVENTHUB.PK</h6>
+        <p style="font-size: 25px;"> FEATURED CATERER</p>
+        <a [routerLink]='["/catererlist"]'> VIEW ALL </a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3" *ngFor="let caterer of caterers; let i=index"
+      [routerLinkActive]='["link-active"]'>
+      <div class="ocassion1" *ngIf="i<3">
+        <img src="Content/Client2/images/venue1 (1).jpg">
+        <h6> EVENTHUB.PK</h6>
+        <p> {{caterer.name}}</p>
+        <h4> Rs 26,000 /= <br> <span class="glyphicon glyphicon-map-marker"> </span>{{caterer.city}}
+          {{caterer.country}}</h4>
+        <a [routerLink]='["/catererdetail/",caterer.companyId]'> MORE INFO </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="five">
+  <div class="container">
+    <div class="enquire1">
+      <img src="Content/Client2/images/new1.png">
+      <p> YOU ENQUIRE </p>
+    </div>
+    <div class="enquire1">
+      <img src="Content/Client2/images/new2.png">
+      <p> WE SHORTLIST </p>
+    </div>
+    <div class="enquire1">
+      <img src="Content/Client2/images/new3.png">
+      <p> YOU SELECT </p>
+    </div>
+    <div class="enquire1 enq3">
+      <img src="Content/Client2/images/five10.png">
+      <p> WE NEGOTIATE </p>
+    </div>
+    <div class="enquire1 enq3">
+      <img src="Content/Client2/images/new5.png">
+      <p> YOU ENJOY </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="ocassion" id="photographer">
+  <div class="container">
+    <div class="ocassion-head">
+      <p> EVENTHUB.PK</p>
+      <h5>Dream Photographer For Every Ocassion</h5>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
+      <div class="ocassion1 ocassion2 ocassion5" [routerLinkActive]='["link-active"]'>
+        <h6> EVENTHUB.PK</h6>
+        <p style="font-size: 25px;"> FEATURED Photographer</p>
+        <a [routerLink]='["/photographerlist"]'> VIEW ALL </a>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3" *ngFor="let media of medium; let i=index"
+      [routerLinkActive]='["link-active"]'>
+      <div class="ocassion1" *ngIf="i<3">
+        <img src="Content/Client2/images/venue1 (1).jpg">
+        <h6> EVENTHUB.PK</h6>
+        <p> {{media.name}}</p>
+        <h4> Rs 26,000 /= <br> <span class="glyphicon glyphicon-map-marker"> </span>{{media.city}}
+          {{media.country}}</h4>
+        <a [routerLink]='["/mediadetail/",media.companyId]'> MORE INFO </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,302 @@
+<app-admin-bar></app-admin-bar>
+<section id="content" class="animated fadeIn" style="margin-left:200px">
+
+  <section id="content" class="animated fadeIn">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-11">
+
+          <div class="panel">
+            <div class="panel-heading">
+              <span class="panel-title">Venue Create</span>
+            </div>
+            <div class="panel-body">
+
+              <form class="form-horizontal" [formGroup]="HallForm" (ngSubmit)="RegisterHall()">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-lg-12">Venue Name</label>
+                    <div class="col-lg-12">
+                      <input type="text" formControlName="Name" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group" style="height:auto;">
+                    <label class="col-lg-12">Venue Main Image</label>
+                    <div class="col-lg-12">
+                      <input type="file" name="file" id="ImageUpload" />
+                      <img id="imgpreview" src="#" class="img-thumbnail" />
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label class="col-lg-12" for="textArea2">Address Section</label>
+                    <div class="col-lg-12">
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Street No</label>
+                    <div class="col-lg-12">
+                      <input type="text" formControlName="StreetNo" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">House No</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Mobile2" formControlName="HouseNo" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">Town Name</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="LandlineNumber" formControlName="TownName" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">City</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" formControlName="City" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-lg-12">Country</label>
+                      <div class="col-lg-12">
+                        <input type="text" id="Website" formControlName="Country" class="form-control">
+                      </div>
+                    </div>
+                  <div class="form-group">
+                      <label class="col-lg-12">Facilities</label>
+                    <label class="col-lg-12">Wifi </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="Wifi" formControlName="Wifi">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-lg-12">Dj </label>
+                      <div class="col-lg-12">
+                        <select class="form-control" id="RoundTableCapacit" formControlName="Dj">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                      <label class="col-lg-12">Parking capcity </label>
+                      <div class="col-lg-12">
+                        <select class="form-control" id="ParkingcapcityBike" formControlName="PCapacity">
+                          <option value="500">500</option>
+                          <option value="400">400</option>
+                          <option value="300">300</option>
+                          <option value="200">200</option>
+                          <option value="100">100</option>
+  
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-lg-12">Booking Capacity </label>
+                      <div class="col-lg-12">
+                        <select class="form-control" id="PeopleCapacity" formControlName="BCapacity">
+                          < <option value="500">500</option>
+                          <option value="400">400</option>
+                          <option value="300">300</option>
+                          <option value="200">200</option>
+                          <option value="100">100</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12">Price Per Head </label>
+                        <div class="col-lg-12">
+                          <select class="form-control" id="PeopleCapacity" formControlName="PricePerHead">
+                              <option value="500">500</option>
+                              <option value="400">400</option>
+                              <option value="300">300</option>
+                              <option value="200">200</option>
+                              <option value="100">100</option>
+                          </select>
+                        </div>
+                      </div>
+                    <div class="form-group">
+                      <label class="col-lg-12">Bridal Mack Up </label>
+                      <div class="col-lg-12">
+                        <select class="form-control" id="RoundTableCapacit" formControlName="BMackup">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                      </div>
+                    </div>
+                    <label class="col-lg-12" for="textArea2">Information  Section</label>
+                    <div class="form-group">
+                        <label class="col-lg-12">Email</label>
+                        <div class="col-lg-12">
+                          <input type="text" id="Email1" class="form-control" formControlName="Email">
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col-md-6">
+                  
+                      <div class="form-group">
+                        
+                          <label class="col-lg-12">Chicken Menue</label>
+                          <label class="col-lg-12">Main dish</label>
+                          <div class="col-lg-12">
+                            <input type="text" id="Website" class="form-control" formControlName="ChickenMain">
+                          </div>
+                        </div>
+                 
+                  <div class="form-group">
+                    <label class="col-lg-12">Rice Dish </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="ParkingcapcityBike" formControlName="ChickenRice">
+                        <option value="Bryani">Bryani</option>
+                        <option value="dish1">dish1</option>
+                        <option value="dish2">dish2</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">sweet Capacity </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="ChickenSweet">
+                        <option value="Gajar ka halwa">Gajar ka halwa</option>
+                        <option value="dish1">dish1</option>
+                        <option value="">dish2</option>
+                      
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      
+                      <label class="col-lg-12">Stater dish</label>
+                      <div class="col-lg-12">
+                        <input type="text" id="Website" class="form-control" formControlName="ChickenStarter">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      
+                        <label class="col-lg-12">Per head price</label>
+                        <div class="col-lg-12">
+                          <input type="text" id="Website" class="form-control" formControlName="ChickenPrice">
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        
+                        <label class="col-lg-12">Mutton Menue</label>
+                        <label class="col-lg-12">Main dish</label>
+                        <div class="col-lg-12">
+                          <input type="text" id="Website" class="form-control" formControlName="MuttonMain">
+                        </div>
+                      </div>
+               
+                <div class="form-group">
+                  <label class="col-lg-12">Rice Dish </label>
+                  <div class="col-lg-12">
+                    <select class="form-control" id="ParkingcapcityBike" formControlName="MuttonRice">
+                      <option value="Bryani">plawo</option>
+                      <option value="dish1">dish1</option>
+                      <option value="dish2">dish2</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-12">sweet Capacity </label>
+                  <div class="col-lg-12">
+                    <select class="form-control" id="PeopleCapacity" formControlName="MuttonSweet">
+                      <option value="Gajar ka halwa">Gajar ka halwa</option>
+                      <option value="dish1">dish1</option>
+                      <option value="">dish2</option>
+                    
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    
+                    <label class="col-lg-12">Stater dish</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="MuttonStarter">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    
+                      <label class="col-lg-12">Per head price</label>
+                      <div class="col-lg-12">
+                        <input type="text" id="Website" class="form-control" formControlName="MuttonPrice">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <label class="col-lg-12">beef  Menue</label>
+                        <label class="col-lg-12">Main dish</label>
+                        <div class="col-lg-12">
+                          <input type="text" id="Website" class="form-control" formControlName="BeefMain">
+                        </div>
+                      </div>
+               
+                <div class="form-group">
+                  <label class="col-lg-12">Rice Dish </label>
+                  <div class="col-lg-12">
+                    <select class="form-control" id="ParkingcapcityBike" formControlName="BeefRice">
+                      <option value="plawo">plawo</option>
+                      <option value="dish1">dish1</option>
+                      <option value="dish2">dish2</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-12">sweet Capacity </label>
+                  <div class="col-lg-12">
+                    <select class="form-control" id="PeopleCapacity" formControlName="BeefSweet">
+                      <option value="ice cream">ice cream</option>
+                      <option value="dish1">dish1</option>
+                      <option value="">dish2</option>
+                    
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    
+                    <label class="col-lg-12">Stater dish</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" class="form-control" formControlName="BeefStarter">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    
+                      <label class="col-lg-12">Per head price</label>
+                      <div class="col-lg-12">
+                        <input type="text" id="Website" class="form-control" formControlName="BeefPrice">
+                      </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" id="btn-save" class="btn btn-info" style="width: 25%;">Create</button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+</section>

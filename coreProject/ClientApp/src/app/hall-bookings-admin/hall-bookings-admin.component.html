@@ -1,0 +1,84 @@
+<app-admin-bar></app-admin-bar>
+<section id="content" class="animated fadeIn" style="margin-left:220px">
+
+  <!--<div class="" id="">
+ <div class="container">
+     <div class="cp-inner-banner-outer">
+         <h1>Ther are no venues</h1>
+     </div>
+ </div>-->
+
+
+
+  <div class="col-md-6" *ngFor="let booking of bookingData">
+    <div class="panel user-group-widget">
+      <div class="panel-heading">
+        <span class="panel-icon">
+          <i class="fa fa-users"></i>
+        </span>
+        <span class="panel-title"> Booking detail</span>
+      </div>
+      <div class="panel-menu">
+        <div class="input-group ">
+          <div class="col-md-12">
+            <label>Booker Name :{{booking.bookerName}} </label><br />
+            <label>Venue Name :{{booking.hallName }} </label><br />
+          </div>
+        </div>
+      </div>
+      <div class="panel-body panel-scroller pn" style="max-height: 350px;">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="Content/Client2/images/why/w4.jpg" class="user-avatar">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3><i class="fa fa-mobile-email "></i>Email:{{booking.email}}</h3>
+            <h3><i class="fa fa-mobile-phone "></i>Mobile:{{booking.mobile}}</h3>
+            <h3><i class="fa fa-money "></i>PreferedTime</h3>
+            <h3><i> </i>EventDate:{{booking.eventDate}}</h3>
+
+          </div>
+        </div>
+      </div>
+      <div class="panel-menu" [ngSwitch]="booking.status">
+        <div class="input-group " *ngSwitchCase="0">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="col-md-6">
+                <a class="btn-delete btn btn-danger" id=""
+                  (click)="ApprovedBooking(booking.cid,booking.bookingId)">Approve</a>
+              </div>
+
+              <div class="col-md-6" [routerLinkActive]='["link-active"]'>
+                <a class="btn-delete btn btn-danger"
+                  [routerLink]='["/packegedetail",booking.bookingId]'>PackegeDetail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-group " *ngSwitchCase="1">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="col-md-6">
+                <a class="btn-delete btn btn-danger" id="" (click)="MarkCompleted(booking.cid,booking.bookingId)">Mark
+                  as Complete</a>
+              </div>
+              <div class="col-md-6">
+                <a class="btn-delete btn btn-danger" id="@item.EventID">Check requry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group " *ngSwitchCase="2">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End: Content -->
+<!-- Begin: Page Footer -->

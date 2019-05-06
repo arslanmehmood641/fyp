@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div style="z-index:-1">
+  <div class="container">
+    <div class="cp-inner-banner-outer">
+      <h2 style="background-color:#5c1d47">Caterers</h2>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="cp-main-content">
+  <section class="cp-blog-section pd-tb60" style="background-color:white  ">
+    <div style="display:inline" *ngFor="let caterer of caterers" class="col-md-3 col-sm-12 col-xs-12 col-lg-3"
+      [routerLinkActive]='["link-active"]'>
+      <div class="ocassion1">
+        <img src="Content/Client2/images/venue1 (1).jpg">
+        <h6> EVENTHUB.PK</h6>
+        <p>{{caterer.name}}</p>
+        <h4> Rs 26,000 /= <br> <span class="glyphicon glyphicon-map-marker"> </span>{{caterer.city}}
+          {{caterer.country}}</h4>
+        <a [routerLink]='["/catererdetail",caterer.companyId]'> MORE INFO </a>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

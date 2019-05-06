@@ -1,0 +1,60 @@
+<div>
+
+
+
+  <section style="background-color:white">
+    <div class="container">
+
+      <div class="cp-signup-form" style="margin-top:140px">
+        <form [formGroup]=" LoginForm" (ngSubmit)="loginUser()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-field">
+                <i class="fa fa-user prefix"></i>
+                <input type="text" formControlName="userName" placeholder="User Email"
+                  style="padding:0 0 12px 40px;font-size:20px;">
+                <div *ngIf="Submitted && f.userName.errors " class="invalid-feedback">
+                  <div *ngIf="f.userName.errors.required">this is must fill field</div>
+                  <div *ngIf="f.userName.errors.email">email is not correct</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-field">
+                <i class="fa fa-unlock prefix"></i>
+                <input type="password" formControlName="Password" placeholder="Password"
+                  style="padding:0 0 12px 40px;font-size:20px;">
+                  <div *ngIf="Submitted && f.userName.errors " class="invalid-feedback">
+                      <div *ngIf="f.Password.errors.required">this is must fill field</div>
+                     
+                    </div>
+              </div>
+            </div>
+            <div class="col-md-12 text-center ">
+
+              <img id="loading" src="Content/3.gif" style="display: none;padding:0 0 10px 0" />
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+              <div class="input-field btn-holder">
+                <input type="submit" class="btn-submit" value="Login" id="btn-save" style="background-color:#5b1e47" />
+
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12" [routerLinkActive]='["linkActive"]'>
+              <strong class="login-btn">Don't have an Account? <a [routerLink]='["/signup"]'>Signup NOW</a></strong>
+
+              <div *ngIf="isInValid">
+                <div class="alert alert-warning" role="alert">
+                  UserName or password may be incorrect
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+</div>

@@ -1,0 +1,57 @@
+<section class="cp-signup-section pd-tb20" style="background-color:white">
+
+  <div class="container">
+
+    <div class="cp-signup-form" style="margin-top:140px">
+      <form [formGroup]="SignupForm" (ngSubmit)="PutUser()">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-field">
+              <i class="fa fa-user prefix"></i>
+              <input type="text" formControlName="UserName" required placeholder="Full Name"
+                style="padding:0 0 12px 40px;font-size:20px;">
+              <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+                <div *ngIf="f.UserName.errors.required">First Name is required</div>
+                <div *ngIf="f.UserName.errors.email">Email must be a valid email address</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="input-field">
+              <i class="fa fa-user prefix"></i>
+              <select id="UType" formControlName="UType"
+                style=" transition: all .3s;box-shadow: none;margin: 0;padding: 0;font-size: 16px;height: 36px;outline: none; background-color: transparent;border-radius: 0;padding:0 0 12px 35px;font-size:20px; border: none;border-bottom: 2px solid #cccccc;width: 100%;">
+                <option value="">Type Of User</option>
+                <option value="1">Owner</option>
+                <option value="2">Customer</option>
+              </select>
+              <div *ngIf="submitted && f.UType.errors" class="invalid-feedback">
+                <div *ngIf="f.UType.errors.required">at least select one option</div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="input-field">
+              <i class="fa fa-unlock prefix"></i>
+              <input type="password" formControlName="Password" placeholder="Password"
+                style="padding:0 0 12px 40px;font-size:20px;">
+                <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                  <div *ngIf="f.Password.errors.required"> password is required</div>
+                </div>
+            </div>
+          </div>
+     
+          <div class="col-md-12 col-sm-12">
+            <div class="input-field btn-holder">
+              <input type="submit" class="btn-submit" value="Sign Up" id="btn-save" style="background-color:#5b1e47" />
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12" [routerLinkActive]='["link-active"]'>
+            <strong class="login-btn">Already have an Account? <a [routerLink]='[""]'>Login</a></strong>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

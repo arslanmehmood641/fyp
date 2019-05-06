@@ -1,0 +1,218 @@
+<app-admin-bar></app-admin-bar>
+<section id="content" class="animated fadeIn" style="margin-left:200px">
+
+  <section id="content" class="animated fadeIn">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-11">
+
+          <div class="panel">
+            <div class="panel-heading">
+              <span class="panel-title">create Caterer</span>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal" [formGroup]="CatererForm" (ngSubmit)="RegisterCaterer()">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-lg-12">Caterer company Name</label>
+                    <div class="col-lg-12">
+                      <input type="text" formControlName="Name" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group" style="height:auto;">
+                    <label class="col-lg-12">Venue Main Image</label>
+                    <div class="col-lg-12">
+                      <input type="file" name="file" id="ImageUpload" />
+                      <img id="imgpreview" src="#" class="img-thumbnail" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12" for="textArea2">Address Section</label>
+                    <div class="col-lg-12">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Street No</label>
+                    <div class="col-lg-12">
+                      <input type="text" formControlName="StreetNo" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">House No</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Mobile2" formControlName="HouseNo" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">Town Name</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="LandlineNumber" formControlName="TownName" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">City</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" formControlName="City" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Country</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Website" formControlName="Country" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Facilities</label>
+                    <label class="col-lg-12">Tent </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="Wifi" formControlName="Tent">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Generator </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="Generator">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Heater </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="ParkingcapcityBike" formControlName="Heater">
+                        <option value="true">yes</option>
+                        <option value="false">no</option>
+
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">ServingStaff </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="ServingStaff">
+                        < <option value="true">yes</option>
+                          <option value="false">no</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="col-lg-12">Lights </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="PeopleCapacity" formControlName="Lights">
+                        <option value="true">yes</option>
+                        <option value="false">No</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">StageDecorations </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="StageDecorations">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">Cooking: </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="Cooking">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">BridalRoom </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="BridalRoom">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12">AirCondition: </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="AirCondition">
+                        <option value="ture">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12">ValetParking </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="ValetParking">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-12"> Wifi </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="Wifi">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12"> Dj </label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="Dj">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-12"> Decoration</label>
+                    <div class="col-lg-12">
+                      <select class="form-control" id="RoundTableCapacit" formControlName="Decoration">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label class="col-lg-12" for="textArea2">Information Section</label>
+                  <div class="form-group">
+                    <label class="col-lg-12">Email</label>
+                    <div class="col-lg-12">
+                      <input type="text" id="Email1" class="form-control" formControlName="Email">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" id="btn-save" class="btn btn-info" style="width: 25%;">Create</button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </section>
+</section>

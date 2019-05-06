@@ -1,0 +1,597 @@
+﻿
+    /*-----------------------
+      03. Listing Page
+    ------------------------*/
+
+    /*---- Venue Thumbnail -------*/
+
+    .venue-box {
+        margin-bottom: 30px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .venue-detail {
+        padding: 0px;
+        border: 1px solid #e9e6e0;
+        border-radius: 0px;
+        border-top: transparent;
+        background-color: #fff;
+    }
+
+        .venue-detail .caption {
+            padding: 30px;
+        }
+
+        .venue-detail .location {
+            font-size: 12px;
+            margin-bottom: 10px;
+            color: #9c9693;
+        }
+
+    .venue-lable {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+    }
+
+        .venue-lable .label {
+            display: inline;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 4px;
+        }
+
+        .venue-lable .label-default {
+            background-color: #222;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+    .venue-info {
+        background-color: #fcfbf9;
+        border-top: 1px solid #e9e6e0;
+        height: 84px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    /*-------Thumbnail Label------*/
+    .popular-label, .rated-label, .feature-label {
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        width: 72px;
+        height: 72px;
+    }
+
+    .popular-label {
+        background: url(../images/popular.png) 0px 0px;
+    }
+
+    .rated-label {
+        background: url(../images/top-rated.png) 0px 0px;
+    }
+
+    .feature-label {
+        background: url(../images/feature-label.png) 0px 0px;
+    }
+
+    /*------- Vendor Thumbnail Simple --------*/
+    .vendor-box {
+        margin-bottom: 30px;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .vendor-box .rating {
+        }
+
+        .vendor-box .capacity {
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+    .vendor-detail {
+        padding: 0px;
+        border: 1px solid #e9e6e0;
+        border-radius: 0px;
+        border-top: transparent;
+        background-color: #fff;
+    }
+
+        .vendor-detail .caption {
+            padding: 30px;
+        }
+
+            .vendor-detail .caption .title {
+                font-size: 18px;
+            }
+
+        .vendor-detail .location {
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #9c9693;
+            font-weight: 500;
+        }
+
+    .vendor-image {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .vendor-image img {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            -webkit-transition: all .5s ease;
+            transition: all .5s ease;
+            opacity: .9;
+        }
+
+        .vendor-image a:hover img {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+        }
+
+    .vendor-price {
+        background-color: #fcfbf9;
+        padding: 9px 29px;
+        border-top: 1px solid #e9e6e0;
+    }
+
+        .vendor-price .price {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            color: #3c3634;
+        }
+
+    .rating .rating-count {
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        padding-left: 5px;
+        color: #706a68;
+    }
+
+    .vendor-box-list {
+        background-color: #fff;
+        margin-bottom: 30px;
+        border: 1px solid #e9e6e0;
+    }
+
+        .vendor-box-list .no-right-pd {
+            padding-right: 0px;
+        }
+
+        .vendor-box-list .no-left-pd {
+            padding-left: 0px;
+        }
+
+    .vendor-list-details {
+    }
+
+        .vendor-list-details .caption {
+            padding: 30px;
+        }
+
+        .vendor-list-details .location {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #9c9693;
+        }
+
+    .vendor-box-list .vendor-image {
+    }
+
+    .vendor-box .effect-oscar h2 a {
+        color: #fff;
+    }
+
+    .favourite-bg {
+        background: #fcfbf9;
+        border-radius: 100px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 9px 12px 5px 12px;
+        font-size: 18px;
+        -webkit-box-shadow: 0px 0px 9px 0px rgba(50, 50, 50, 0.2);
+        -moz-box-shadow: 0px 0px 9px 0px rgba(50, 50, 50, 0.2);
+        box-shadow: 0px 0px 9px 0px rgba(50, 50, 50, 0.2);
+    }
+
+    .favourite-icon {
+    }
+
+    /*--------- Vendor Thumbnail 2 ---------
+    New Updated css v.1.0.2
+    -----------------*/
+    .vendor-list-block {
+        background-color: #fff;
+    }
+
+    .vendor-img {
+        position: relative;
+        opacity: .8;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+        .vendor-img:hover {
+            opacity: 1;
+        }
+
+    .price-lable {
+        position: absolute;
+        right: 1px;
+        bottom: 20px;
+        background: rgba(0, 0, 0, .6);
+        padding: 4px 10px;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        letter-spacing: -1px;
+        font-size: 16px;
+    }
+
+    .category-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background-color: #000000;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 11px;
+        padding: 4px 8px;
+        border-radius: 2px;
+        font-weight: 800;
+    }
+
+    .category-link {
+        color: #fff;
+    }
+
+    .vendor-meta {
+    }
+
+        .vendor-meta span {
+            display: inline-block;
+            margin-right: 18px;
+            font-size: 13px;
+        }
+
+        .vendor-meta .map-icon {
+            color: #00aeaf;
+            padding-right: 6px;
+        }
+
+        .vendor-meta .location {
+            margin-bottom: 0px;
+        }
+
+    .favorite-action {
+    }
+
+    .fav-icon {
+        color: #ff4e4e;
+        background-color: #fff;
+        border-radius: 100px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 8px 11px 8px 11px;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+        .fav-icon:focus, .fav-icon:hover {
+            color: #fff;
+            background-color: #ff4e4e;
+        }
+
+    /*------------Listing Map + Row  ----------*/
+    .listing-wrap {
+        height: 800px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .map-wrap {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+        .map-wrap #googleMap {
+            width: 100%;
+            height: 800px;
+        }
+
+    .vendor-listing {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .top-map-wrap {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+        .top-map-wrap #googleMap {
+            width: 100%;
+            height: 480px;
+        }
+
+    .map-image {
+        width: 320px;
+    }
+
+    /*----------------------------
+      04. Venue Details Page
+    ------------------------------*/
+    .venue-header {
+        position: relative;
+    }
+
+    .venue-head {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+    }
+
+        .venue-head h1 {
+            font-size: 42px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .venue-head .title {
+            border-bottom: 1px solid #504849;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .venue-head .location {
+            color: #fff;
+        }
+
+            .venue-head .location i {
+                padding-right: 10px;
+            }
+
+    .rating-box, .venue-action {
+        margin-bottom: 20px;
+    }
+
+    .venue-action {
+        text-align: right;
+    }
+
+    .label-primary {
+        background-color: #00aeaf;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 2px;
+        font-weight: 700;
+    }
+
+        .label-primary[href]:focus, .label-primary[href]:hover {
+            background-color: #f9a630;
+            color: #fff;
+        }
+
+    .address {
+        margin-bottom: 0px;
+    }
+
+        .address i {
+            padding-right: 10px;
+        }
+
+    .page-description {
+    }
+
+    .venue-details {
+    }
+
+    .venue-amenities {
+    }
+
+        .venue-amenities ul li.list-group-item {
+            border: 1px solid #e9e6e0;
+        }
+
+    .why-venue {
+    }
+
+    .venue-head {
+    }
+
+    .rating {
+        margin: 0px;
+    }
+
+        .rating i {
+            color: #ffc513;
+        }
+
+    .side-box {
+        background-color: #fff;
+        padding: 28px;
+        border: 1px solid #e9e6e0;
+        margin-bottom: 30px;
+    }
+
+    /*-------------------
+      Tabbed Detils Page
+    --------------------*/
+    #searchform {
+        z-index: 9999;
+    }
+
+    .tabbed-page {
+    }
+
+    .tab-page-header {
+        margin-bottom: 30px;
+    }
+
+        .tab-page-header .title {
+        }
+
+        .tab-page-header .location i {
+            padding-right: 10px;
+        }
+
+    .tabbed-page .venue-data .venue-info {
+        background-color: #fff;
+        margin-bottom: 30px;
+        border: 1px solid #e9e6e0;
+    }
+
+    .tabbed-page .venue-info {
+        background-color: #fcfbf9;
+        border-top: 1px solid #e9e6e0;
+        height: 84px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .tabbed-page .capacity {
+        border-right: 1px solid #e9e6e0;
+    }
+
+    .capacity, .pricebox {
+        width: 50%;
+        float: left;
+        padding: 15px 20px;
+        font-size: 12px;
+    }
+
+    .price, .cap-people {
+        font-size: 18px;
+        letter-spacing: -1px;
+        color: #3c3634;
+        display: block;
+    }
+
+    /*------- Thumbnail Slider----------*/
+    #sync1 .item {
+        background: #fff;
+        margin: 5px;
+    }
+
+    #sync2 .item {
+        background: #fff;
+        padding: 10px 0px;
+        margin: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        #sync2 .item h1 {
+            font-size: 18px;
+        }
+
+    #sync2 .synced .item {
+    }
+
+    /*------ Vendor Profile Sidebar-----------*/
+    .profile-sidebar {
+    }
+
+    .profile-userpic {
+        text-align: center;
+        width: 154px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .profile-sidebar .profile-usertitle {
+        margin-top: 30px;
+    }
+
+    .profile-sidebar .fa {
+        color: #00aeaf;
+        padding-right: 10px;
+    }
+
+    .profile-usertitle-name {
+        text-align: center;
+    }
+
+    .profile-address, .profile-email, .profile-website {
+        margin-bottom: 10px;
+    }
+
+    .profile-address {
+    }
+
+    .profile-email {
+    }
+
+    .profile-website {
+    }
+
+    ul.follow-icon {
+        margin-bottom: 0px;
+    }
+
+        ul.follow-icon li {
+            padding-right: 10px;
+            display: inline;
+        }
+
+            ul.follow-icon li a {
+                font-size: 32px;
+            }
+
+    /*------- Page sidebar --------*/
+    .page-sidebar {
+    }
+
+        .page-sidebar .venue-info {
+            background-color: #fff;
+            margin-bottom: 30px;
+            border: 1px solid #e9e6e0;
+        }
+
+    /*--------Custom Review -----------*/
+    .customer-review, .review {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+        .customer-review h1 {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e9e6e0;
+            padding-bottom: 30px;
+        }
+
+    .review-list .arrow:after, .review-list .arrow:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+    }
+
+    .review-list .panel.arrow.left:after, .review-list .panel.arrow.left:before {
+        border-left: 0;
+    }

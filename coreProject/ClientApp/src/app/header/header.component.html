@@ -1,0 +1,116 @@
+<div class="content1">
+  <div class="container">
+    <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3">
+      <div class="phone1">
+        <p><span class="glyphicon glyphicon-earphone"></span> +92-3204429656</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3">
+      <div class="phone1 none1">
+        <p>
+          <span class="glyphicon glyphicon-envelope"></span>
+          arslanmehmood389@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3">
+      <div class="phone2 none1">
+        <ul>
+          <li [routerLinkActive]="['linke-active']">
+            <a [routerLink]="['/home']">
+              <img src="Content/Client2/images/fb1.png" />
+            </a>
+          </li>
+          <li [routerLinkActive]="['linke-active']">
+            <a [routerLink]="['/home']">
+              <img src="Content/Client2/images/fb2.png" />
+            </a>
+          </li>
+          <li [routerLinkActive]="['linke-active']">
+            <a [routerLink]="['/home']">
+              <img src="Content/Client2/images/fb3.png" />
+            </a>
+          </li>
+          <li [routerLinkActive]="['linke-active']">
+            <a [routerLink]="['/home']">
+              <img src="Content/Client2/images/fb4.png" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+      <div class="finding1" [routerLinkActive]="['linke-active']">
+        <a [routerLink]="['/home']"> NEED HELP FINDING A VENUE ?</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header-menu">
+  <div class="container">
+    <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
+      <div class="logo">
+        <img src="Content/Client2/images/logo.png" />
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-12 col-xs-12 col-lg-9">
+      <div class="navbar3">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-3"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+          <ul class="nav navbar-nav nav-main">
+            <li class="active" [routerLinkActive]="['linke-active']">
+              <a [routerLink]="['/home']" class="button2"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="active" [routerLinkActive]="['linke-active']">
+              <a [routerLink]="['/client']" class="button2"
+                >Dashboard <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="active">
+              <a href="home#venue" class="button2"
+                >Venues <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="active">
+              <a href="home#caterer" class="button2"
+                >Caterer <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="active">
+              <a href="home#photographer" class="button2"
+                >PhotoGrapher <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="active" [routerLinkActive]="['linke-active']">
+              <a [routerLink]="['']" class="button2"
+                >LogOut <span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,226 @@
+<app-header></app-header>
+<div style="background-color:#5b1e47;" style="z-index:-1">
+  <div class="container">
+    <div class="cp-inner-banner-outer">
+      <h2 style="background-color:#5b1e47;text-align: center">Caterer Detail</h2>
+    </div>
+  </div>
+</div>
+<section class="cp-contact-section pd-t60" style="background-color:white">
+  <div class="cp-contact-inner pd-b60" *ngIf="catererData">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+          <div class="cp-contact-info">
+            <h2>{{catererData.name}} </h2>
+            <ul class="">
+              <li><i class="fa fa-home"></i>{{catererData.city}}</li>
+              <li><i class="fa fa-phone-square"></i>{{catererData.townName}}</li>
+              <li><i class="fa fa-envelope-o"></i>{{catererData.email}}</li>
+              <li><i class="fa fa-globe"></i>www.EventHub.pk</li>
+            </ul>
+          </div>
+
+          <div class="cp-contact-info">
+            <h3>About Venue</h3>
+            <p style="color:#5b1e47;">VenueDescription</p><br /><br />
+            <h3>More About EventHub.pk</h3>
+            <p style="color:#5b1e47;"> Event space for You, seminar, training, product launch, exhibition and open day
+              event Accommodate up to your required people.</p>
+            <p style="color:#5b1e47;">Being an iconic landmark located at the heart of Lahore, The Wave offers spacious
+              event space for your company to host business meeting, seminar, training, product launch, exhibition and
+              open day event. Our event space never ceases to amazed our clients with how customisable it is to cater
+              with different needs and requirements. It is conveniently located within 5 mins walking distance from the
+              Metro and surrounded with amenities and services.</p>
+          </div>
+
+        </div>
+        <div class="col-md-4" style="border:solid 1px #cccccc;padding:30px 10px">
+
+          <div class="cp-form-box">
+            <h3 style="font-size:21px;"><b>What are your requirements?</b></h3>
+            <form [formGroup]="BookingForm" (ngSubmit)="BookHall()">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input type="text" placeholder="Your Name" formControlName="UserName">
+                    <input type="hidden" value="EventID" />
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input type="text" placeholder="Your Email" formControlName="UserEmail">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input type="text" placeholder="Phone" formControlName="Phone">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <select name="gustes" formControlName="NoOfDays">
+                      <option value="" disabled selected>No of Days</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input type="Date" placeholder="Date" formControlName="EventDate">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <select name="gustes" formControlName="PrefferedTime">
+                      <option value="" disabled selected>Prefered Time</option>
+                      <option value="one">one</option>
+                      <option value="two">two</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder" style="background-color:aliceblue">
+                    <select name="gustes" formControlName="Packege">
+                      <option value="" selected="selected">select packege</option>
+                      <option value="1">one</option>
+                      <option value="2">two</option>
+                      <option value="3">three</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input type="text" placeholder="City" formControlName="City">
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder cp-btn-holder">
+                    <button type="submit" class="btn-submit" value="Send Inquiry" id="save"
+                      style="background:#5b1e47;">Contact</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="cp-blog-item cp-blog-detail">
+            <div class="cp-text">
+              <h2>Caterer Available Services</h2>
+              <ul class="post-meta">
+              </ul>
+              <p>To make a reservation, check the availability or other inquiries, please contact us now! Not only that,
+                to ensure your event starts and goes as smoothly as possible, we also provide advance venue set- up
+                service. All the basic equipment such as tables, chairs, projector & screen, PA system will be set-up
+                before your arrival, and it’s free.</p>
+            </div>
+            <div class="col-md-12">
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color:white ;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white"></i> Tents
+                </h4>
+              </div>
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color:white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Genrator
+                </h4>
+              </div>
+
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Heater
+                </h4>
+              </div>
+
+
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Serving Staff
+                </h4>
+              </div>
+
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Lights
+                </h4>
+              </div>
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Stage Decoration
+                </h4>
+              </div>
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Cooking
+                </h4>
+              </div>
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Bridal MakeUp
+                </h4>
+              </div>
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> AirCondition
+                </h4>
+              </div>
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> valetParking
+                </h4>
+              </div>
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Wifi
+                </h4>
+              </div>
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> DJ
+                </h4>
+              </div>
+
+
+
+
+              <div class="col-md-4" style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white">
+                <h4 style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;">
+                  <i class="fa fa-check-circle" style="color:white;"></i> Decoration
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

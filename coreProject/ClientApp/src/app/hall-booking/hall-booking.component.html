@@ -1,0 +1,79 @@
+<app-client-bar></app-client-bar>
+<section id="content" class="animated fadeIn" style="margin-left:220px">
+
+  <!--<div class="" id="">
+ <div class="container">
+     <div class="cp-inner-banner-outer">
+         <h1>Ther are no venues</h1>
+     </div>
+ </div>-->
+
+
+
+  <div class="col-md-6" *ngFor="let booking of bookingData">
+    <div class="panel user-group-widget" [ngSwitch]="Rid">
+      <div class="panel-heading" *ngSwitchCase="1">
+        <span class="panel-icon">
+          <i class="fa fa-users"></i>
+        </span>
+        <span class="panel-title"> Pending Booking detail</span>
+      </div>
+      <div class="panel-heading" *ngSwitchCase="2">
+        <span class="panel-icon">
+          <i class="fa fa-users"></i>
+        </span>
+        <span class="panel-title">Continue Booking detail</span>
+      </div>
+      <div class="panel-heading" *ngSwitchCase="3">
+        <span class="panel-icon">
+          <i class="fa fa-users"></i>
+        </span>
+        <span class="panel-title">Approved Booking detail</span>
+      </div>
+      <div class="panel-menu">
+        <div class="input-group ">
+          <div class="col-md-12">
+            <label>Booker Name :{{booking.bookerName}} </label><br />
+            <label>Venue Name :{{booking.hallName }} </label><br />
+          </div>
+        </div>
+      </div>
+      <div class="panel-body panel-scroller pn" style="max-height: 350px;">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="Content/Client2/images/why/w4.jpg" class="user-avatar">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+
+            <h3><i class="fa fa-envelope"></i> Email1</h3>
+            <h3><i class="fa fa-mobile-phone "></i> Mobile1</h3>
+            <h3><i class="fa fa-address-book"></i> Address</h3>
+
+          </div>
+          <div class="col-md-6">
+            <h3><i class="fa fa-money "></i> PerHeadPrice</h3>
+            <h3><i class="fa fa-user-circle "> </i> UsersID</h3>
+            <h3>Status : Status</h3>
+          </div>
+        </div>
+      </div>
+      <div class="panel-menu">
+        <div class="input-group ">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="col-md-6">
+                <a href="../../Admin/VenueDetails?id=@item.EventID" class="btn btn-info">Detal</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- End: Content -->
+<!-- Begin: Page Footer -->

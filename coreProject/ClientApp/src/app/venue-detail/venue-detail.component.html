@@ -1,0 +1,459 @@
+<app-header></app-header>
+<div style="background-color:#5b1e47;" style="z-index:-1">
+  <div class="container">
+    <div class="cp-inner-banner-outer">
+      <h2 style="background-color:#5b1e47;text-align: center">Venue Detail</h2>
+    </div>
+  </div>
+</div>
+
+<section class="cp-contact-section pd-t60" style="background-color:white">
+  <div class="cp-contact-inner pd-b60" *ngIf="hallData">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="cp-contact-info">
+            <h2>{{ hallData.name }}</h2>
+            <ul class="">
+              <li><i class="fa fa-home"></i>{{ hallData.city }}</li>
+              <li><i class="fa fa-phone-square"></i>{{ hallData.townName }}</li>
+              <li><i class="fa fa-envelope-o"></i>{{ hallData.email }}</li>
+              <li><i class="fa fa-globe"></i>www.EventHub.pk</li>
+            </ul>
+          </div>
+
+          <div class="cp-contact-info">
+            <h3>About Venue</h3>
+            <p style="color:#5b1e47;">VenueDescription</p>
+            <br /><br />
+            <h3>More About EventHub.pk</h3>
+            <p style="color:#5b1e47;">
+              Event space for You, seminar, training, product launch, exhibition
+              and open day event Accommodate up to your required people.
+            </p>
+            <p style="color:#5b1e47;">
+              Being an iconic landmark located at the heart of Lahore, The Wave
+              offers spacious event space for your company to host business
+              meeting, seminar, training, product launch, exhibition and open
+              day event. Our event space never ceases to amazed our clients with
+              how customisable it is to cater with different needs and
+              requirements. It is conveniently located within 5 mins walking
+              distance from the Metro and surrounded with amenities and
+              services.
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-md-4"
+          style="border:solid 1px #cccccc;padding:30px 10px"
+        >
+          <div class="cp-form-box">
+            <h3 style="font-size:21px;"><b>What are your requirements?</b></h3>
+            <form [formGroup]="BookingForm" (ngSubmit)="BookHall()">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      formControlName="UserName"
+                    />
+                    <div
+                      *ngIf="submitted && f.UserName.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.UserName.errors.required">
+                        First Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input
+                      type="text"
+                      placeholder="Your Email"
+                      formControlName="UserEmail"
+                    />
+                    <div
+                      *ngIf="submitted && f.UserEmail.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.UserEmail.errors.required">
+                        UserEmail is required
+                      </div>
+                      <div *ngIf="f.UserEmail.errors.email">
+                        Email must be a valid email address
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input
+                      type="text"
+                      placeholder="Phone"
+                      formControlName="Phone"
+                    />
+                    <div
+                      *ngIf="submitted && f.Phone.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.Phone.errors.required">
+                        phone is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <select name="gustes" formControlName="NoOfGuests">
+                      <option value="0" disabled selected>No of guset</option>
+                      <option value="200">200</option>
+                      <option value="300">300</option>
+                      <option value="400">400</option>
+                    </select>
+                    <div
+                      *ngIf="submitted && f.NoOfGuests.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.NoOfGuests.errors.required">
+                        NoOfGuests is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input
+                      type="Date"
+                      placeholder="Date"
+                      formControlName="EventDate"
+                    />
+                    <div
+                      *ngIf="submitted && f.EventDate.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.EventDate.errors.required">
+                        EventDate is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <select name="gustes" formControlName="PrefferedTime">
+                      <option value="" disabled selected>Prefered Time</option>
+                      <option value="one">one</option>
+                      <option value="two">two</option>
+                    </select>
+                    <div
+                      *ngIf="submitted && f.PrefferedTime.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.PrefferedTime.errors.required">
+                        PrefferedTime is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder" style="background-color:aliceblue">
+                    <select name="gustes" formControlName="Packege">
+                      <option value="0" selected="selected"
+                        >select packege</option
+                      >
+                      <option value="1">one</option>
+                      <option value="2">two</option>
+                      <option value="3">three</option>
+                    </select>
+                    <div
+                      *ngIf="submitted && f.Packege.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.Packege.errors.required">
+                        Packege is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder">
+                    <input
+                      type="text"
+                      placeholder="City"
+                      formControlName="City"
+                    />
+                    <div
+                      *ngIf="submitted && f.City.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.City.errors.required">
+                        City is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="inner-holder cp-btn-holder">
+                    <button
+                      type="submit"
+                      class="btn-submit"
+                      value="Send Inquiry"
+                      id="save"
+                      style="background:#5b1e47;"
+                    >
+                      Contact
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="cp-blog-item cp-blog-detail">
+            <div class="cp-text">
+              <h2>Venue Available Services</h2>
+              <ul class="post-meta"></ul>
+              <p>
+                To make a reservation, check the availability or other
+                inquiries, please contact us now! Not only that, to ensure your
+                event starts and goes as smoothly as possible, we also provide
+                advance venue set- up service. All the basic equipment such as
+                tables, chairs, projector & screen, PA system will be set-up
+                before your arrival, and it’s free.
+              </p>
+            </div>
+            <div class="col-md-12">
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color:white ;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white"></i> Wifi
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color:white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Music
+                  System
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Decoration
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Specia
+                  Lights
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Lights
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Dj
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Parking for Bike ParkingcapcityBike
+                </h4>
+              </div>
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Parking Capcity Car ParkingcapcityCar
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  AirCondition
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Social
+                  Media Pages
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Seggretion
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Catering
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Projector
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Stage
+                  Decoration
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Ladies
+                  Waitress
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> People
+                  Capacity PeopleCapacity
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Sitting Sitting
+                </h4>
+              </div>
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i> Round
+                  Table Capacit
+                </h4>
+              </div>
+
+              <div
+                class="col-md-4"
+                style="border:solid 1px #cccccc;margin:5px 0;background-color:#5b1e47;color:white"
+              >
+                <h4
+                  style="margin-bottom:8px 0 8px;font-size: 18px;color: white;font-weight: 600;"
+                >
+                  <i class="fa fa-check-circle" style="color:white;"></i>
+                  Electricity
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
